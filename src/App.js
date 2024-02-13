@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import AvailableImages from './AvailableImages';
+import RotatingImage from './components/RotatingImage';
 
 function App() {
+  const [index, setIndex] = useState(0);
+
+  function handleClick() {
+    setIndex(index + 1 >= AvailableImages.images.length ? 0 : index + 1);
+    setIndex((index + 1) % AvailableImages.images.length);
+  }
+
+  let image = AvailableImages.images[index];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <RotatingImage image={image} onClick={handleClick}/>
     </div>
   );
 }

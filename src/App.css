@@ -1,27 +1,24 @@
+body {
+  background-color: black;
+  overflow: hidden;
+}
+
 .App {
   text-align: center;
+  background-color: black;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.Rotating-image { 
+  height: 100vh; 
+  overflow: hidden; 
+  border-radius: 50%; 
+} 
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .Rotating-image {
+    animation: App-logo-spin infinite 60s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {

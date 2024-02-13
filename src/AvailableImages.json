@@ -1,0 +1,20 @@
+{
+    "images": [
+        {
+            "src": "images/planets-solar-system.jpg",
+            "alt": "solar-system"
+        },
+        {
+            "src": "images/diagram-showing-solar-system_1308-36975.jpg",
+            "alt": "diagram"
+        },
+        {
+            "src": "images/stars.jpg",
+            "alt": "stars"
+        },
+        {
+            "src": "images/blackhole_1.jpg",
+            "alt": "blackhole"
+        }
+    ]
+}
