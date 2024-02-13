@@ -4,7 +4,7 @@ import AvailableImages from './AvailableImages';
 import RotatingImage from './components/RotatingImage';
 import React from "react";
 import io from "socket.io-client";
-const socket = io.connect("http://localhost:3000");
+const socket = io.connect("/");
 
 function App() {
   function sendMessage() {
