@@ -20,17 +20,17 @@ app.get("/api", (req, res) => {
     res.json({ message: "Hello from server!" });
 });
 
-// All other GET requests not handled before will return our React app
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
-});
-
 io.on("connection", (socket) => {
   console.log(`a user connected ${socket.id}`);
   
   socket.on("send_message", (data) => {
     socket.broadcast.emit("receive_message", data);
   });
+});
+
+// All other GET requests not handled before will return our React app
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
 server.listen(PORT, () => {
