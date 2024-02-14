@@ -1,0 +1,67 @@
+
+.Selection-item {
+  color: white;
+  font-size: 1.5em;
+  margin: 0.5em;
+  padding: .25em .5em .25em .5em;
+  border: 2px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 10em;
+}
+
+.Selection-item > span {
+  display: flex;
+  color: white;
+  align-items: center;
+}
+
+.Selection-item > span > span {
+  padding-left: 5px;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding: 0.5em;
+  list-style-type: none;
+}
+  
+.Selector {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Selection-header {
+  color: white;
+  font-size: 2em;
+  margin: 0.5em;
+  padding: .25em .5em .25em .5em;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  min-width: 10em;
+  text-align: center;
+}
+
+.Selection {
+  color: white;
+  border: 1px solid grey;
+  border-radius: 5px;
+  list-style-type: none;
+  margin: .5em;
+}
+
+.Selection-item:hover {
+  border: 3px solid lightblue;
+}
+
+.selected {
+  border: 2px solid blue;
+}
+
+.selected:hover {
+  border: 3px solid rgb(81, 0, 255);
+}

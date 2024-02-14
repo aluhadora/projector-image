@@ -1,0 +1,40 @@
+.Rotating-image { 
+  overflow: hidden; 
+  border-radius: 50%; 
+} 
+
+.Rotating-image.small {
+  height: 40px;
+}
+
+@media all and (orientation:portrait) {
+  .Rotating-image.full {
+    width: 100vw;
+  }
+}
+@media all and (orientation:landscape) {
+  .Rotating-image.full {
+    height: 100vh;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .Rotating-image.fast {
+    animation: Rotating-image-spin infinite 60s linear;
+  }
+  .Rotating-image.medium {
+    animation: Rotating-image-spin infinite 300s linear;
+  }
+  .Rotating-image.slow {
+    animation: Rotating-image-spin infinite 600s linear;
+  }
+}
+
+@keyframes Rotating-image-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
