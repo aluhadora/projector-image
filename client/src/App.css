@@ -25,6 +25,33 @@ body {
   color: #61dafb;
 }
 
+.Selection-item {
+  color: white;
+  font-size: 1.5em;
+  margin: 0.5em;
+  padding: 0.25em 1em;
+  border: 2px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 20em;
+}
+
+.Selection-item:hover {
+  border: 3px solid lightblue;
+}
+
+
+.selected {
+  border: 2px solid blue;
+}
+
+.selected:hover {
+  border: 3px solid rgb(81, 0, 255);
+}
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

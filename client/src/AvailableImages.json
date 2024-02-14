@@ -2,19 +2,23 @@
     "images": [
         {
             "src": "images/planets-solar-system.jpg",
-            "alt": "solar-system"
+            "alt": "solar-system",
+            "index": 0
         },
         {
             "src": "images/diagram-showing-solar-system_1308-36975.jpg",
-            "alt": "diagram"
+            "alt": "diagram",
+            "index": 1
         },
         {
             "src": "images/stars.jpg",
-            "alt": "stars"
+            "alt": "stars",
+            "index": 2
         },
         {
             "src": "images/blackhole_1.jpg",
-            "alt": "blackhole"
+            "alt": "blackhole",
+            "index": 3
         }
     ]
 }
