@@ -10,10 +10,20 @@ body {
 }
 
 .Rotating-image { 
-  height: 100vh; 
   overflow: hidden; 
   border-radius: 50%; 
 } 
+
+@media all and (orientation:portrait) {
+  .Rotating-image {
+    width: 100vw;
+  }
+}
+@media all and (orientation:landscape) {
+  .Rotating-image {
+    height: 100vh;
+  }
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .Rotating-image {
@@ -49,8 +59,6 @@ body {
 .selected:hover {
   border: 3px solid rgb(81, 0, 255);
 }
-
-
 
 @keyframes App-logo-spin {
   from {
