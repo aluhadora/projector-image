@@ -5,8 +5,8 @@ import React from "react";
 
 function MainPage({state}) {
 
-  let image = AvailableImages.images[state.index];
-  let speed = AvailableImages.speeds[state.speed];
+  let image = AvailableImages.images[state.image - 1];
+  let speed = AvailableImages.speeds[state.speed - 1];
 
   return (
     <div className="App">

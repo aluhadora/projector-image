@@ -15,7 +15,7 @@ function SelectionList({header, items, onClickItem, selectedPredicate, speed, ov
     <ul className="Selection">
         <li key={-1}><div className='Selection-header'>{header}</div></li>
         {items.map(item => (
-            <li key={item.index} data={item.index} onClick={() => onClickItem(item)}>
+            <li key={item.id} data={item.id} onClick={() => onClickItem(item)}>
             <SelectionItem image={item} selected={selectedPredicate(item)} speed={speed ? speed(item) : "stop"}/></li>
         ))}
     </ul>

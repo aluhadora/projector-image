@@ -4,39 +4,39 @@
             "src": "images/planets-solar-system.jpg",
             "alt": "Solar System",
             "smallsrc": "images/planets-solar-system_small.jpg",
-            "index": 0
+            "id": 1
         },
         {
             "src": "images/solar_system_diagram.jpg",
             "alt": "Solar System Diagram",
             "smallsrc": "images/solar_system_diagram_small.jpg",
-            "index": 1
+            "id": 2
         },
         {
             "src": "images/stars.jpg",
             "alt": "Stars",
             "smallsrc": "images/stars_small.jpg",
-            "index": 2
+            "id": 3
         },
         {
             "src": "images/blackhole_1.jpg",
             "alt": "Black Hole",
             "smallsrc": "images/blackhole_1_small.jpg",
-            "index": 3
+            "id": 4
         }
     ],
     "speeds": [
         {
             "className": "fast",
-            "index": 0
+            "id": 1
         },
         {
             "className": "medium",
-            "index": 1
+            "id": 2
         },
         {
             "className": "slow",
-            "index": 2
+            "id": 3
         }
     ]
 }

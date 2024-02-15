@@ -14,9 +14,12 @@ function App() {
   const [state, setState] = useState({});
 
   const receivedState = useCallback((data) => {
-    console.log("Received message: ", data, state);
-    setState({...state, ...data});
     if (data.refresh) window.location.reload();
+    if (data.image === state.image && data.speed === state.speed) return;
+    
+    console.log("received", state, data);
+    setState({...state, ...data});
+
   }, [state]);
 
   useEffect(() => {

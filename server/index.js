@@ -13,21 +13,21 @@ const io = new Server(server, {
     cors: {origin:"http://localhost:3000", methods: ["GET", "POST"]},
 });
 
-let index = 0;
-let speed = 1;
+let image = 1;
+let speed = 2;
 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 app.get("/api", (_, res) => {
-    res.json({ message: "Hello from server!", index: index, speed: speed });
+    res.json({ message: "Hello from server!", image: image, speed: speed });
 });
 
 io.on("connection", (socket) => {
   console.log(`a user connected ${socket.id}`);
   
   socket.on("send_message", (data) => {
-    if (data.index) index = data.index;
+    if (data.image) image = data.image;
     if (data.speed) speed = data.speed;
     socket.broadcast.emit("receive_message", data);
   });

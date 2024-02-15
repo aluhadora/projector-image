@@ -16,20 +16,20 @@ function Selector({socket, state, setState}) {
       <SelectionList 
         header="Images" 
         items={AvailableImages.images} 
-        onClickItem={sendMessage} 
-        selectedPredicate={(item) => item.index === state.index}/>
+        onClickItem={item => sendMessage({image: item.id})} 
+        selectedPredicate={(item) => item.id === state.image}/>
       <SelectionList 
         header="Speeds" 
         items={AvailableImages.speeds} 
-        onClickItem={item => sendMessage({speed: item.index})}
+        onClickItem={item => sendMessage({speed: item.id})}
         overrideImage={"images/rotating_arrows_small.jpg"}
         speed={(item) => item.className}
-        selectedPredicate={(item) => item.index === state.speed}/>
+        selectedPredicate={(item) => item.id === state.speed}/>
       <SelectionList 
         header="Actions" 
         items={[{alt: "Refresh Clients", smallsrc: "images/refresh.png"}]} 
         onClickItem={_ => sendMessage({refresh: true})} 
-        selectedPredicate={(item) => item.index === state.index}/>
+        selectedPredicate={_ => false}/>
     </div>
   );
 }
