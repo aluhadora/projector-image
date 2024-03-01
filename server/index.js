@@ -44,6 +44,10 @@ io.on("connection", (socket) => {
   });
 });
 
+app.get('/offline', (_, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/build', 'offline.html'));
+});
+
 // All other GET requests not handled before will return our React app
 app.get('*', (_, res) => {
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));

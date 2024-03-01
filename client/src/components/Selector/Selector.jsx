@@ -3,13 +3,7 @@ import AvailableImages from '../../AvailableImages';
 import React from "react";
 import SelectionList from './SelectionList';
 
-function Selector({socket, state, setState}) {
-
-  function sendMessage(data) {
-    data.message = "Selector message sent."
-    socket.emit("send_message",  {...state, ...data});
-    setState({...state, ...data});
-  }
+function Selector({sendMessage, state, actions, showBrightness}) {
 
   return (
     <div className='Selector'>
@@ -24,22 +18,22 @@ function Selector({socket, state, setState}) {
         onClickItem={item => sendMessage({speed: item.id})}
         overrideImage={"images/rotating_arrows_small.jpg"}
         selectedPredicate={(item) => item.id === state.speed}/>
-      <SelectionList 
+      {showBrightness && <SelectionList 
         header="Brightness" 
         items={AvailableImages.brightness} 
         onClickItem={item => sendMessage({brightness: item.id})}
-        overrideImage={"images/rotating_arrows_small.jpg"}
-        selectedPredicate={(item) => item.id === state.brightness}/>
-      <SelectionList 
+        overrideImage={"images/brightness.png"}
+        selectedPredicate={(item) => item.id === state.brightness}/>}
+      {showBrightness && <SelectionList 
         header="Fading Timer" 
         items={AvailableImages.fadingTimer} 
         onClickItem={item => sendMessage({fadingTimer: item.id})}
-        overrideImage={"images/rotating_arrows_small.jpg"}
-        selectedPredicate={(item) => item.id === state.fadingTimer}/>
+        overrideImage={"images/brightness.png"}
+        selectedPredicate={(item) => item.id === state.fadingTimer}/>}
       <SelectionList 
         header="Actions" 
-        items={[{display: "Refresh Clients", smallsrc: "images/refresh.png"}]} 
-        onClickItem={_ => sendMessage({refresh: true})} 
+        items={actions} 
+        onClickItem={(item) => item.action()} 
         selectedPredicate={_ => false}/>
     </div>
   );

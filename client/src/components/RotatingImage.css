@@ -1,19 +1,42 @@
-.Rotating-image { 
+.Rotating-image-outer { 
   overflow: hidden; 
   border-radius: 50%; 
-} 
+}
+
+.Rotating-image-outer.fullSize {
+  position: relative;
+  left: 25%;
+}
+
+.Rotating-image-outer.small {
+  position: relative;
+}
+
+.Rotating-image-outer.small {
+  height: 40px;
+  width: 40px;
+}
 
 .Rotating-image.small {
   height: 40px;
+  width: 40px;
 }
 
 @media all and (orientation:portrait) {
   .Rotating-image.fullSize {
     width: 100vw;
   }
+  .Rotating-image-outer.fullSize {
+    height: 100vw;
+    width: 100vw;
+  }
 }
 @media all and (orientation:landscape) {
   .Rotating-image.fullSize {
+    height: 100vh;
+  }
+  .Rotating-image-outer.fullSize {
+    width: 100vh;
     height: 100vh;
   }
 }
@@ -27,6 +50,9 @@
   }
   .fullSize.slowRotation {
     animation: Rotating-image-spin infinite 600s linear;
+  }
+  .crazyRotation {
+    animation: Rotating-image-spin infinite 10s linear;
   }
   .small.fastRotation {
     animation: Rotating-image-spin infinite 6s linear;

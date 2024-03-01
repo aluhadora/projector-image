@@ -32,15 +32,42 @@
             "src": "images/1-Milky-Way-Map-16.jpg",
             "alt": "Milky Way",
             "display": "Milky Way",
-            "smallsrc": "images/1-Milky-Way-Map-16.jpg",
-            "id": 5
+            "smallsrc": "images/1-Milky-Way-Map-16_small.jpg",
+            "id": 5,
+            "center": {
+                "x": 800,
+                "y": 450,
+                "width": 1600,
+                "height": 900
+            }
+
         },
         {
             "src": "images/2018_03_Castle-Rock_0113-Edit-2-1.jpg",
             "alt": "Castle Rock",
             "display": "Castle Rock",
-            "smallsrc": "images/2018_03_Castle-Rock_0113-Edit-2-1.jpg",
+            "smallsrc": "images/2018_03_Castle-Rock_0113-Edit-2-1_small.jpg",
             "id": 6
+        },
+        {
+            "src": "images/GettyImages-460712793-800x512.jpg",
+            "alt": "Another Solar System",
+            "display": "Another Solar System",
+            "smallsrc": "images/GettyImages-460712793-800x512_small.jpg",
+            "id": 7,
+            "center": {
+                "x": 416,
+                "y": 220,
+                "width": 800,
+                "height": 512
+            }
+        },
+        {
+            "src": "images/cartoon-solar-system.png",
+            "alt": "Cartoon Solar System",
+            "display": "Cartoon Solar System",
+            "smallsrc": "images/cartoon-solar-system_small.png",
+            "id": 8
         }
     ],
     "speeds": [
@@ -63,6 +90,12 @@
             "className": "stopRotation",
             "display": "Stop",
             "id": 4
+        },
+        {
+            "className": "crazyRotation",
+            "display": "Crazy",
+            "id": 5,
+            "enabled": false
         }
     ],
     "brightness": [
