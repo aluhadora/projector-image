@@ -13,12 +13,15 @@ function RotatingImage({image, size, classNames}) {
   }
 
   return (
-    <div className={outerClass}>
-        <img src={size === "small" ? image.smallsrc : image.src} 
-        className={innerClass}
-        alt={image.alt}
-        style={style} />
+    <div style={{margin:size === "small" ? "" : "auto", width:size === "small" ? "" : "50%"}}>
+      <div className={outerClass}>
+          <img src={size === "small" ? image.smallsrc : image.src} 
+          className={innerClass}
+          alt={image.alt}
+          style={style} />
+      </div>
     </div>
+
   );
 }
 
