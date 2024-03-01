@@ -4,8 +4,8 @@ import React from "react";
 import MainPage from "./components/MainPage";
 import OfflineApp from "./OfflineApp";
 import {
-  createBrowserRouter,
-  RouterProvider,
+  Route,
+  Routes,
 } from "react-router-dom";
 import Selector from './components/Selector/Selector';
 import io from "socket.io-client";
@@ -62,24 +62,13 @@ function App() {
     }
   ];
   
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <MainPage state={state} />,
-    },
-    {
-      path: "/selector",
-      element: <Selector state={state} sendMessage={sendMessage} actions={actions} showBrightness={true}/>,
-    },
-    {
-      path: "/offline",
-      element: <OfflineApp />,
-    },
-  ]);
 
   return (
     <React.StrictMode>
-      <RouterProvider router={router} />
+      <Routes>
+        <Route path="/" element={<MainPage state={state} />} />
+        <Route path="/selector" element={<Selector state={state} sendMessage={sendMessage} actions={actions} showBrightness={true}/>} />
+      </Routes>
     </React.StrictMode>
   );
 }
