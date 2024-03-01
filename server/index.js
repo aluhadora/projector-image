@@ -15,12 +15,21 @@ const io = new Server(server, {
 
 let image = 1;
 let speed = 2;
+let brightness = 1;
+let fadingTimer = 1;
 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 app.get("/api", (_, res) => {
-    res.json({ message: "Hello from server!", image: image, speed: speed });
+    let data = { 
+      message: "Hello from server!", 
+      image: image, 
+      speed: speed, 
+      brightness: brightness, 
+      fadingTimer: fadingTimer
+    };
+    res.json(data);
 });
 
 io.on("connection", (socket) => {
@@ -29,6 +38,8 @@ io.on("connection", (socket) => {
   socket.on("send_message", (data) => {
     if (data.image) image = data.image;
     if (data.speed) speed = data.speed;
+    if (data.brightness) brightness = data.brightness;
+    if (data.fadingTimer) fadingTimer = data.fadingTimer;
     socket.broadcast.emit("receive_message", data);
   });
 });

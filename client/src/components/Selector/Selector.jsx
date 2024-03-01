@@ -23,11 +23,22 @@ function Selector({socket, state, setState}) {
         items={AvailableImages.speeds} 
         onClickItem={item => sendMessage({speed: item.id})}
         overrideImage={"images/rotating_arrows_small.jpg"}
-        speed={(item) => item.className}
         selectedPredicate={(item) => item.id === state.speed}/>
       <SelectionList 
+        header="Brightness" 
+        items={AvailableImages.brightness} 
+        onClickItem={item => sendMessage({brightness: item.id})}
+        overrideImage={"images/rotating_arrows_small.jpg"}
+        selectedPredicate={(item) => item.id === state.brightness}/>
+      <SelectionList 
+        header="Fading Timer" 
+        items={AvailableImages.fadingTimer} 
+        onClickItem={item => sendMessage({fadingTimer: item.id})}
+        overrideImage={"images/rotating_arrows_small.jpg"}
+        selectedPredicate={(item) => item.id === state.fadingTimer}/>
+      <SelectionList 
         header="Actions" 
-        items={[{alt: "Refresh Clients", smallsrc: "images/refresh.png"}]} 
+        items={[{display: "Refresh Clients", smallsrc: "images/refresh.png"}]} 
         onClickItem={_ => sendMessage({refresh: true})} 
         selectedPredicate={_ => false}/>
     </div>

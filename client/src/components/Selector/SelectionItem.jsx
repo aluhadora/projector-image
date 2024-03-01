@@ -2,12 +2,14 @@ import './Selector.css';
 import React from "react";
 import RotatingImage from '../RotatingImage';
 
-function SelectionItem({image, selected, speed}) {
+function SelectionItem({item, selected}) {
+  if (!item) return <div/>;
+
   return (
     <div className={"Selection-item " + (selected ? "selected" : "")}>
         <span> 
-            <RotatingImage image={image} size="small" speed={speed || "stop"}/>
-            <span>{image.alt}</span>
+            <RotatingImage image={item} size="small" classNames={["small", item.className]}/>
+            <span>{item.display}</span>
         </span>
     </div>
   );

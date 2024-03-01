@@ -3,40 +3,139 @@
         {
             "src": "images/planets-solar-system.jpg",
             "alt": "Solar System",
+            "display": "Solar System",
             "smallsrc": "images/planets-solar-system_small.jpg",
             "id": 1
         },
         {
             "src": "images/solar_system_diagram.jpg",
             "alt": "Solar System Diagram",
+            "display": "Solar System Diagram",
             "smallsrc": "images/solar_system_diagram_small.jpg",
             "id": 2
         },
         {
             "src": "images/stars.jpg",
             "alt": "Stars",
+            "display": "Stars",
             "smallsrc": "images/stars_small.jpg",
             "id": 3
         },
         {
             "src": "images/blackhole_1.jpg",
             "alt": "Black Hole",
+            "display": "Black Hole",
             "smallsrc": "images/blackhole_1_small.jpg",
             "id": 4
+        },
+        {
+            "src": "images/1-Milky-Way-Map-16.jpg",
+            "alt": "Milky Way",
+            "display": "Milky Way",
+            "smallsrc": "images/1-Milky-Way-Map-16.jpg",
+            "id": 5
+        },
+        {
+            "src": "images/2018_03_Castle-Rock_0113-Edit-2-1.jpg",
+            "alt": "Castle Rock",
+            "display": "Castle Rock",
+            "smallsrc": "images/2018_03_Castle-Rock_0113-Edit-2-1.jpg",
+            "id": 6
         }
     ],
     "speeds": [
         {
-            "className": "fast",
+            "className": "fastRotation",
+            "display": "Fast",
             "id": 1
         },
         {
-            "className": "medium",
+            "className": "mediumRotation",
+            "display": "Medium",
             "id": 2
         },
         {
-            "className": "slow",
+            "className": "slowRotation",
+            "display": "Slow",
             "id": 3
+        },
+        {
+            "className": "stopRotation",
+            "display": "Stop",
+            "id": 4
+        }
+    ],
+    "brightness": [
+        {
+            "className": "bright",
+            "display": "Bright",
+            "id": 1
+        },
+        {
+            "className": "mediumBright",
+            "display": "Medium Bright",
+            "id": 2
+        },
+        {
+            "className": "dark",
+            "display": "Dark",
+            "id": 3
+        },
+        {
+            "className": "black",
+            "display": "Black",
+            "id": 4
+        }
+    ],
+    "fadingTimer": [
+        {
+            "className": "noFade",
+            "display": "No Fade",
+            "id": 1
+        },
+        {
+            "className": "fadeFast",
+            "display": "Fade Fast",
+            "id": 2
+        },
+        {
+            "className": "fadeSlow",
+            "display": "Fade Slow",
+            "id": 3
+        }
+    ],
+    "planets": [
+        {
+            "name": "Mercury",
+            "id": 1
+        },
+        {
+            "name": "Venus",
+            "id": 2
+        },
+        {
+            "name": "Earth",
+            "id": 3
+        },
+        {
+            "name": "Mars",
+            "id": 4
+        },
+        {
+            "name": "Jupiter",
+            "id": 5
+        },
+        {
+            "name": "Saturn",
+            "id": 6
+        },
+        {
+            "name": "Uranus",
+            "id": 7
+        },
+        {
+            "name": "Neptune",
+            "id": 8
         }
     ]
 }

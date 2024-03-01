@@ -13,9 +13,18 @@ const socket = io.connect("/");
 function App() {
   const [state, setState] = useState({});
 
+  function isDirty(data, state) {
+    if (data.image != state.image) return true;
+    if (data.speed != state.speed) return true;
+    if (data.brightness != state.brightness) return true;
+    if (data.fadingTimer != state.fadingTimer) return true;
+    
+    return false;
+  }
+
   const receivedState = useCallback((data) => {
     if (data.refresh) window.location.reload();
-    if (data.image === state.image && data.speed === state.speed) return;
+    if (!isDirty(data, state)) return;
     
     console.log("received", state, data);
     setState({...state, ...data});

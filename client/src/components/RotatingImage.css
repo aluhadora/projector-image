@@ -8,25 +8,34 @@
 }
 
 @media all and (orientation:portrait) {
-  .Rotating-image.full {
+  .Rotating-image.fullSize {
     width: 100vw;
   }
 }
 @media all and (orientation:landscape) {
-  .Rotating-image.full {
+  .Rotating-image.fullSize {
     height: 100vh;
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .Rotating-image.fast {
+  .fullSize.fastRotation {
     animation: Rotating-image-spin infinite 60s linear;
   }
-  .Rotating-image.medium {
+  .fullSize.mediumRotation {
     animation: Rotating-image-spin infinite 300s linear;
   }
-  .Rotating-image.slow {
+  .fullSize.slowRotation {
     animation: Rotating-image-spin infinite 600s linear;
+  }
+  .small.fastRotation {
+    animation: Rotating-image-spin infinite 6s linear;
+  }
+  .small.mediumRotation {
+    animation: Rotating-image-spin infinite 30s linear;
+  }
+  .small.slowRotation {
+    animation: Rotating-image-spin infinite 60s linear;
   }
 }
 
@@ -36,5 +45,42 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.Rotating-image.bright {
+  opacity: 1;
+}
+
+.Rotating-image.mediumBright {
+  opacity: .5;
+}
+
+.Rotating-image.dark {
+  opacity: .33;
+}
+
+.Rotating-image.black {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .Rotating-image.Rotating-image.fullSize.fadeFast {
+    animation: Fading-Timer forwards 900s linear;
+  }
+  .Rotating-image.Rotating-image.fullSize.fadeSlow {
+    animation: Fading-Timer forwards 6400s linear;
+  }
+  .Rotating-image.small.fadeFast {
+    animation: Fading-Timer infinite 3s linear;
+  }
+  .Rotating-image.small.fadeSlow {
+    animation: Fading-Timer infinite 6s linear;
+  }
+}
+
+@keyframes Fading-Timer {
+  to {
+    opacity: 0;
   }
 }

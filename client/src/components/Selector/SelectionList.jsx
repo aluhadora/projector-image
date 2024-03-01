@@ -8,7 +8,7 @@ function SelectionList({header, items, onClickItem, selectedPredicate, speed, ov
     items.forEach((item) => {
         item.alt = item.alt || item.className;
         if (overrideImage) item.smallsrc = overrideImage;
-        if (overrideText) item.alt = overrideText;
+        if (overrideText) item.display = overrideText;
     });
 
   return (
@@ -16,7 +16,7 @@ function SelectionList({header, items, onClickItem, selectedPredicate, speed, ov
         <li key={-1}><div className='Selection-header'>{header}</div></li>
         {items.map(item => (
             <li key={item.id} data={item.id} onClick={() => onClickItem(item)}>
-            <SelectionItem image={item} selected={selectedPredicate(item)} speed={speed ? speed(item) : "stop"}/></li>
+            <SelectionItem item={item} selected={selectedPredicate(item)} /></li>
         ))}
     </ul>
   );
