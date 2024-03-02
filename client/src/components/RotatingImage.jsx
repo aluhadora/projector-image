@@ -13,7 +13,7 @@ function RotatingImage({image, size, classNames}) {
   }
 
   return (
-    <div style={{margin:size === "small" ? "" : "auto", width:size === "small" ? "" : "50%"}}>
+    <div className={"Rotating-image-wrapper " + (size === "small" ? "small" : "fullSize")}>
       <div className={outerClass}>
           <img src={size === "small" ? image.smallsrc : image.src} 
           className={innerClass}

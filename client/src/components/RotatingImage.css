@@ -22,13 +22,22 @@
   width: 40px;
 }
 
+.Rotating-image-wrapper.fullSize {
+  display: flex;
+  align-items: center;
+}
+
 @media all and (orientation:portrait) {
   .Rotating-image.fullSize {
     width: 100vw;
+    height: 100vh;
   }
   .Rotating-image-outer.fullSize {
     height: 100vw;
     width: 100vw;
+  }
+  .Rotating-image-wrapper.fullSize {
+    flex-direction: row;
   }
 }
 @media all and (orientation:landscape) {
@@ -38,6 +47,13 @@
   .Rotating-image-outer.fullSize {
     width: 100vh;
     height: 100vh;
+  }
+  .Rotating-image-wrapper.fullSize {
+    width: 50%;
+  }
+  .Rotating-image-wrapper.fullSize {
+    flex-direction: column;
+    width: 100%;
   }
 }
 
