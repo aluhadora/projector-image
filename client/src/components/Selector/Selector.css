@@ -8,6 +8,7 @@
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
+
 }
 
 .Selection-item > span {
@@ -32,6 +33,7 @@ ul {
 .Selector {
   display: flex;
   flex-wrap: wrap;
+
 }
 
 .Selection-header {
@@ -41,7 +43,6 @@ ul {
   padding: .25em .5em .25em .5em;
   border-radius: 10px;
   transition: all 0.3s ease;
-  min-width: 10em;
   text-align: center;
 }
 
