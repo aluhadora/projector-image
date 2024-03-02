@@ -30,7 +30,6 @@
 @media all and (orientation:portrait) {
   .Rotating-image.fullSize {
     width: 100vw;
-    height: 100vh;
   }
   .Rotating-image-outer.fullSize {
     height: 100vw;
