@@ -103,6 +103,26 @@
             "display": "Rainbow Stars",
             "smallsrc": "images/rainbow_stars.jpg",
             "id": 13
+        },
+        {
+            "src": "images/cool_galaxy.webp",
+            "alt": "Cool Galaxy",
+            "display": "Cool Galaxy",
+            "smallsrc": "images/cool_galaxy.webp",
+            "id": 14
+        },
+        {
+            "src": "images/gif_supermassive-black-hole.webp",
+            "alt": "Black Hole",
+            "display": "Black Hole",
+            "smallsrc": "images/gif_supermassive-black-hole.webp",
+            "id": 15,
+            "center": {
+                "x": 380,
+                "y": 190,
+                "width": 760,
+                "height": 380
+            }
         }
     ],
     "speeds": [
