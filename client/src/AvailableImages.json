@@ -96,6 +96,13 @@
             "display": "Galaxy",
             "smallsrc": "images/galaxy_nebula.jpg",
             "id": 12
+        },
+        {
+            "src": "images/rainbow_stars.jpg",
+            "alt": "Rainbow Stars",
+            "display": "Rainbow Stars",
+            "smallsrc": "images/rainbow_stars.jpg",
+            "id": 13
         }
     ],
     "speeds": [
