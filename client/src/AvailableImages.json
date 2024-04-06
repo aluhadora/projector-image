@@ -68,6 +68,34 @@
             "display": "Cartoon Solar System",
             "smallsrc": "images/cartoon-solar-system_small.png",
             "id": 8
+        },
+        {
+            "src": "images/jupiter.jpg",
+            "alt": "Jupiter",
+            "display": "Jupiter",
+            "smallsrc": "images/jupiter.jpg",
+            "id": 9
+        },
+        {
+            "src": "images/earth.jpg",
+            "alt": "Earth",
+            "display": "Earth",
+            "smallsrc": "images/earth.jpg",
+            "id": 10
+        },
+        {
+            "src": "images/saturn_3.jpg",
+            "alt": "Saturn",
+            "display": "Saturn",
+            "smallsrc": "images/saturn_3.jpg",
+            "id": 11
+        },
+        {
+            "src": "images/galaxy_nebula.jpg",
+            "alt": "Galaxy",
+            "display": "Galaxy",
+            "smallsrc": "images/galaxy_nebula.jpg",
+            "id": 12
         }
     ],
     "speeds": [
