@@ -5,7 +5,7 @@ import RotatingImage from './RotatingImage';
 import React from "react";
 
 function ComponentFromType({image, size, speed, classnames}) {
-  if (!image.type) {
+  if (!image || !image.type) {
     return <RotatingImage image={image} size="fullSize" classNames={classnames}/>
   }
   if (image.type === "planet") return <Planet image={image} speed={speed} />;
