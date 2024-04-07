@@ -1,0 +1,11 @@
+.Cube-container {
+	position: relative; overflow: hidden;
+
+	/* put the size you want your 3D scene to be here */
+	width: 100vw; height: 100vh;
+
+}
+
+.Cube-container canvas {
+	position: absolute; top: 0; left: 0;
+}

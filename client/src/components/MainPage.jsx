@@ -1,7 +1,15 @@
 import '../App.css';
 import AvailableImages from '../AvailableImages';
+import Planet from './Planet';
 import RotatingImage from './RotatingImage';
 import React from "react";
+
+function ComponentFromType({image, size, speed, classnames}) {
+  if (!image.type) {
+    return <RotatingImage image={image} size="fullSize" classNames={classnames}/>
+  }
+  if (image.type === "planet") return <Planet image={image} speed={speed} />;
+}
 
 function MainPage({state}) {
 
@@ -11,10 +19,11 @@ function MainPage({state}) {
   let fadingTimer = AvailableImages.fadingTimer[state.fadingTimer - 1] || {};
 
   let classNames = [speed.className, "fullSize", brightness.className, fadingTimer.className];
+  
 
   return (
     <div className="App">
-      <RotatingImage image={image} size="fullSize" classNames={classNames}/>
+      <ComponentFromType image={image} size="fullSize" speed={speed} classnames={classNames}/>
     </div>
   );
 }
