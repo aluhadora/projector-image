@@ -123,6 +123,27 @@
                 "width": 760,
                 "height": 380
             }
+        },
+        {
+            "src": "images/big-dipper.en.jpg",
+            "alt": "Big Dipper",
+            "display": "Big Dipper",
+            "smallsrc": "images/big-dipper.en.jpg",
+            "id": 16
+        },
+        {
+            "src": "images/Orion.webp",
+            "alt": "Orion",
+            "display": "Orion",
+            "smallsrc": "images/Orion.webp",
+            "id": 17
+        },
+        {
+            "src": "images/constellations-of-northern-hemisphere-stars-vector-23926412.jpg",
+            "alt": "Constellations",
+            "display": "Constellations",
+            "smallsrc": "images/constellations-of-northern-hemisphere-stars-vector-23926412.jpg",
+            "id": 18
         }
     ],
     "speeds": [
