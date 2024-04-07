@@ -70,10 +70,11 @@
             "id": 8
         },
         {
-            "src": "images/jupiter.jpg",
+            "src": "images/jupiter_flat.jpg",
             "alt": "Jupiter",
             "display": "Jupiter",
             "smallsrc": "images/jupiter.jpg",
+            "type": "planet",
             "id": 9
         },
         {

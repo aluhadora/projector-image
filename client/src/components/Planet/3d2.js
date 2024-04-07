@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-var camera, scene, renderer;
+var camera, scene, renderer, material;
 var mesh;
 var speedTicks;
 var imageSrc;
@@ -16,7 +16,7 @@ function init() {
     scene = new THREE.Scene();
 
     var geometry = new THREE.SphereGeometry(10, 100, 100);
-    var material  = new THREE.MeshPhongMaterial();
+    material  = new THREE.MeshPhongMaterial();
 
     THREE.ImageUtils.crossOrigin = '';
     material.map    = new THREE.TextureLoader().load('images/Pictures-Map--huge.jpg')
@@ -70,7 +70,7 @@ resize();
 
 export function mount(container, rotationTicks, image) {
 	speedTicks = rotationTicks;
-	imageSrc = image;
+	material.map = new THREE.TextureLoader().load(image);
 	console.log("Does this call more than once?", rotationTicks)
 	if( container ) {
 		container.insertBefore( renderer.domElement, container.firstChild );
