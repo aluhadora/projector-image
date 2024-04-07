@@ -57,8 +57,13 @@ function App() {
     },
     { 
       display: "Go Offline",
-      smallsrc: "images/refresh.png",
+      smallsrc: "images/right.png",
       action: () => window.location.href = '/offline'
+    },
+    { 
+      display: "Go reduced",
+      smallsrc: "images/right.png",
+      action: () => window.location.href = '/reducedselector'
     }
   ];
   
@@ -68,6 +73,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage state={state} />} />
         <Route path="/selector" element={<Selector state={state} sendMessage={sendMessage} actions={actions} showBrightness={true}/>} />
+        <Route path="/reducedselector" element={<Selector state={state} sendMessage={sendMessage} actions={actions} showBrightness={false} imagesOnly={true}/>} />
       </Routes>
     </React.StrictMode>
   );
