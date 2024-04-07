@@ -5,13 +5,33 @@ import SelectionList from './SelectionList';
 
 function Selector({sendMessage, state, actions, showBrightness}) {
 
+  let groups = {};
+  AvailableImages.images.forEach((item) => {
+    if (!groups[item.group]) groups[item.group] = [];
+    groups[item.group].push(item);
+  });
+
+  const imageLists = Object.keys(groups).map((groupName, id ) => {
+    const group = {header: groupName, items: groups[groupName]};
+    
+    return (
+      <SelectionList 
+        key={id}
+        header={group.header} 
+        items={group.items} 
+        onClickItem={item => sendMessage({image: item.id})} 
+        selectedPredicate={(item) => item.id === state.image}/>
+    );
+  });
+
   return (
     <div className='Selector'>
-      <SelectionList 
+      {imageLists}
+      {/* <SelectionList 
         header="Images" 
         items={AvailableImages.images} 
         onClickItem={item => sendMessage({image: item.id})} 
-        selectedPredicate={(item) => item.id === state.image}/>
+        selectedPredicate={(item) => item.id === state.image}/> */}
       <SelectionList 
         header="Speeds" 
         items={AvailableImages.speeds} 
