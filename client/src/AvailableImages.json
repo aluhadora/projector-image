@@ -78,7 +78,8 @@
             "id": 8
         },
         {
-            "src": "images/jupiter_flat.jpg",
+            "src": "images/jupiter.jpg",
+            "flatsrc": "images/jupiter_flat.jpg",
             "alt": "Jupiter",
             "display": "Jupiter",
             "smallsrc": "images/jupiter.jpg",
@@ -87,7 +88,8 @@
             "id": 9
         },
         {
-            "src": "images/Pictures-Map--huge.jpg",
+            "src": "images/earth.jpg",
+            "flatsrc": "images/Pictures-Map--huge.jpg",
             "alt": "Earth",
             "display": "Earth",
             "type": "planet",
@@ -97,8 +99,11 @@
         },
         {
             "src": "images/saturn_3.jpg",
+            "flatsrc": "images/saturn_flat.jpg", 
+            "ringsrc": "images/2k_saturn_ring_alpha.png",
             "alt": "Saturn",
             "display": "Saturn",
+            "type": "planet",
             "smallsrc": "images/saturn_3.jpg",
             "group": "Planets",
             "id": 11
