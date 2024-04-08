@@ -15,7 +15,7 @@ const io = new Server(server, {
 
 let image = 1;
 let speed = 2;
-let brightness = 1;
+let brightness = 2;
 let fadingTimer = 1;
 
 // Have Node serve the files for our built React app

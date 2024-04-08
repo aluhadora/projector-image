@@ -36,7 +36,8 @@ function init() {
 	scene.add(ringMesh);
 
     var light1 = new THREE.AmbientLight( 0xffffff );
-    light1.position.set(100, 50, 64);
+	// var light1 = new THREE.PointLight( 0xffffff, 150 );
+    light1.position.set(15, 15, 15);
     scene.add(light1);
 
     renderer = new THREE.WebGLRenderer({ antialias: true });

@@ -9,3 +9,19 @@
 .Cube-container canvas {
 	position: absolute; top: 0; left: 0;
 }
+
+.Cube-container.bright {
+    opacity: 1;
+}
+  
+.Cube-container.mediumBright {
+opacity: .5;
+}
+
+.Cube-container.dark {
+opacity: .33;
+}
+
+.Cube-container.black {
+opacity: 0;
+}

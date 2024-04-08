@@ -4,11 +4,11 @@ import Planet from './Planet';
 import RotatingImage from './RotatingImage';
 import React from "react";
 
-function ComponentFromType({image, size, speed, classnames}) {
+function ComponentFromType({image, size, speed, classnames, brightness}) {
   if (!image || !image.type) {
     return <RotatingImage image={image} size="fullSize" classNames={classnames}/>
   }
-  if (image.type === "planet") return <Planet image={image} speed={speed} />;
+  if (image.type === "planet") return <Planet image={image} speed={speed} brightness={brightness}  />;
 }
 
 function MainPage({state}) {
@@ -23,7 +23,7 @@ function MainPage({state}) {
 
   return (
     <div className="App">
-      <ComponentFromType image={image} size="fullSize" speed={speed} classnames={classNames}/>
+      <ComponentFromType image={image} size="fullSize" speed={speed} classnames={classNames} brightness={brightness}/>
     </div>
   );
 }
