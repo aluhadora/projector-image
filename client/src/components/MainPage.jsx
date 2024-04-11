@@ -6,10 +6,10 @@ import React from "react";
 
 function ComponentFromType({image, speed, classnames, brightness, show3d, state}) {
   console.log("ComponentFromType", image, show3d, state, classnames)
-  if (!image || !image.type || !show3d) {
+  if (!show3d) {
     return <RotatingImage image={image} size="fullSize" classNames={classnames}/>
   }
-  if (image.type === "planet") return <Planet state={state} image={image} speed={speed} brightness={brightness}  />;
+  return <Planet state={state} image={image} speed={speed} brightness={brightness} classNames={classnames} />;
 }
 
 function MainPage({state}) {

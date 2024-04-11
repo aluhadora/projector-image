@@ -15,13 +15,28 @@
 }
   
 .Cube-container.mediumBright {
-opacity: .5;
+	opacity: .5;
 }
 
 .Cube-container.dark {
-opacity: .33;
+	opacity: .33;
 }
 
 .Cube-container.black {
-opacity: 0;
+	opacity: 0;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+	.Cube-container.fullSize.fadeFast {
+	  animation: Fading-Timer forwards 900s linear;
+	}
+	.Cube-container.fullSize.fadeSlow {
+	  animation: Fading-Timer forwards 6400s linear;
+	}
+  }
+  
+  @keyframes Fading-Timer {
+	to {
+	  opacity: 0;
+	}
+  }

@@ -5,7 +5,7 @@ import MainPage from "./components/MainPage";
 import Selector from './components/Selector/Selector';
 
 function OfflineApp() {
-  const [state, setState] = useState({image: 19, speed: 1, brightness: 1, fadingTimer: 1, showSelector: false});
+  const [state, setState] = useState({imageId: 1, speedId: 1, brightnessId: 1, fadingTimerId: 1, show3d: true, pointLight: true, showStarfield: true, showSelector: true});
 
   function sendMessage(data) {
     setState({...state, ...data});
@@ -21,6 +21,21 @@ function OfflineApp() {
       display: "Go online",
       smallsrc: "images/icons/right.png",
       action: () => window.location.href = '/selector'
+    },
+    {
+      display: state.show3d ? "Turn off 3d" : "Turn on 3d",
+      smallsrc: "images/icons/right.png",
+      action: () => sendMessage({show3d: !state.show3d})
+    },
+    {
+      display: state.pointLight ? "Switch to ambient" : "Switch to point light",
+      smallsrc: "images/icons/right.png",
+      action: () => sendMessage({pointLight: !state.pointLight})
+    },
+    {
+      display: state.showStarfield ? "Hide Starfield" : "Show Starfield",
+      smallsrc: "images/icons/right.png",
+      action: () => sendMessage({showStarfield: !state.showStarfield})
     }
   ];
 

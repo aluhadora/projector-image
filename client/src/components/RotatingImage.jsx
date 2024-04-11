@@ -12,7 +12,6 @@ function RotatingImage({image, size, classNames}) {
     style.marginTop = `${100*(normalCenter - image.center.y)/image.center.height}%`;
   }
 
-  console.log("RotatingImage", image, size, classNames, outerClass, innerClass)
   return (
     <div className={"Rotating-image-wrapper " + (size === "small" ? "small" : "fullSize")}>
       <div className={outerClass}>

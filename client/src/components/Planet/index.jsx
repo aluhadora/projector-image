@@ -2,10 +2,10 @@ import { useCallback } from 'react';
 import { mount } from './3d.js';
 import './index.css';
     
-export default function Planet({ state, brightness }) {
+export default function Planet({ state, classNames }) {
 
-    console.log('Planet', state, brightness);
+    classNames = classNames.filter(c => !c.endsWith("Rotation"));
     const containerRef = useCallback((c) => mount(c, state), [state]);
-	return <div className={"Cube-container " + brightness.className} ref={containerRef}></div>
+	return <div className={"Cube-container " + classNames.join(" ")} ref={containerRef}></div>
 
 }

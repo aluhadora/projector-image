@@ -17,9 +17,9 @@ let imageId = 1;
 let speedId = 2;
 let brightnessId = 2;
 let fadingTimerId = 1;
-let show3d = false;
-let pointLight = false;
-let showStarfield = false;
+let show3d = true;
+let pointLight = true;
+let showStarfield = true;
 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));

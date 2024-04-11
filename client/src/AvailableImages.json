@@ -78,14 +78,24 @@
             "id": 8
         },
         {
-            "src": "images/planets/jupiter.jpg",
-            "flatsrc": "images/planets/8k_jupiter.jpg",
-            "alt": "Jupiter",
-            "display": "Jupiter",
-            "smallsrc": "images/planets/jupiter_small.jpg",
-            "group": "Planets",
+            "src": "images/planets/mercury.webp",
+            "alt": "Mercury",
+            "display": "Mercury",
+            "flatsrc": "images/planets/8k_mercury.jpg",
             "type": "planet",
-            "id": 9
+            "smallsrc": "images/planets/mercury_small.webp",
+            "group": "Planets",
+            "id": 23
+        },
+        {
+            "src": "images/planets/venus.jpg",
+            "alt": "Venus",
+            "display": "Venus",
+            "flatsrc": "images/planets/4k_venus_atmosphere.jpg",
+            "type": "planet",
+            "smallsrc": "images/planets/venus_small.jpg",
+            "group": "Planets",
+            "id": 21
         },
         {
             "src": "images/planets/earth.jpg",
@@ -95,8 +105,29 @@
             "display": "Earth",
             "type": "planet",
             "smallsrc": "images/planets/earth_small.jpg",
+            "bumpsrc": "images/planets/2k_earth_normal_map.tif",
             "group": "Planets",
             "id": 10
+        },
+        {
+            "src": "images/planets/mars.webp",
+            "alt": "Mars",
+            "display": "Mars",
+            "flatsrc": "images/planets/8k_mars.jpg",
+            "type": "planet",
+            "smallsrc": "images/planets/mars_small.webp",
+            "group": "Planets",
+            "id": 22
+        },
+        {
+            "src": "images/planets/jupiter.jpg",
+            "flatsrc": "images/planets/8k_jupiter.jpg",
+            "alt": "Jupiter",
+            "display": "Jupiter",
+            "smallsrc": "images/planets/jupiter_small.jpg",
+            "group": "Planets",
+            "type": "planet",
+            "id": 9
         },
         {
             "src": "images/planets/saturn_3.jpg",
@@ -110,12 +141,24 @@
             "id": 11
         },
         {
-            "src": "images/planets/mars.webp",
-            "alt": "Mars",
-            "display": "Mars",
-            "smallsrc": "images/planets/mars_small.webp",
+            "src": "images/planets/uranus.jpg",
+            "flatsrc": "images/planets/2k_uranus.jpg", 
+            "alt": "Uranus",
+            "display": "Uranus",
+            "type": "planet",
+            "smallsrc": "images/planets/uranus_small.jpg",
             "group": "Planets",
-            "id": 21
+            "id": 25
+        },
+        {
+            "src": "images/planets/neptune.jpg",
+            "flatsrc": "images/planets/2k_neptune.jpg", 
+            "alt": "Neptune",
+            "display": "Neptune",
+            "type": "planet",
+            "smallsrc": "images/planets/neptune_small.jpg",
+            "group": "Planets",
+            "id": 24
         },
         {
             "src": "images/galaxies/galaxy_nebula.jpg",
