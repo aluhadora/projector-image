@@ -5,7 +5,7 @@ import MainPage from "./components/MainPage";
 import Selector from './components/Selector/Selector';
 
 function OfflineApp() {
-  const [state, setState] = useState({image: 1, speed: 1, brightness: 1, fadingTimer: 1, showSelector: false});
+  const [state, setState] = useState({image: 19, speed: 1, brightness: 1, fadingTimer: 1, showSelector: false});
 
   function sendMessage(data) {
     setState({...state, ...data});

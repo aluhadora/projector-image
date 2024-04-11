@@ -4,26 +4,26 @@ import Planet from './Planet';
 import RotatingImage from './RotatingImage';
 import React from "react";
 
-function ComponentFromType({image, size, speed, classnames, brightness}) {
-  if (!image || !image.type) {
+function ComponentFromType({image, speed, classnames, brightness, show3d, state}) {
+  console.log("ComponentFromType", image, show3d, state, classnames)
+  if (!image || !image.type || !show3d) {
     return <RotatingImage image={image} size="fullSize" classNames={classnames}/>
   }
-  if (image.type === "planet") return <Planet image={image} speed={speed} brightness={brightness}  />;
+  if (image.type === "planet") return <Planet state={state} image={image} speed={speed} brightness={brightness}  />;
 }
 
 function MainPage({state}) {
 
-  let image = AvailableImages.images[state.image - 1];
-  let speed = AvailableImages.speeds[state.speed - 1] || {};
-  let brightness = AvailableImages.brightness[state.brightness - 1] || {};
-  let fadingTimer = AvailableImages.fadingTimer[state.fadingTimer - 1] || {};
+  let image = AvailableImages.images.find(i => i.id === state.imageId) || {};
+  let speed = AvailableImages.speeds.find(s => s.id === state.speedId) || {};
+  let brightness = AvailableImages.brightness.find(b => b.id === state.brightnessId) || {};
+  let fadingTimer = AvailableImages.fadingTimer.find(f => f.id === state.fadingTimerId) || {};
 
   let classNames = [speed.className, "fullSize", brightness.className, fadingTimer.className];
   
-
   return (
     <div className="App">
-      <ComponentFromType image={image} size="fullSize" speed={speed} classnames={classNames} brightness={brightness}/>
+      <ComponentFromType state={state} show3d={state.show3d} image={image} size="fullSize" speed={speed} classnames={classNames} brightness={brightness}/>
     </div>
   );
 }

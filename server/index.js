@@ -13,10 +13,13 @@ const io = new Server(server, {
     cors: {origin:"http://localhost:3000", methods: ["GET", "POST"]},
 });
 
-let image = 1;
-let speed = 2;
-let brightness = 2;
-let fadingTimer = 1;
+let imageId = 1;
+let speedId = 2;
+let brightnessId = 2;
+let fadingTimerId = 1;
+let show3d = false;
+let pointLight = false;
+let showStarfield = false;
 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));
@@ -24,22 +27,41 @@ app.use(express.static(path.resolve(__dirname, '../client/build')));
 app.get("/api", (_, res) => {
     let data = { 
       message: "Hello from server!", 
-      image: image, 
-      speed: speed, 
-      brightness: brightness, 
-      fadingTimer: fadingTimer
+      imageId: imageId, 
+      speedId: speedId, 
+      brightnessId: brightnessId, 
+      fadingTimerId: fadingTimerId,
+      show3d: show3d,
+      pointLight: pointLight,
+      showStarfield: showStarfield,
     };
     res.json(data);
 });
+
+app.get("/api/image", (_, res) => {
+  res.json({imageId: imageId});
+});
+
+app.post("/api/image", (req, res) => {
+  imageId = req.body.imageId;
+  res.json({imageId: imageId});
+});
+
+function send_message(data) {
+  io.emit("receive_message", data);
+}
 
 io.on("connection", (socket) => {
   console.log(`a user connected ${socket.id}`);
   
   socket.on("send_message", (data) => {
-    if (data.image) image = data.image;
-    if (data.speed) speed = data.speed;
-    if (data.brightness) brightness = data.brightness;
-    if (data.fadingTimer) fadingTimer = data.fadingTimer;
+    if (data.imageId) imageId = data.imageId;
+    if (data.Id) speedId = data.speedId;
+    if (data.brightnessId) brightnessId = data.brightnessId;
+    if (data.fadingTimerId) fadingTimerId= data.fadingTimerId;
+    if (data.show3d !== undefined) show3d = data.show3d;
+    if (data.pointLight !== undefined) pointLight = data.pointLight;
+    if (data.showStarfield !== undefined) showStarfield = data.showStarfield;
     socket.broadcast.emit("receive_message", data);
   });
 });

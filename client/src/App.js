@@ -2,7 +2,6 @@ import './App.css';
 import { useState, useEffect, useCallback } from 'react';
 import React from "react";
 import MainPage from "./components/MainPage";
-import OfflineApp from "./OfflineApp";
 import {
   Route,
   Routes,
@@ -15,10 +14,13 @@ function App() {
   const [state, setState] = useState({});
 
   function isDirty(data, state) {
-    if (data.image !== state.image) return true;
-    if (data.speed !== state.speed) return true;
-    if (data.brightness !== state.brightness) return true;
-    if (data.fadingTimer !== state.fadingTimer) return true;
+    if (data.imageId !== state.imageId) return true;
+    if (data.speedId !== state.speedId) return true;
+    if (data.brightnessId !== state.brightnessId) return true;
+    if (data.fadingTimerId !== state.fadingTimerId) return true;
+    if (data.show3d !== state.show3d) return true;
+    if (data.pointLight !== state.pointLight) return true;
+    if (data.showStarfield !== state.showStarfield) return true;
     
     return false;
   }
@@ -64,7 +66,23 @@ function App() {
       display: "Go reduced",
       smallsrc: "images/right.png",
       action: () => window.location.href = '/reducedselector'
+    },
+    {
+      display: state.show3d ? "Turn off 3d" : "Turn on 3d",
+      smallsrc: "images/right.png",
+      action: () => sendMessage({show3d: !state.show3d})
+    },
+    {
+      display: state.pointLight ? "Switch to ambient" : "Switch to point light",
+      smallsrc: "images/right.png",
+      action: () => sendMessage({pointLight: !state.pointLight})
+    },
+    {
+      display: state.showStarfield ? "Hide Starfield" : "Show Starfield",
+      smallsrc: "images/right.png",
+      action: () => sendMessage({showStarfield: !state.showStarfield})
     }
+
   ];
   
 

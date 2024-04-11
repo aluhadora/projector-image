@@ -1,51 +1,96 @@
-// three.js front page spinning cube with minor changes:
-
 import * as THREE from 'three';
+import AvailableImages from '../../AvailableImages';
 
-let camera, scene, renderer;
-let geometry, material, mesh;
+var camera, scene, renderer;
+var speedTicks;
+var lights = {}
+var materials = {};
+var meshes = {};
 
 init();
 
 function init() {
 
-	camera = new THREE.PerspectiveCamera( 42, 1, 0.01, 10 );
-	camera.position.z = 1;
+    camera = new THREE.PerspectiveCamera(50, 1, 1, 100);
+    camera.position.z = 25;
 
-	scene = new THREE.Scene();
+    scene = new THREE.Scene();
 
-	geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
-	material = new THREE.MeshNormalMaterial();
+	function loadPlanetMesh() {
+		var geometry = new THREE.SphereGeometry(10, 32, 32);
+		materials.planet  = new THREE.MeshStandardMaterial();
+	
+		materials.planet.map    = new THREE.TextureLoader().load('images/Pictures-Map--huge.jpg');
+		materials.planet.map.colorSpace = THREE.SRGBColorSpace;	// ### r152 [fixed]
+	
+		meshes.planet = new THREE.Mesh(geometry, materials.planet);
+		meshes.planet.castShadow = true;
+		meshes.planet.rotation.x += 0.5;
+		scene.add(meshes.planet);
+	}
 
-	mesh = new THREE.Mesh( geometry, material );
-	scene.add( mesh );
+	function loadRingMesh() {
+		var ring = new THREE.RingGeometry( 11, 18, 100 );
 
-	renderer = new THREE.WebGLRenderer( { antialias: true } );
-	renderer.setAnimationLoop( animation );
+		materials.ring = new THREE.MeshStandardMaterial( { 
+			side: THREE.DoubleSide, 
+			transparent: true
+		} );
 
+		meshes.ring = new THREE.Mesh( ring, materials.ring );
+		meshes.ring.receiveShadow = true;
+		meshes.ring.rotation.x += 2;
+	
+		scene.add(meshes.ring);
+	}
+
+	function loadLights() {
+		lights.ambient = new THREE.AmbientLight( 0xffffff, .00 );
+		lights.point = new THREE.DirectionalLight( 0xffffff, 1 );
+		lights.point.castShadow = true;
+		lights.ambient.position.set(15, 15, 15);
+		lights.point.position.set(50, 10, 15);
+		
+		scene.add(lights.ambient);
+		scene.add(lights.point);
+	}
+
+	function loadSkyBox() {
+		const geometry = new THREE.SphereGeometry(50, 256, 256);
+		materials.star = new THREE.MeshBasicMaterial({
+			side: THREE.BackSide,
+		});
+
+		materials.star.map = new THREE.TextureLoader().load('images/starmap_g4k.webp');
+		materials.star.map.colorSpace = THREE.SRGBColorSpace;
+
+		meshes.star = new THREE.Mesh(geometry, materials.star);
+		meshes.star.rotation.y = Math.PI / 2;
+		scene.add(meshes.star);
+	}
+
+	loadPlanetMesh();
+	loadRingMesh();
+	loadLights();
+	loadSkyBox();
+
+    renderer = new THREE.WebGLRenderer();
+    renderer.setAnimationLoop( animation );
+	renderer.shadowMap.enabled = true;
 }
 
 function animation( time ) {
 
-	// do not render if not in DOM:
-
 	if( !renderer.domElement.parentNode ) return;
 
-	mesh.rotation.x = time / 2000;
-	mesh.rotation.y = time / 1000;
+	meshes.planet.rotation.y = time / (speedTicks || 12000);
 
 	renderer.render( scene, camera );
-
 }
 
-// respond to size changes:
-
 function resize() {
-
 	const container = renderer.domElement.parentNode;
-
 	if( container ) {
-
 		const width = container.offsetWidth;
 		const height = container.offsetHeight;
 
@@ -53,29 +98,47 @@ function resize() {
 
 		camera.aspect = width / height;
 		camera.updateProjectionMatrix();
-
 	}
-
 }
 
 window.addEventListener( 'resize', resize );
 
 resize();
 
+export function mount(container, state) {
+	let image = AvailableImages.images.find(i => i.id === state.imageId) || {};
+    let speed = AvailableImages.speeds.find(s => s.id === state.speedId) || {};
 
-// expose a function to interact with react.js:
-
-export function mount( container ) {
-
-	if( container ) {
-
-		container.insertBefore( renderer.domElement, container.firstChild );
-		resize();
-
+	speedTicks = speed.rotationTicks;
+	materials.planet.map = new THREE.TextureLoader().load(image.flatsrc);
+	
+	if (image.ringsrc) {
+		materials.ring.map = new THREE.TextureLoader().load(image.ringsrc);
+		scene.add(meshes.ring);
 	} else {
-
-		renderer.domElement.remove();
-
+		scene.remove(meshes.ring);
 	}
 
+	if (state.showStarfield) {
+		scene.add(meshes.star);
+	} else {
+		scene.remove(meshes.star);
+	}
+
+	if (state.pointLight) {
+		lights.point.intensity = 1;
+		lights.ambient.intensity = 0.05;
+	} else {
+		lights.point.intensity = 0;
+		lights.ambient.intensity = 1;
+	}
+
+
+	console.log("Does this call more than once?", state, image.flatsrc)
+	if( container ) {
+		container.insertBefore( renderer.domElement, container.firstChild );
+		resize();
+	} else {
+		renderer.domElement.remove();
+	}
 }

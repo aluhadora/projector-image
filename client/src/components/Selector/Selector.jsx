@@ -52,8 +52,8 @@ function Selector({sendMessage, state, actions, showBrightness, imagesOnly = fal
         key={id}
         header={group.header} 
         items={group.items} 
-        onClickItem={item => decrementAndSend({image: item.id})} 
-        selectedPredicate={(item) => item.id === state.image}/>
+        onClickItem={item => decrementAndSend({imageId: item.id})} 
+        selectedPredicate={(item) => item.id === state.imageId}/>
     );
   });
 
@@ -68,21 +68,21 @@ function Selector({sendMessage, state, actions, showBrightness, imagesOnly = fal
       {!imagesOnly && <SelectionList 
         header="Speeds" 
         items={AvailableImages.speeds} 
-        onClickItem={item => sendMessage({speed: item.id})}
+        onClickItem={item => sendMessage({speedId: item.id})}
         overrideImage={"images/rotating_arrows_small.jpg"}
-        selectedPredicate={(item) => item.id === state.speed}/>}
+        selectedPredicate={(item) => item.id === state.speedId}/>}
       {showBrightness && !imagesOnly && <SelectionList 
         header="Brightness" 
         items={AvailableImages.brightness} 
-        onClickItem={item => sendMessage({brightness: item.id})}
+        onClickItem={item => sendMessage({brightnessId: item.id})}
         overrideImage={"images/brightness.png"}
-        selectedPredicate={(item) => item.id === state.brightness}/>}
+        selectedPredicate={(item) => item.id === state.brightnessId}/>}
       {showBrightness && !imagesOnly && <SelectionList 
         header="Fading Timer" 
         items={AvailableImages.fadingTimer} 
-        onClickItem={item => sendMessage({fadingTimer: item.id})}
+        onClickItem={item => sendMessage({fadingTimerId: item.id})}
         overrideImage={"images/brightness.png"}
-        selectedPredicate={(item) => item.id === state.fadingTimer}/>}
+        selectedPredicate={(item) => item.id === state.fadingTimerId}/>}
       {!imagesOnly && <SelectionList 
         header="Actions" 
         items={actions} 

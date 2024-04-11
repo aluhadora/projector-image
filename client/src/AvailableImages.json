@@ -109,6 +109,14 @@
             "id": 11
         },
         {
+            "src": "images/mars.webp",
+            "alt": "Mars",
+            "display": "Mars",
+            "smallsrc": "images/mars.webp",
+            "group": "Planets",
+            "id": 21
+        },
+        {
             "src": "images/galaxy_nebula.jpg",
             "alt": "Galaxy",
             "display": "Galaxy",
