@@ -11,14 +11,14 @@ init();
 
 function init() {
 
-    camera = new THREE.PerspectiveCamera(50, 1, 1, 100);
+    camera = new THREE.PerspectiveCamera(50, 1, 1, 40);
     camera.position.z = 25;
 
     scene = new THREE.Scene();
 
 	function loadPlanetMesh() {
 		var geometry = new THREE.SphereGeometry(10, 32, 32);
-		materials.planet  = new THREE.MeshStandardMaterial();
+		materials.planet  = new THREE.MeshLambertMaterial();
 	
 		materials.planet.map    = new THREE.TextureLoader().load('images/Pictures-Map--huge.jpg');
 		materials.planet.map.colorSpace = THREE.SRGBColorSpace;	// ### r152 [fixed]
@@ -32,7 +32,7 @@ function init() {
 	function loadRingMesh() {
 		var ring = new THREE.RingGeometry( 11, 18, 100 );
 
-		materials.ring = new THREE.MeshStandardMaterial( { 
+		materials.ring = new THREE.MeshLambertMaterial( { 
 			side: THREE.DoubleSide, 
 			transparent: true
 		} );
@@ -56,7 +56,7 @@ function init() {
 	}
 
 	function loadSkyBox() {
-		const geometry = new THREE.SphereGeometry(50, 256, 256);
+		const geometry = new THREE.SphereGeometry(20, 256, 256);
 		materials.star = new THREE.MeshBasicMaterial({
 			side: THREE.BackSide,
 		});
@@ -74,9 +74,10 @@ function init() {
 	loadLights();
 	loadSkyBox();
 
-    renderer = new THREE.WebGLRenderer();
+    renderer = new THREE.WebGLRenderer({ powerPreference: "high-performance" });
     renderer.setAnimationLoop( animation );
 	renderer.shadowMap.enabled = true;
+	renderer.gamaFactor = 2.2;
 }
 
 function animation( time ) {
@@ -127,7 +128,7 @@ export function mount(container, state) {
 
 	if (state.pointLight) {
 		lights.point.intensity = 1;
-		lights.ambient.intensity = 0.05;
+		lights.ambient.intensity = 0.01;
 	} else {
 		lights.point.intensity = 0;
 		lights.ambient.intensity = 1;

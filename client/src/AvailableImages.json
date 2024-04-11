@@ -1,42 +1,42 @@
 {
     "images": [
         {
-            "src": "images/planets-solar-system.jpg",
+            "src": "images/solar-system/planets-solar-system.jpg",
             "alt": "Solar System",
             "display": "Solar System",
-            "smallsrc": "images/planets-solar-system_small.jpg",
+            "smallsrc": "images/solar-system/planets-solar-system_small.jpg",
             "group": "Solar System",
             "id": 1
         },
         {
-            "src": "images/solar_system_diagram.jpg",
+            "src": "images/solar-system/solar_system_diagram.jpg",
             "alt": "Solar System Diagram",
             "display": "Solar System Diagram",
-            "smallsrc": "images/solar_system_diagram_small.jpg",
+            "smallsrc": "images/solar-system/solar_system_diagram_small.jpg",
             "group": "Solar System",
             "id": 2
         },
         {
-            "src": "images/stars.jpg",
+            "src": "images/galaxies/stars.jpg",
             "alt": "Stars",
             "display": "Stars",
-            "smallsrc": "images/stars_small.jpg",
+            "smallsrc": "images/galaxies/stars_small.jpg",
             "group": "Galaxies",
             "id": 3
         },
         {
-            "src": "images/blackhole_1.jpg",
+            "src": "images/blackholes/blackhole_1.jpg",
             "alt": "Black Hole",
             "display": "Black Hole",
-            "smallsrc": "images/blackhole_1_small.jpg",
+            "smallsrc": "images/blackholes/blackhole_1_small.jpg",
             "group": "Black Holes",
             "id": 4
         },
         {
-            "src": "images/1-Milky-Way-Map-16.jpg",
+            "src": "images/galaxies/1-Milky-Way-Map-16.jpg",
             "alt": "Milky Way",
             "display": "Milky Way",
-            "smallsrc": "images/1-Milky-Way-Map-16_small.jpg",
+            "smallsrc": "images/galaxies/1-Milky-Way-Map-16_small.jpg",
             "id": 5,
             "group": "Galaxies",
             "center": {
@@ -48,18 +48,18 @@
 
         },
         {
-            "src": "images/2018_03_Castle-Rock_0113-Edit-2-1.jpg",
+            "src": "images/galaxies/2018_03_Castle-Rock_0113-Edit-2-1.jpg",
             "alt": "Castle Rock",
             "display": "Castle Rock",
-            "smallsrc": "images/2018_03_Castle-Rock_0113-Edit-2-1_small.jpg",
+            "smallsrc": "images/galaxies/2018_03_Castle-Rock_0113-Edit-2-1_small.jpg",
             "group": "Galaxies",
             "id": 6
         },
         {
-            "src": "images/GettyImages-460712793-800x512.jpg",
+            "src": "images/solar-system/GettyImages-460712793-800x512.jpg",
             "alt": "Another Solar System",
             "display": "Another Solar System",
-            "smallsrc": "images/GettyImages-460712793-800x512_small.jpg",
+            "smallsrc": "images/solar-system/GettyImages-460712793-800x512_small.jpg",
             "group": "Solar System",
             "id": 7,
             "center": {
@@ -70,81 +70,82 @@
             }
         },
         {
-            "src": "images/cartoon-solar-system.png",
+            "src": "images/solar-system/cartoon-solar-system.png",
             "alt": "Cartoon Solar System",
             "display": "Cartoon Solar System",
-            "smallsrc": "images/cartoon-solar-system_small.png",
+            "smallsrc": "images/solar-system/cartoon-solar-system_small.png",
             "group": "Solar System",
             "id": 8
         },
         {
-            "src": "images/jupiter.jpg",
-            "flatsrc": "images/jupiter_flat.jpg",
+            "src": "images/planets/jupiter.jpg",
+            "flatsrc": "images/planets/8k_jupiter.jpg",
             "alt": "Jupiter",
             "display": "Jupiter",
-            "smallsrc": "images/jupiter.jpg",
+            "smallsrc": "images/planets/jupiter.jpg",
             "group": "Planets",
             "type": "planet",
             "id": 9
         },
         {
-            "src": "images/earth.jpg",
-            "flatsrc": "images/Pictures-Map--huge.jpg",
+            "src": "images/planets/earth.jpg",
+            "flatsrc": "images/planets/8k_earth_daymap.jpg",
+            "shadowsrc": "images/planets/2k_earth_nightmap.jpg",
             "alt": "Earth",
             "display": "Earth",
             "type": "planet",
-            "smallsrc": "images/earth.jpg",
+            "smallsrc": "images/planets/earth.jpg",
             "group": "Planets",
             "id": 10
         },
         {
-            "src": "images/saturn_3.jpg",
-            "flatsrc": "images/saturn_flat.jpg", 
-            "ringsrc": "images/2k_saturn_ring_alpha.png",
+            "src": "images/planets/saturn_3.jpg",
+            "flatsrc": "images/planets/saturn_flat.jpg", 
+            "ringsrc": "images/planets/2k_saturn_ring_alpha.png",
             "alt": "Saturn",
             "display": "Saturn",
             "type": "planet",
-            "smallsrc": "images/saturn_3.jpg",
+            "smallsrc": "images/planets/saturn_3.jpg",
             "group": "Planets",
             "id": 11
         },
         {
-            "src": "images/mars.webp",
+            "src": "images/planets/mars.webp",
             "alt": "Mars",
             "display": "Mars",
-            "smallsrc": "images/mars.webp",
+            "smallsrc": "images/planets/mars.webp",
             "group": "Planets",
             "id": 21
         },
         {
-            "src": "images/galaxy_nebula.jpg",
+            "src": "images/galaxies/galaxy_nebula.jpg",
             "alt": "Galaxy",
             "display": "Galaxy",
-            "smallsrc": "images/galaxy_nebula.jpg",
+            "smallsrc": "images/galaxies/galaxy_nebula.jpg",
             "group": "Galaxies",
             "id": 12
         },
         {
-            "src": "images/rainbow_stars.jpg",
+            "src": "images/galaxies/rainbow_stars.jpg",
             "alt": "Rainbow Stars",
             "display": "Rainbow Stars",
-            "smallsrc": "images/rainbow_stars.jpg",
+            "smallsrc": "images/galaxies/rainbow_stars.jpg",
             "group": "Galaxies",
             "id": 13
         },
         {
-            "src": "images/cool_galaxy.webp",
+            "src": "images/galaxies/cool_galaxy.webp",
             "alt": "Cool Galaxy",
             "display": "Cool Galaxy",
-            "smallsrc": "images/cool_galaxy.webp",
+            "smallsrc": "images/galaxies/cool_galaxy.webp",
             "group": "Galaxies",
             "id": 14
         },
         {
-            "src": "images/gif_supermassive-black-hole.webp",
+            "src": "images/blackholes/gif_supermassive-black-hole.webp",
             "alt": "Black Hole",
             "display": "Black Hole",
-            "smallsrc": "images/gif_supermassive-black-hole.webp",
+            "smallsrc": "images/blackholes/gif_supermassive-black-hole.webp",
             "group": "Black Holes",
             "id": 15,
             "center": {
@@ -155,26 +156,26 @@
             }
         },
         {
-            "src": "images/big-dipper.en.jpg",
+            "src": "images/constellations/big-dipper.en.jpg",
             "alt": "Big Dipper",
             "display": "Big Dipper",
-            "smallsrc": "images/big-dipper.en.jpg",
+            "smallsrc": "images/constellations/big-dipper.en.jpg",
             "group": "Constellations",
             "id": 16
         },
         {
-            "src": "images/Orion.webp",
+            "src": "images/constellations/Orion.webp",
             "alt": "Orion",
             "display": "Orion",
-            "smallsrc": "images/Orion.webp",
+            "smallsrc": "images/constellations/Orion.webp",
             "group": "Constellations",
             "id": 17
         },
         {
-            "src": "images/constellations-of-northern-hemisphere-stars-vector-23926412.jpg",
+            "src": "images/constellations/constellations-of-northern-hemisphere-stars-vector-23926412.jpg",
             "alt": "Constellations",
             "display": "Constellations",
-            "smallsrc": "images/constellations-of-northern-hemisphere-stars-vector-23926412.jpg",
+            "smallsrc": "images/constellations/constellations-of-northern-hemisphere-stars-vector-23926412.jpg",
             "group": "Constellations",
             "id": 18
         }
