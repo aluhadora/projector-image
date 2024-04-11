@@ -54,32 +54,32 @@ function App() {
   const actions = [
     {
       display: "Refresh Clients",
-      smallsrc: "images/refresh.png",
+      smallsrc: "images/icons/refresh.png",
       action: () => sendMessage({refresh: true}),
     },
     { 
       display: "Go Offline",
-      smallsrc: "images/right.png",
+      smallsrc: "images/icons/right.png",
       action: () => window.location.href = '/offline'
     },
     { 
       display: "Go reduced",
-      smallsrc: "images/right.png",
+      smallsrc: "images/icons/right.png",
       action: () => window.location.href = '/reducedselector'
     },
     {
       display: state.show3d ? "Turn off 3d" : "Turn on 3d",
-      smallsrc: "images/right.png",
+      smallsrc: "images/icons/right.png",
       action: () => sendMessage({show3d: !state.show3d})
     },
     {
       display: state.pointLight ? "Switch to ambient" : "Switch to point light",
-      smallsrc: "images/right.png",
+      smallsrc: "images/icons/right.png",
       action: () => sendMessage({pointLight: !state.pointLight})
     },
     {
       display: state.showStarfield ? "Hide Starfield" : "Show Starfield",
-      smallsrc: "images/right.png",
+      smallsrc: "images/icons/right.png",
       action: () => sendMessage({showStarfield: !state.showStarfield})
     }
 

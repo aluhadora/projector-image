@@ -82,7 +82,7 @@
             "flatsrc": "images/planets/8k_jupiter.jpg",
             "alt": "Jupiter",
             "display": "Jupiter",
-            "smallsrc": "images/planets/jupiter.jpg",
+            "smallsrc": "images/planets/jupiter_small.jpg",
             "group": "Planets",
             "type": "planet",
             "id": 9
@@ -94,7 +94,7 @@
             "alt": "Earth",
             "display": "Earth",
             "type": "planet",
-            "smallsrc": "images/planets/earth.jpg",
+            "smallsrc": "images/planets/earth_small.jpg",
             "group": "Planets",
             "id": 10
         },
@@ -105,7 +105,7 @@
             "alt": "Saturn",
             "display": "Saturn",
             "type": "planet",
-            "smallsrc": "images/planets/saturn_3.jpg",
+            "smallsrc": "images/planets/saturn_3_small.jpg",
             "group": "Planets",
             "id": 11
         },
@@ -113,7 +113,7 @@
             "src": "images/planets/mars.webp",
             "alt": "Mars",
             "display": "Mars",
-            "smallsrc": "images/planets/mars.webp",
+            "smallsrc": "images/planets/mars_small.webp",
             "group": "Planets",
             "id": 21
         },
@@ -121,7 +121,7 @@
             "src": "images/galaxies/galaxy_nebula.jpg",
             "alt": "Galaxy",
             "display": "Galaxy",
-            "smallsrc": "images/galaxies/galaxy_nebula.jpg",
+            "smallsrc": "images/galaxies/galaxy_nebula_small.jpg",
             "group": "Galaxies",
             "id": 12
         },
@@ -129,7 +129,7 @@
             "src": "images/galaxies/rainbow_stars.jpg",
             "alt": "Rainbow Stars",
             "display": "Rainbow Stars",
-            "smallsrc": "images/galaxies/rainbow_stars.jpg",
+            "smallsrc": "images/galaxies/rainbow_stars_small.jpg",
             "group": "Galaxies",
             "id": 13
         },
@@ -137,7 +137,7 @@
             "src": "images/galaxies/cool_galaxy.webp",
             "alt": "Cool Galaxy",
             "display": "Cool Galaxy",
-            "smallsrc": "images/galaxies/cool_galaxy.webp",
+            "smallsrc": "images/galaxies/cool_galaxy_small.webp",
             "group": "Galaxies",
             "id": 14
         },
@@ -159,7 +159,7 @@
             "src": "images/constellations/big-dipper.en.jpg",
             "alt": "Big Dipper",
             "display": "Big Dipper",
-            "smallsrc": "images/constellations/big-dipper.en.jpg",
+            "smallsrc": "images/constellations/big-dipper_small.en.jpg",
             "group": "Constellations",
             "id": 16
         },
@@ -167,7 +167,7 @@
             "src": "images/constellations/Orion.webp",
             "alt": "Orion",
             "display": "Orion",
-            "smallsrc": "images/constellations/Orion.webp",
+            "smallsrc": "images/constellations/Orion_small.webp",
             "group": "Constellations",
             "id": 17
         },
@@ -175,7 +175,7 @@
             "src": "images/constellations/constellations-of-northern-hemisphere-stars-vector-23926412.jpg",
             "alt": "Constellations",
             "display": "Constellations",
-            "smallsrc": "images/constellations/constellations-of-northern-hemisphere-stars-vector-23926412.jpg",
+            "smallsrc": "images/constellations/constellations-of-northern-hemisphere-stars-vector-23926412_small.jpg",
             "group": "Constellations",
             "id": 18
         }

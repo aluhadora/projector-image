@@ -2,10 +2,12 @@ import './Selector.css';
 import AvailableImages from '../../AvailableImages';
 import React from "react";
 import SelectionList from './SelectionList';
+import MainPage from '../MainPage';
 
 function Selector({sendMessage, state, actions, showBrightness, imagesOnly = false}) {
 
   const [allowedChoice, setAllowedChoice] = React.useState(null);
+  const [showPreview, setShowPreview] = React.useState(false);
 
   let groups = {};
   AvailableImages.images.forEach((item) => {
@@ -24,6 +26,8 @@ function Selector({sendMessage, state, actions, showBrightness, imagesOnly = fal
     return {id: i, display: `Choice ${i+1}`, smallsrc: "images/icons/refresh.png", action: () => setAllowedChoice(i+1)};
   });
 
+  actions = [...actions, {display: showPreview ? "Hide Preview" : "Show Preview", smallsrc: "images/icons/up.png", action: () => setShowPreview(!showPreview)}];
+
 
   const imageLists = Object.keys(groups).map((groupName, id ) => {
     const group = {header: groupName, items: groups[groupName]};
@@ -39,42 +43,47 @@ function Selector({sendMessage, state, actions, showBrightness, imagesOnly = fal
   });
 
   return (
-    <div className='Selector'>
-      {imageLists}
-      {/* <SelectionList 
-        header="Images" 
-        items={AvailableImages.images} 
-        onClickItem={item => sendMessage({image: item.id})} 
-        selectedPredicate={(item) => item.id === state.image}/> */}
-      {!imagesOnly && <SelectionList 
-        header="Speeds" 
-        items={AvailableImages.speeds} 
-        onClickItem={item => sendMessage({speedId: item.id})}
-        overrideImage={"images/icons/rotating_arrows_small.jpg"}
-        selectedPredicate={(item) => item.id === state.speedId}/>}
-      {showBrightness && !imagesOnly && <SelectionList 
-        header="Brightness" 
-        items={AvailableImages.brightness} 
-        onClickItem={item => sendMessage({brightnessId: item.id})}
-        overrideImage={"images/icons/brightness.png"}
-        selectedPredicate={(item) => item.id === state.brightnessId}/>}
-      {showBrightness && !imagesOnly && <SelectionList 
-        header="Fading Timer" 
-        items={AvailableImages.fadingTimer} 
-        onClickItem={item => sendMessage({fadingTimerId: item.id})}
-        overrideImage={"images/icons/brightness.png"}
-        selectedPredicate={(item) => item.id === state.fadingTimerId}/>}
-      {!imagesOnly && <SelectionList 
-        header="Actions" 
-        items={actions} 
-        onClickItem={(item) => item.action()} 
-        selectedPredicate={_ => false}/>}
-      {imagesOnly && allowedChoice === null && <SelectionList 
-        header="Choices"
-        items={items}
-        onClickItem={(item) => item.action()}
-        selectedPredicate={_ => false}/>}
+    <div>
+      {showPreview && !imagesOnly && <MainPage state={state} />}
+
+      <div className='Selector'>
+        {imageLists}
+        {/* <SelectionList 
+          header="Images" 
+          items={AvailableImages.images} 
+          onClickItem={item => sendMessage({image: item.id})} 
+          selectedPredicate={(item) => item.id === state.image}/> */}
+        {!imagesOnly && <SelectionList 
+          header="Speeds" 
+          items={AvailableImages.speeds} 
+          onClickItem={item => sendMessage({speedId: item.id})}
+          overrideImage={"images/icons/rotating_arrows_small.jpg"}
+          selectedPredicate={(item) => item.id === state.speedId}/>}
+        {showBrightness && !imagesOnly && <SelectionList 
+          header="Brightness" 
+          items={AvailableImages.brightness} 
+          onClickItem={item => sendMessage({brightnessId: item.id})}
+          overrideImage={"images/icons/brightness.png"}
+          selectedPredicate={(item) => item.id === state.brightnessId}/>}
+        {showBrightness && !imagesOnly && <SelectionList 
+          header="Fading Timer" 
+          items={AvailableImages.fadingTimer} 
+          onClickItem={item => sendMessage({fadingTimerId: item.id})}
+          overrideImage={"images/icons/brightness.png"}
+          selectedPredicate={(item) => item.id === state.fadingTimerId}/>}
+        {!imagesOnly && <SelectionList 
+          header="Actions" 
+          items={actions} 
+          onClickItem={(item) => item.action()} 
+          selectedPredicate={_ => false}/>}
+        {imagesOnly && allowedChoice === null && <SelectionList 
+          header="Choices"
+          items={items}
+          onClickItem={(item) => item.action()}
+          selectedPredicate={_ => false}/>}
+      </div>
     </div>
+
   );
 }
 
