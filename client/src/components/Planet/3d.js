@@ -20,7 +20,7 @@ function init() {
 		var geometry = new THREE.SphereGeometry(10, 32, 32);
 		materials.planet  = new THREE.MeshLambertMaterial();
 	
-		materials.planet.map    = new THREE.TextureLoader().load('images/Pictures-Map--huge.jpg');
+		materials.planet.map = new THREE.TextureLoader();
 		materials.planet.map.colorSpace = THREE.SRGBColorSpace;	// ### r152 [fixed]
 	
 		meshes.planet = new THREE.Mesh(geometry, materials.planet);
@@ -61,7 +61,7 @@ function init() {
 			side: THREE.BackSide,
 		});
 
-		materials.star.map = new THREE.TextureLoader().load('images/starmap_g4k.webp');
+		materials.star.map = new THREE.TextureLoader().load('images/planets/starmap_g4k.webp');
 		materials.star.map.colorSpace = THREE.SRGBColorSpace;
 
 		meshes.star = new THREE.Mesh(geometry, materials.star);

@@ -14,12 +14,12 @@ function OfflineApp() {
   const actions = [
     { 
       display: "Close Selector",
-      smallsrc: "images/up.png",
+      smallsrc: "images/icons/up.png",
       action: () => sendMessage({showSelector: false})
     },
     { 
       display: "Go online",
-      smallsrc: "images/right.png",
+      smallsrc: "images/icons/right.png",
       action: () => window.location.href = '/selector'
     }
   ];

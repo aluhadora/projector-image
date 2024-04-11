@@ -20,27 +20,8 @@ function Selector({sendMessage, state, actions, showBrightness, imagesOnly = fal
 
   if (allowedChoice === 0) return null;
 
-  // const actions = [
-  //   {
-  //     display: "Refresh Clients",
-  //     smallsrc: "images/refresh.png",
-  //     action: () => sendMessage({refresh: true}),
-  //   },
-  //   { 
-  //     display: "Go Offline",
-  //     smallsrc: "images/refresh.png",
-  //     action: () => window.location.href = '/offline'
-  //   }
-  // ];
-
-  // {!imagesOnly && <SelectionList 
-  //   header="Actions" 
-  //   items={actions} 
-  //   onClickItem={(item) => item.action()} 
-  //   selectedPredicate={_ => false}/>}
-
   const items = [...Array(5).keys()].map((i) => {
-    return {id: i, display: `Choice ${i+1}`, smallsrc: "images/refresh.png", action: () => setAllowedChoice(i+1)};
+    return {id: i, display: `Choice ${i+1}`, smallsrc: "images/icons/refresh.png", action: () => setAllowedChoice(i+1)};
   });
 
 
@@ -69,19 +50,19 @@ function Selector({sendMessage, state, actions, showBrightness, imagesOnly = fal
         header="Speeds" 
         items={AvailableImages.speeds} 
         onClickItem={item => sendMessage({speedId: item.id})}
-        overrideImage={"images/rotating_arrows_small.jpg"}
+        overrideImage={"images/icons/rotating_arrows_small.jpg"}
         selectedPredicate={(item) => item.id === state.speedId}/>}
       {showBrightness && !imagesOnly && <SelectionList 
         header="Brightness" 
         items={AvailableImages.brightness} 
         onClickItem={item => sendMessage({brightnessId: item.id})}
-        overrideImage={"images/brightness.png"}
+        overrideImage={"images/icons/brightness.png"}
         selectedPredicate={(item) => item.id === state.brightnessId}/>}
       {showBrightness && !imagesOnly && <SelectionList 
         header="Fading Timer" 
         items={AvailableImages.fadingTimer} 
         onClickItem={item => sendMessage({fadingTimerId: item.id})}
-        overrideImage={"images/brightness.png"}
+        overrideImage={"images/icons/brightness.png"}
         selectedPredicate={(item) => item.id === state.fadingTimerId}/>}
       {!imagesOnly && <SelectionList 
         header="Actions" 
