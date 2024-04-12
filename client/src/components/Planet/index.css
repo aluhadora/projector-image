@@ -2,21 +2,21 @@
 	position: relative; overflow: hidden;
 
 	/* put the size you want your 3D scene to be here */
-	width: 100vw; height: 100vh;
+	/* width: 100vw; height: 100vh; */
 
 }
 
 
-/* @media all and (orientation:portrait) {
-	.Rotating-image {
-		width: 100vw; height: 100vh;
+@media all and (orientation:portrait) {
+	.Cube-container {
+		width: 100vw; height: 100vw;
 	}
   }
   @media all and (orientation:landscape) {
-	.Rotating-image {
+	.Cube-container {
 		width: 100vw; height: 100vh;
 	}
-  } */
+  }
 
 .Cube-container canvas {
 	position: absolute; top: 0; left: 0;
