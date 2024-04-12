@@ -161,7 +161,7 @@
             "id": 24
         },
         {
-            "src": "images/planets/neptune.jpg",
+            "src": "images/planets/moon_trees.jpg",
             "flatsrc": "images/planets/2k_moon.jpg", 
             "alt": "Moon",
             "display": "Moon",
@@ -169,6 +169,16 @@
             "smallsrc": "images/planets/moon_trees.jpg",
             "group": "Planets",
             "id": 26
+        },
+        {
+            "src": "images/planets/sun_small.jpg",
+            "flatsrc": "images/planets/2k_sun.jpg", 
+            "alt": "Sun",
+            "display": "Sun",
+            "type": "star",
+            "smallsrc": "images/planets/sun_small.jpg",
+            "group": "Planets",
+            "id": 27
         },
         {
             "src": "images/galaxies/galaxy_nebula.jpg",

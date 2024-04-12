@@ -157,7 +157,7 @@ function showPlanetMesh(image, state) {
 		scene.remove(meshes.star);
 	}
 
-	if (state.pointLight) {
+	if (state.pointLight && image.type !== "star") {
 		lights.point.intensity = 1;
 		lights.ambient.intensity = 0.01;
 	} else {
@@ -180,7 +180,7 @@ export function mount(container, state) {
 
 	speedTicks = speed.rotationTicks;
 
-	if (image.type !== "planet" || !state.show3d) {
+	if (!image.type || !state.show3d) {
 		showFlatMesh(image);
 	} else {
 		showPlanetMesh(image, state);
