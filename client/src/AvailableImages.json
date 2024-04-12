@@ -161,6 +161,16 @@
             "id": 24
         },
         {
+            "src": "images/planets/neptune.jpg",
+            "flatsrc": "images/planets/2k_moon.jpg", 
+            "alt": "Moon",
+            "display": "Moon",
+            "type": "planet",
+            "smallsrc": "images/planets/moon_trees.jpg",
+            "group": "Planets",
+            "id": 26
+        },
+        {
             "src": "images/galaxies/galaxy_nebula.jpg",
             "alt": "Galaxy",
             "display": "Galaxy",
