@@ -6,6 +6,18 @@
 
 }
 
+
+/* @media all and (orientation:portrait) {
+	.Rotating-image {
+		width: 100vw; height: 100vh;
+	}
+  }
+  @media all and (orientation:landscape) {
+	.Rotating-image {
+		width: 100vw; height: 100vh;
+	}
+  } */
+
 .Cube-container canvas {
 	position: absolute; top: 0; left: 0;
 }
