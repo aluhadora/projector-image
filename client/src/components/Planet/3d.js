@@ -21,12 +21,11 @@ function init() {
 		materials.plane  = new THREE.MeshBasicMaterial();
 	
 		materials.plane.map = new THREE.TextureLoader();
-		materials.plane.map.colorSpace = THREE.SRGBColorSpace;	// ### r152 [fixed]
+		materials.plane.map.colorSpace = THREE.SRGBColorSpace;
 	
 		meshes.plane = new THREE.Mesh(geometry, materials.plane);
 		materials.plane.transparent = true;
 		meshes.plane.castShadow = true;
-		// meshes.plane.rotation.x += 0.5;
 		scene.add(meshes.plane);
 	}
 
@@ -74,14 +73,9 @@ function init() {
 
 		materials.star.map = new THREE.TextureLoader().load('images/planets/starmap_g4k_dark.webp');
 		materials.star.map.colorSpace = THREE.SRGBColorSpace;
-		// materials.star.map.transparent = true;
-		// materials.star.map.opacity = 0.1;
-		// materials.star.opacity = 0.1;
 
 		meshes.star = new THREE.Mesh(geometry, materials.star);
 		meshes.star.rotation.y = Math.PI / 2;
-		// meshes.star.opacity = 0.1;
-		// meshes.star.transparent = true;
 
 		scene.add(meshes.star);
 	}
