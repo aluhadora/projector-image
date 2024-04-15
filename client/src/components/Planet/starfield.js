@@ -1,9 +1,8 @@
 import * as THREE from 'three';
 
-let mesh = {};
+export function init(scene) {
 
-export function init() {
-
+	const starfield = {};
 	const geometry = new THREE.SphereGeometry(25, 256, 256);
 	const material = new THREE.MeshBasicMaterial({
 		side: THREE.BackSide,
@@ -12,18 +11,23 @@ export function init() {
 	material.map = new THREE.TextureLoader().load('images/planets/starmap_g4k_dark.webp');
 	material.map.colorSpace = THREE.SRGBColorSpace;
 
-	mesh = new THREE.Mesh(geometry, material);
-	mesh.rotation.y = Math.PI / 2;
+	starfield.mesh = new THREE.Mesh(geometry, material);
+	starfield.mesh.rotation.y = Math.PI / 2;
+
+	starfield.hide = () => hide(starfield, scene);
+	starfield.show = state => show(starfield, scene, state);
+
+	return starfield;
 }
 
-export function hide(scene) {
-	scene.remove(mesh);
+export function hide(starfield, scene) {
+	scene.remove(starfield.mesh);
 }
 
-export function show(image, state, add, remove) {
+export function show(starfield, scene, state) {
 	if (state.showStarfield) {
-		add(mesh);
+		scene.add(starfield.mesh);
 	} else {
-		remove(mesh);
+		scene.remove(starfield.mesh);
 	}
 }

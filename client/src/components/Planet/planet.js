@@ -1,23 +1,13 @@
 import * as THREE from 'three';
 
-export function init(image, scene, info) {
-	const ourPlanet = {info};
-	const radius = info.simpleRadius || 1;
-	const rotation = Math.PI * info.axialTilt / 180;
-	const orbitRadius = info.simpleDistance;
+function buildPlanetMaterial(image, radius) {
+	const materials = {};
 
-	var materials = {};
-	var meshes = {};
-
-	var geometry = new THREE.SphereGeometry(radius, 100, 100);
-	
 	if (image.type === 'star') {
 		materials.planet = new THREE.MeshBasicMaterial();
 	} else {
 		materials.planet = new THREE.MeshLambertMaterial();
 	}
-
-	var ring = new THREE.RingGeometry( radius * 1.5, radius * 2.5, 100 );
 
 	if (radius < 5) {
 		materials.planet.map = new THREE.TextureLoader().load(image.smallflatsrc);
@@ -41,8 +31,20 @@ export function init(image, scene, info) {
 		materials.ring.map = new THREE.TextureLoader().load(image.ringsrc);
 	}
 
-
 	materials.planet.map.colorSpace = THREE.SRGBColorSpace;
+	materials.ring.map.colorSpace = THREE.SRGBColorSpace;
+
+	return materials;
+}
+
+function buildMeshes(materials, info) {
+	const radius = info.simpleRadius || 1;
+	const rotation = Math.PI * info.axialTilt / 180;
+	const orbitRadius = info.simpleDistance;
+	let meshes = {};
+	
+	const geometry = new THREE.SphereGeometry(radius, 100, 100);
+	const ring = new THREE.RingGeometry( radius * 1.5, radius * 2.5, 100 );
 
 	meshes.planet = new THREE.Mesh(geometry, materials.planet);
 	meshes.planet.castShadow = true;
@@ -55,10 +57,21 @@ export function init(image, scene, info) {
 	meshes.ring.rotation.x += rotation;
 	meshes.ring.position.x = orbitRadius;
 
+	return meshes;
+}
+
+export function init(image, scene, info) {
+	const ourPlanet = {info};
+	const radius = info.simpleRadius || 1;
+
+	const materials = buildPlanetMaterial(image, radius);
+	
+	const meshes = buildMeshes(materials, info);
+
 	ourPlanet.meshes = meshes;
 	ourPlanet.materials = materials;
 	ourPlanet.image = image;
-	ourPlanet.orbitRadius = orbitRadius;
+	ourPlanet.orbitRadius = info.simpleDistance;
 	ourPlanet.animation = (time, speedTicks) => animation(time, ourPlanet, speedTicks);
 	ourPlanet.hide = () => hide(scene, ourPlanet);
 	ourPlanet.show = () => show(scene, ourPlanet);

@@ -13,14 +13,9 @@ export function init(scene) {
 	scene.add(lights.point);
 }
 
-export function show(image, state) {
-	if (state.pointLight && image.type !== "star") {
-		lights.point.intensity = 1;
-		lights.ambient.intensity = 0.01;
-	} else {
-		lights.point.intensity = 0;
-		lights.ambient.intensity = 1;
-	}
+export function show() {
+	lights.point.intensity = 1;
+	lights.ambient.intensity = 0.01;
 }
 
 export function hide() {

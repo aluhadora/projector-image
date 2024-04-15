@@ -68,16 +68,16 @@ function App() {
       smallsrc: "images/icons/right.png",
       action: () => window.location.href = '/reducedselector'
     },
-    {
-      display: state.show3d ? "Turn off 3d" : "Turn on 3d",
-      smallsrc: "images/icons/right.png",
-      action: () => sendMessage({show3d: !state.show3d})
-    },
-    {
-      display: state.pointLight ? "Switch to ambient" : "Switch to point light",
-      smallsrc: "images/icons/right.png",
-      action: () => sendMessage({pointLight: !state.pointLight})
-    },
+    // {
+    //   display: state.show3d ? "Turn off 3d" : "Turn on 3d",
+    //   smallsrc: "images/icons/right.png",
+    //   action: () => sendMessage({show3d: !state.show3d})
+    // },
+    // {
+    //   display: state.pointLight ? "Switch to ambient" : "Switch to point light",
+    //   smallsrc: "images/icons/right.png",
+    //   action: () => sendMessage({pointLight: !state.pointLight})
+    // },
     {
       display: state.showStarfield ? "Hide Starfield" : "Show Starfield",
       smallsrc: "images/icons/right.png",
