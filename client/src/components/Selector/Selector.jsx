@@ -48,11 +48,6 @@ function Selector({sendMessage, state, actions, showBrightness, imagesOnly = fal
 
       <div className='Selector'>
         {imageLists}
-        {/* <SelectionList 
-          header="Images" 
-          items={AvailableImages.images} 
-          onClickItem={item => sendMessage({image: item.id})} 
-          selectedPredicate={(item) => item.id === state.image}/> */}
         {!imagesOnly && <SelectionList 
           header="Speeds" 
           items={AvailableImages.speeds} 

@@ -39,6 +39,7 @@ function buildPlanetMaterial(image, radius) {
 
 function buildMeshes(materials, info) {
 	const radius = info.simpleRadius || 1;
+	// const radius = Math.log(info.actualRadius) / 10;
 	const rotation = Math.PI * info.axialTilt / 180;
 	const orbitRadius = info.simpleDistance;
 	let meshes = {};
@@ -61,13 +62,13 @@ function buildMeshes(materials, info) {
 }
 
 export function init(image, scene, info) {
-	const ourPlanet = {info};
 	const radius = info.simpleRadius || 1;
 
 	const materials = buildPlanetMaterial(image, radius);
 	
 	const meshes = buildMeshes(materials, info);
 
+	const ourPlanet = {info};
 	ourPlanet.meshes = meshes;
 	ourPlanet.materials = materials;
 	ourPlanet.image = image;

@@ -14,13 +14,13 @@ export function init(scene) {
 	return planet;
 }
 
-export function animation(planet, time, speedTicks) {
+function animation(planet, time, speedTicks) {
 	const objectPlanet = planet.objectPlanet;
 	if (!objectPlanet) return;
 	objectPlanet.animation(time, speedTicks);
 }
 
-export function hide(planet) {
+function hide(planet) {
 	const objectPlanet = planet.objectPlanet;
 	if (!objectPlanet) return;
 	objectPlanet.hide();
@@ -28,7 +28,7 @@ export function hide(planet) {
 	
 }
 
-export function show(ourPlanet, scene, image) {
+function show(ourPlanet, scene, image) {
 	const info = AvailableImages.planets.find(p => p.id === image.planetId);
 
 	const objectPlanet = ourPlanet.objectPlanet;

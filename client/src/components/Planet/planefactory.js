@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 
 export function init(scene) {
-
 	const plane = {};
 
 	const geometry = new THREE.CircleGeometry(12, 100);
@@ -20,7 +19,7 @@ export function init(scene) {
 	return plane;
 }
 
-export function animation(plane, time, speedTicks ) {
+function animation(plane, time, speedTicks ) {
 	if (speedTicks === 0) {
 		return;
 	}
@@ -28,7 +27,7 @@ export function animation(plane, time, speedTicks ) {
 	plane.mesh.rotation.z = -time / (speedTicks || 300000);
 }
 
-export function show(plane, scene, image) {
+function show(plane, scene, image) {
 	plane.mesh.material.map = new THREE.TextureLoader().load(image.src, (texture) => {
 
 		texture.colorSpace = THREE.SRGBColorSpace;
@@ -43,6 +42,6 @@ export function show(plane, scene, image) {
 	scene.add(plane.mesh);
 }
 
-export function hide(plane, scene) {
+function hide(plane, scene) {
 	scene.remove(plane.mesh);
 }

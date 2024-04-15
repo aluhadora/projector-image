@@ -2,7 +2,7 @@ import './Selector.css';
 import React from "react";
 import SelectionItem from './SelectionItem';
 
-function SelectionList({header, items, onClickItem, selectedPredicate, speed, overrideImage, overrideText}) {
+function SelectionList({header, items, onClickItem, selectedPredicate, overrideImage, overrideText}) {
     if (!items) return <div/>;
 
     items.forEach((item) => {
@@ -14,8 +14,8 @@ function SelectionList({header, items, onClickItem, selectedPredicate, speed, ov
   return (
     <ul className="Selection noselect">
         <li key={-1}><div className='Selection-header'>{header}</div></li>
-        {items.filter(item => item.enabled !== false).map(item => (
-            <li key={item.id} data={item.id} onClick={() => onClickItem(item)}>
+        {items.filter(item => item.enabled !== false).map((item, id) => (
+            <li key={id} data={item.id} onClick={() => onClickItem(item)}>
             <SelectionItem item={item} selected={selectedPredicate(item)} /></li>
         ))}
     </ul>

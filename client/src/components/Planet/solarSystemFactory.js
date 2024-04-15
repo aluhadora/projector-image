@@ -34,11 +34,11 @@ export function init(scene) {
 	return solarSystem;
 }
 
-export function animation(solarSystem, time, speedTicks) {
+function animation(solarSystem, time, speedTicks) {
 	solarSystem.planets.forEach(p => p.animation(time, speedTicks));
 }
 
-export function hide(solarSystem, scene) {
+function hide(solarSystem, scene) {
 	if (!scene) return;
 	solarSystem.planets.forEach(p => p.hide());
 	solarSystem.orbits.forEach(o => scene.remove(o));
@@ -46,7 +46,7 @@ export function hide(solarSystem, scene) {
 	scene.remove(solarSystem.lights.ambientLight);
 }
 
-export function show(solarSystem, scene) {
+function show(solarSystem, scene) {
 	solarSystem.planets.forEach(p => p.show());
 	solarSystem.orbits.forEach(o => scene.add(o));
 	scene.add(solarSystem.lights.sunLight);

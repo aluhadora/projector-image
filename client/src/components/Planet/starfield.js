@@ -12,7 +12,7 @@ export function init(scene) {
 	material.map.colorSpace = THREE.SRGBColorSpace;
 
 	starfield.mesh = new THREE.Mesh(geometry, material);
-	starfield.mesh.rotation.y = Math.PI / 2;
+	starfield.mesh.rotation.x = Math.PI / 2;
 
 	starfield.hide = () => hide(starfield, scene);
 	starfield.show = state => show(starfield, scene, state);
@@ -20,11 +20,11 @@ export function init(scene) {
 	return starfield;
 }
 
-export function hide(starfield, scene) {
+function hide(starfield, scene) {
 	scene.remove(starfield.mesh);
 }
 
-export function show(starfield, scene, state) {
+function show(starfield, scene, state) {
 	if (state.showStarfield) {
 		scene.add(starfield.mesh);
 	} else {
