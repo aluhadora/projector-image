@@ -82,6 +82,7 @@
             "alt": "Mercury",
             "display": "Mercury",
             "flatsrc": "images/planets/2k_mercury.jpg",
+            "smallflatsrc": "images/planets/low_mercury.jpg",
             "type": "planet",
             "smallsrc": "images/planets/mercury_small.webp",
             "group": "Planets",
@@ -93,6 +94,7 @@
             "alt": "Venus",
             "display": "Venus",
             "flatsrc": "images/planets/2k_venus_atmosphere.jpg",
+            "smallflatsrc": "images/planets/low_venus_atmosphere.jpg",
             "type": "planet",
             "smallsrc": "images/planets/venus_small.jpg",
             "group": "Planets",
@@ -103,6 +105,7 @@
             "src": "images/planets/earth.jpg",
             "flatsrc": "images/planets/2k_earth_daymap.jpg",
             "shadowsrc": "images/planets/2k_earth_nightmap.jpg",
+            "smallflatsrc": "images/planets/low_earth_daymap.jpg",
             "alt": "Earth",
             "display": "Earth",
             "type": "planet",
@@ -117,6 +120,7 @@
             "alt": "Mars",
             "display": "Mars",
             "flatsrc": "images/planets/2k_mars.jpg",
+            "smallflatsrc": "images/planets/low_mars.jpg",
             "type": "planet",
             "smallsrc": "images/planets/mars_small.webp",
             "group": "Planets",
@@ -126,6 +130,7 @@
         {
             "src": "images/planets/jupiter.jpg",
             "flatsrc": "images/planets/2k_jupiter.jpg",
+            "smallflatsrc": "images/planets/low_jupiter.jpg",
             "alt": "Jupiter",
             "display": "Jupiter",
             "smallsrc": "images/planets/jupiter_small.jpg",
@@ -137,7 +142,9 @@
         {
             "src": "images/planets/saturn_3.jpg",
             "flatsrc": "images/planets/2k_saturn.jpg", 
+            "smallflatsrc": "images/planets/low_saturn.jpg",
             "ringsrc": "images/planets/2k_saturn_ring_alpha.png",
+            "smallringsrc": "images/planets/low_saturn_ring_alpha.png",
             "alt": "Saturn",
             "display": "Saturn",
             "type": "planet",
@@ -149,6 +156,7 @@
         {
             "src": "images/planets/uranus.jpg",
             "flatsrc": "images/planets/2k_uranus.jpg", 
+            "smallflatsrc": "images/planets/low_uranus.jpg",
             "alt": "Uranus",
             "display": "Uranus",
             "type": "planet",
@@ -160,6 +168,7 @@
         {
             "src": "images/planets/neptune.jpg",
             "flatsrc": "images/planets/2k_neptune.jpg", 
+            "smallflatsrc": "images/planets/low_neptune.jpg",
             "alt": "Neptune",
             "display": "Neptune",
             "type": "planet",
@@ -171,6 +180,7 @@
         {
             "src": "images/planets/moon_trees.jpg",
             "flatsrc": "images/planets/2k_moon.jpg", 
+            "smallflatsrc": "images/planets/low_moon.jpg",
             "alt": "Moon",
             "display": "Moon",
             "type": "planet",
@@ -182,6 +192,7 @@
         {
             "src": "images/planets/sun_small.jpg",
             "flatsrc": "images/planets/2k_sun.jpg", 
+            "smallflatsrc": "images/planets/low_sun.jpg",
             "alt": "Sun",
             "display": "Sun",
             "type": "star",

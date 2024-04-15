@@ -1,11 +1,11 @@
 import * as THREE from 'three';
-import AvailableImages from '../../AvailableImages';
 
+export function init(image, scene, info) {
+	const ourPlanet = {info};
+	const radius = info.simpleRadius || 1;
+	const rotation = Math.PI * info.axialTilt / 180;
+	const orbitRadius = info.simpleDistance;
 
-export function init(orbitRadius, image, scene, radius) {
-
-	const ourPlanet = {};
-	ourPlanet.info = AvailableImages.planets.find(p => p.id === image.planetId);
 	var materials = {};
 	var meshes = {};
 
@@ -16,26 +16,43 @@ export function init(orbitRadius, image, scene, radius) {
 	} else {
 		materials.planet = new THREE.MeshLambertMaterial();
 	}
-	materials.planet.map = new THREE.TextureLoader().load(image.flatsrc);
+
+	var ring = new THREE.RingGeometry( radius * 1.5, radius * 2.5, 100 );
+
+	if (radius < 5) {
+		materials.planet.map = new THREE.TextureLoader().load(image.smallflatsrc);
+			
+		materials.ring = new THREE.MeshBasicMaterial( { 
+			side: THREE.DoubleSide, 
+			transparent: true,
+			opacity: 0.3
+		} );
+		materials.ring.map = new THREE.TextureLoader().load(image.smallringsrc);
+
+	} else {
+		materials.planet.displacementMap = new THREE.TextureLoader().load(image.bumpsrc);
+		materials.planet.map = new THREE.TextureLoader().load(image.flatsrc);
+		
+		materials.ring = new THREE.MeshLambertMaterial( { 
+			side: THREE.DoubleSide, 
+			transparent: true,
+		} );
+
+		materials.ring.map = new THREE.TextureLoader().load(image.ringsrc);
+	}
+
+
+	materials.planet.map.colorSpace = THREE.SRGBColorSpace;
 
 	meshes.planet = new THREE.Mesh(geometry, materials.planet);
 	meshes.planet.castShadow = true;
 	meshes.planet.rotation.x += Math.PI/2;
-	meshes.planet.position.x += Math.PI * ourPlanet.info.axialTilt / 180;
+	meshes.planet.rotation.x += rotation;
 	meshes.planet.position.x = orbitRadius;
-
-	var ring = new THREE.RingGeometry( radius * 1.5, radius * 2.5, 100 );
-
-	materials.ring = new THREE.MeshLambertMaterial( { 
-		side: THREE.DoubleSide, 
-		transparent: true
-	} );
-
-	materials.ring.map = new THREE.TextureLoader().load(image.ringsrc);
 
 	meshes.ring = new THREE.Mesh( ring, materials.ring );
 	meshes.ring.receiveShadow = true;
-	meshes.ring.rotation.x += Math.PI/2 + 0.5;
+	meshes.ring.rotation.x += rotation;
 	meshes.ring.position.x = orbitRadius;
 
 	ourPlanet.meshes = meshes;
@@ -49,7 +66,7 @@ export function init(orbitRadius, image, scene, radius) {
 	return ourPlanet;
 }
 
-export function animation( time, planet, speedTicks ) {
+function animation( time, planet, speedTicks ) {
 	if (speedTicks === 0) {
 		return;
 	}
@@ -61,12 +78,13 @@ export function animation( time, planet, speedTicks ) {
 	planet.meshes.planet.rotation.y = time / (dayDuration);
 	planet.meshes.planet.position.y = Math.sin(time / (yearDuration)) * planet.orbitRadius;
 	planet.meshes.planet.position.x = Math.cos(time / (yearDuration)) * planet.orbitRadius;
+
+	planet.meshes.ring.rotation.z = time / (dayDuration);
 	planet.meshes.ring.position.y = Math.sin(time / (yearDuration)) * planet.orbitRadius;
 	planet.meshes.ring.position.x = Math.cos(time / (yearDuration)) * planet.orbitRadius;
 }
 
 function hide(scene, planet) {
-	if (!scene) return;
 	scene.remove(planet.meshes.planet);
 	scene.remove(planet.meshes.ring);
 }

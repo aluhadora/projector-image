@@ -12,25 +12,10 @@ export function init() {
 
 	mesh = new THREE.Mesh(geometry, material);
 	material.transparent = true;
-	mesh.castShadow = true;
 	return mesh;
 }
 
 export function animation( time, speedTicks ) {
-	// .fullSize.fastRotation {
-	// 	animation: Rotating-image-spin infinite 60s linear;
-	//   }
-	//   .fullSize.mediumRotation {
-	// 	animation: Rotating-image-spin infinite 300s linear;
-	//   }
-	//   .fullSize.slowRotation {
-	// 	animation: Rotating-image-spin infinite 600s linear;
-	//   }
-	//   .crazyRotation {
-	// 	animation: Rotating-image-spin infinite 10s linear;
-	//   }
-
-
 	if (speedTicks === 0) {
 		return;
 	}

@@ -10,7 +10,6 @@ var lights = {};
 export function init(parentScene) {
 
 	scene = parentScene;
-	console.log("init solarsystem", scene)
 
 	function addOrbitLine(radius) {
 		var geometry = new THREE.RingGeometry(radius, radius + 0.05, 100);
@@ -24,13 +23,14 @@ export function init(parentScene) {
 		if (p.type === 'moon') return;
 
 		addOrbitLine(p.simpleDistance);
-		planets.push(planet.init(p.simpleDistance, AvailableImages.images.find(i => i.planetId === p.id), scene, p.simpleRadius || 1));
+		// planets.push(planet.init(p.simpleDistance, AvailableImages.images.find(i => i.planetId === p.id), scene, p.simpleRadius || 1, Math.PI * p.axialTilt / 180));
+		planets.push(planet.init(AvailableImages.images.find(i => i.planetId === p.id), scene, p));
 	});
 
 	lights.sunLight = new THREE.PointLight(0xffffff, 5, 0, 0);
 	lights.sunLight.position.set(0, 0, 0);
 	lights.sunLight.castShadow = true;
-	lights.ambientLight = new THREE.AmbientLight(0x404040);
+	lights.ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
 }
 
 export function animation(time, speedTicks) {
@@ -39,7 +39,6 @@ export function animation(time, speedTicks) {
 
 export function hide() {
 	if (!scene) return;
-	console.log("hiding solarsystem", planets)
 	planets.forEach(p => p.hide());
 	meshes.orbits.forEach(o => scene.remove(o));
 	scene.remove(lights.sunLight);
@@ -47,7 +46,6 @@ export function hide() {
 }
 
 export function show() {
-	console.log("showing solarsystem", planets, meshes.orbits)
 	planets.forEach(p => p.show());
 	meshes.orbits.forEach(o => scene.add(o));
 	scene.add(lights.sunLight);

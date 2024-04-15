@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import * as plane from './plane'
 import * as starfield from './starfield';
-import * as planet from './bigplanet';
+import * as planet from './wholePlanet';
 import * as lights from './lights';
 import * as solarSystem from './solarsystem';
 import AvailableImages from '../../AvailableImages';
@@ -33,7 +33,7 @@ function init() {
 	solarSystem.init(scene);
 	lights.init(scene);
 	
-    renderer = new THREE.WebGLRenderer({ powerPreference: "high-performance" });
+    renderer = new THREE.WebGLRenderer({ powerPreference: "high-performance", antialias: true});
     renderer.setAnimationLoop( animation );
 	renderer.shadowMap.enabled = true;
 	renderer.gamaFactor = 2.2;
