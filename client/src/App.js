@@ -28,6 +28,7 @@ function App() {
   function sendMessage(data) {
     data.message = "Selector message sent."
     socket.emit("send_message",  {...state, ...data});
+    console.log("Sending", {...state, ...data});
     setState({...state, ...data});
   }
 
@@ -35,7 +36,7 @@ function App() {
     if (data.refresh) window.location.reload();
     if (!isDirty(data, state)) return;
     
-    console.log("received", state, data);
+    console.log("received", data, "from state", state);
     setState({...state, ...data});
 
   }, [state]);

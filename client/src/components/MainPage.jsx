@@ -5,7 +5,7 @@ import RotatingImage from './RotatingImage';
 import React from "react";
 
 function ComponentFromType({image, speed, classnames, brightness, show3d, state}) {
-  console.log("ComponentFromType", image, show3d, state, classnames)
+  // console.log("ComponentFromType", image, show3d, state, classnames)
   if (!show3d) {
     return <RotatingImage image={image} size="fullSize" classNames={classnames}/>
   }

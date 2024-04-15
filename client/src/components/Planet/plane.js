@@ -1,6 +1,5 @@
 import * as THREE from 'three';
 
-var speedTicks;
 let mesh = null;
 
 export function init() {
@@ -17,9 +16,26 @@ export function init() {
 	return mesh;
 }
 
-export function animation( time ) {
+export function animation( time, speedTicks ) {
+	// .fullSize.fastRotation {
+	// 	animation: Rotating-image-spin infinite 60s linear;
+	//   }
+	//   .fullSize.mediumRotation {
+	// 	animation: Rotating-image-spin infinite 300s linear;
+	//   }
+	//   .fullSize.slowRotation {
+	// 	animation: Rotating-image-spin infinite 600s linear;
+	//   }
+	//   .crazyRotation {
+	// 	animation: Rotating-image-spin infinite 10s linear;
+	//   }
 
-	mesh.rotation.z = -time / (speedTicks || 12000);
+
+	if (speedTicks === 0) {
+		return;
+	}
+
+	mesh.rotation.z = -time / (speedTicks || 300000);
 }
 
 export function show(image, callback) {
@@ -35,4 +51,8 @@ export function show(image, callback) {
 	});
 
 	callback(mesh);
+}
+
+export function hide(scene) {
+	scene.remove(mesh);
 }

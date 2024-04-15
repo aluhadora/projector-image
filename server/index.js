@@ -56,7 +56,7 @@ io.on("connection", (socket) => {
   
   socket.on("send_message", (data) => {
     if (data.imageId) imageId = data.imageId;
-    if (data.Id) speedId = data.speedId;
+    if (data.speedId) speedId = data.speedId;
     if (data.brightnessId) brightnessId = data.brightnessId;
     if (data.fadingTimerId) fadingTimerId= data.fadingTimerId;
     if (data.show3d !== undefined) show3d = data.show3d;

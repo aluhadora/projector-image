@@ -4,7 +4,7 @@ let mesh = {};
 
 export function init() {
 
-	const geometry = new THREE.SphereGeometry(20, 256, 256);
+	const geometry = new THREE.SphereGeometry(25, 256, 256);
 	const material = new THREE.MeshBasicMaterial({
 		side: THREE.BackSide,
 	});

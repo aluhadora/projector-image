@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { mount } from './3d2.js';
+import { mount } from './3d.js';
 import './index.css';
     
 export default function Planet({ state, classNames }) {
