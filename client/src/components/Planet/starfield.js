@@ -12,7 +12,7 @@ export function init(scene) {
 	material.map.colorSpace = THREE.SRGBColorSpace;
 
 	starfield.mesh = new THREE.Mesh(geometry, material);
-	starfield.mesh.rotation.x = Math.PI / 2;
+	starfield.mesh.rotation.x = Math.PI / 2.5;
 
 	starfield.hide = () => hide(starfield, scene);
 	starfield.show = state => show(starfield, scene, state);
