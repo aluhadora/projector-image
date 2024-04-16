@@ -20,9 +20,9 @@ function buildPlanetMaterial(image, radius) {
 		materials.ring.map = new THREE.TextureLoader().load(image.smallringsrc);
 
 	} else {
-		materials.planet.displacementMap = new THREE.TextureLoader().load(image.bumpsrc);
 		materials.planet.map = new THREE.TextureLoader().load(image.flatsrc);
-		
+		if (image.bumpsrc) materials.planet.displacementMap = new THREE.TextureLoader().load(image.bumpsrc);
+
 		materials.ring = new THREE.MeshLambertMaterial( { 
 			side: THREE.DoubleSide, 
 			transparent: true,

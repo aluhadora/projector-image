@@ -3,7 +3,7 @@ import * as THREE from 'three';
 export function init(scene) {
 
 	const starfield = {};
-	const geometry = new THREE.SphereGeometry(25, 256, 256);
+	const geometry = new THREE.SphereGeometry(30, 256, 256);
 	const material = new THREE.MeshBasicMaterial({
 		side: THREE.BackSide,
 	});

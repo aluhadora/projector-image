@@ -16,10 +16,10 @@ init();
 
 function init() {
 
-	cameras.main = new THREE.PerspectiveCamera(50, 1, 1, 50);
+	cameras.main = new THREE.PerspectiveCamera(50, 1, 1, 48);
     cameras.main.position.z = 25;
 	
-    cameras.side = new THREE.PerspectiveCamera(50, 1, 1, 90);
+    cameras.side = new THREE.PerspectiveCamera(55, 1, 1, 90);
     cameras.side.position.z = 15;
 	cameras.side.position.y = -30;
 
@@ -68,6 +68,8 @@ resize();
 function factoryFromType(type) {
 	switch (type) {
 		case 'planet':
+		case 'star':
+		case 'moon':
 			return planetFactory;
 		case 'solarSystem':
 			return solarSystemFactory;
