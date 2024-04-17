@@ -4,6 +4,7 @@ import * as starfieldFactory from './starfield';
 import * as planetFactory from './planetFactory';
 import * as solarSystemFactory from './solarSystemFactory';
 import AvailableImages from '../../AvailableImages';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 var scene, renderer;
 var cameras = {};
@@ -11,6 +12,7 @@ var camera;
 var speedTicks;
 var types = {};
 var starfield = {};
+var controls = {};
 
 init();
 
@@ -23,8 +25,14 @@ function init() {
     cameras.side.position.z = 15;
 	cameras.side.position.y = -30;
 
+	
+
+
+
 	cameras.side.lookAt(0, 0, 0);
 	cameras.side.position.z = 12;
+
+
 
     scene = new THREE.Scene();
 
@@ -34,6 +42,12 @@ function init() {
     renderer.setAnimationLoop( animation );
 	renderer.shadowMap.enabled = true;
 	renderer.gamaFactor = 2.2;
+
+	controls.main = new OrbitControls( cameras.main, renderer.domElement );
+	controls.main.update();
+
+	controls.side = new OrbitControls( cameras.side, renderer.domElement );
+	controls.side.update();
 }
 
 function animation( time ) {
@@ -41,6 +55,8 @@ function animation( time ) {
 	if( !renderer.domElement.parentNode ) return;
 
 	Object.keys(types).forEach(key => types[key].animation(time, speedTicks));
+	controls.main.update();
+	controls.side.update();
 
 	renderer.render( scene, camera );
 }

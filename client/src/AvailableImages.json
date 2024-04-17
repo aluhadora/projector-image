@@ -123,6 +123,7 @@
             "smallflatsrc": "images/planets/low_mars.jpg",
             "type": "planet",
             "smallsrc": "images/planets/mars_small.webp",
+            "bumpsrc": "images/planets/mars_1k_normal.jpg",
             "group": "Planets",
             "id": 22,
             "planetId": 4
@@ -157,6 +158,7 @@
             "src": "images/planets/uranus.jpg",
             "flatsrc": "images/planets/2k_uranus.jpg", 
             "smallflatsrc": "images/planets/low_uranus.jpg",
+            "ringsrc": "images/planets/uranus_rings.png",
             "alt": "Uranus",
             "display": "Uranus",
             "type": "planet",
@@ -200,6 +202,19 @@
             "group": "Planets",
             "id": 27,
             "planetId": 10
+        },
+        {
+            "src": "images/planets/2k_makemake.jpg",
+            "flatsrc": "images/planets/2k_makemake.jpg", 
+            "smallflatsrc": "images/planets/2k_makemake.jpg",
+            "alt": "Make Make",
+            "display": "Make Make",
+            "type": "moon",
+            "smallsrc": "images/planets/2k_makemake.jpg",
+            "group": "Planets",
+            "id": 32,
+            "planetId": 11,
+            "enabled": false
         },
         {
             "src": "images/galaxies/galaxy_nebula.jpg",
@@ -270,6 +285,22 @@
             "group": "Solar System",
             "id": 29,
             "type": "solarSystem"
+        },
+        {
+            "alt": "Black Hole Lensing",
+            "display": "Black Hole Lensing",
+            "src": "images/blackholes/black-hole-lensing-1.webp",
+            "smallsrc": "images/blackholes/black-hole-lensing-1.webp",
+            "group": "Black Holes",
+            "id": 30
+        },
+        {
+            "alt": "Black Hole Colorful",
+            "display": "Black Hole Colorful",
+            "src": "images/blackholes/Artist-rendering-matter-black-hole.webp",
+            "smallsrc": "images/blackholes/Artist-rendering-matter-black-hole.webp",
+            "group": "Black Holes",
+            "id": 31
         }
     ],
     "speeds": [
@@ -463,6 +494,20 @@
         {
             "name": "Sun",
             "id": 10,
+            "type:": "star",
+            "dayDuration": 25.38,
+            "yearDuration": 0,
+            "timeOffset": 0,
+            "actualRadius": 696340,
+            "distanceFromSun": 0,
+            "simpleDistance": 0,
+            "simpleRadius": 1.9,
+            "axialTilt": 7.25
+
+        },
+        {
+            "name": "Make Make",
+            "id": 11,
             "type:": "star",
             "dayDuration": 25.38,
             "yearDuration": 0,
