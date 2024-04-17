@@ -22,17 +22,9 @@ function init() {
     cameras.main.position.z = 25;
 	
     cameras.side = new THREE.PerspectiveCamera(55, 1, 1, 90);
-    cameras.side.position.z = 15;
-	cameras.side.position.y = -30;
-
-	
-
-
-
-	cameras.side.lookAt(0, 0, 0);
-	cameras.side.position.z = 12;
-
-
+	cameras.side.position.x = 0;
+	cameras.side.position.y = -29.07;
+	cameras.side.position.z = 15.05;
 
     scene = new THREE.Scene();
 
@@ -48,6 +40,7 @@ function init() {
 
 	controls.side = new OrbitControls( cameras.side, renderer.domElement );
 	controls.side.update();
+
 }
 
 function animation( time ) {
@@ -57,6 +50,10 @@ function animation( time ) {
 	Object.keys(types).forEach(key => types[key].animation(time, speedTicks));
 	controls.main.update();
 	controls.side.update();
+
+	cameras.side.rotation.x = 0.84;
+	cameras.side.rotation.y = 0;
+	cameras.side.rotation.z = 0;
 
 	renderer.render( scene, camera );
 }
