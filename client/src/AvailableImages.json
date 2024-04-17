@@ -494,7 +494,7 @@
         {
             "name": "Sun",
             "id": 10,
-            "type:": "star",
+            "type": "star",
             "dayDuration": 25.38,
             "yearDuration": 0,
             "timeOffset": 0,
@@ -508,13 +508,13 @@
         {
             "name": "Make Make",
             "id": 11,
-            "type:": "star",
+            "type": "moon",
             "dayDuration": 25.38,
-            "yearDuration": 0,
+            "yearDuration": 100,
             "timeOffset": 0,
             "actualRadius": 696340,
             "distanceFromSun": 0,
-            "simpleDistance": 0,
+            "simpleDistance": 2,
             "simpleRadius": 1.9,
             "axialTilt": 7.25
 
