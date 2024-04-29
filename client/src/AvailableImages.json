@@ -110,7 +110,7 @@
             "display": "Earth",
             "type": "planet",
             "smallsrc": "images/planets/earth_small.jpg",
-            "bumpsrc": "images/planets/2k_earth_normal_map.tif",
+            "bumpsrc": "images/planets/2k_earth_normal_map.jpg",
             "group": "Planets",
             "id": 10,
             "planetId": 3
@@ -159,6 +159,7 @@
             "flatsrc": "images/planets/2k_uranus.jpg", 
             "smallflatsrc": "images/planets/low_uranus.jpg",
             "ringsrc": "images/planets/uranus_rings.png",
+            "smallringsrc": "images/planets/low_uranus_rings.png",
             "alt": "Uranus",
             "display": "Uranus",
             "type": "planet",
@@ -215,6 +216,18 @@
             "id": 32,
             "planetId": 11,
             "enabled": false
+        },
+        {
+            "src": "images/planets/titan_map.jpg",
+            "flatsrc": "images/planets/titan_map.jpg", 
+            "smallflatsrc": "images/planets/titan_map.jpg",
+            "alt": "Titan",
+            "display": "Titan",
+            "type": "moon",
+            "smallsrc": "images/planets/titan_map.jpg",
+            "group": "Planets",
+            "id": 33,
+            "planetId": 12
         },
         {
             "src": "images/galaxies/galaxy_nebula.jpg",
@@ -452,7 +465,8 @@
             "distanceFromSun": 1433.5,
             "simpleDistance": 14.5,
             "simpleRadius": 1.1,
-            "axialTilt": 26.7
+            "axialTilt": 15,
+            "actualTilt": 26.7
             
         },
         {
@@ -489,7 +503,8 @@
             "yearDuration": 27.3,
             "timeOffset": 0,
             "actualRadius": 1737.1,
-            "distanceFromPlanet": 0.3844
+            "distanceFromPlanet": 0.3844,
+            "parentPlanet": 3
         },
         {
             "name": "Sun",
@@ -517,7 +532,17 @@
             "simpleDistance": 2,
             "simpleRadius": 1.9,
             "axialTilt": 7.25
-
+        },
+        {
+            "name": "Titan",
+            "id": 12,
+            "type": "moon",
+            "dayDuration": 15.95,
+            "yearDuration": 15.95,
+            "timeOffset": 0,
+            "actualRadius": 2575,
+            "distanceFromPlanet": 1221.8,
+            "parentPlanet": 6
         }
     ]
 }

@@ -18,7 +18,7 @@ init();
 
 function init() {
 
-	cameras.main = new THREE.PerspectiveCamera(50, 1, 1, 48);
+	cameras.main = new THREE.PerspectiveCamera(50, 1, 1, 55);
     cameras.main.position.z = 25;
 	
     cameras.side = new THREE.PerspectiveCamera(55, 1, 1, 90);
@@ -35,11 +35,11 @@ function init() {
 	renderer.shadowMap.enabled = true;
 	renderer.gamaFactor = 2.2;
 
-	controls.main = new OrbitControls( cameras.main, renderer.domElement );
-	controls.main.update();
-
 	controls.side = new OrbitControls( cameras.side, renderer.domElement );
 	controls.side.update();
+
+	controls.main = new OrbitControls( cameras.main, renderer.domElement );
+	controls.main.update();
 
 }
 
@@ -48,12 +48,8 @@ function animation( time ) {
 	if( !renderer.domElement.parentNode ) return;
 
 	Object.keys(types).forEach(key => types[key].animation(time, speedTicks));
-	controls.main.update();
-	controls.side.update();
-
-	cameras.side.rotation.x = 0.84;
-	cameras.side.rotation.y = 0;
-	cameras.side.rotation.z = 0;
+	// controls.main.update();
+	// controls.side.update();
 
 	renderer.render( scene, camera );
 }
@@ -95,7 +91,7 @@ function showType(image, state) {
 	Object.keys(types).filter(key => key !== image.type).forEach(key => types[key].hide(scene));
 	
 	if (!types[image.type]) types[image.type] = factoryFromType(image.type).init(scene);
-	types[image.type].show(image);
+	types[image.type].show(image, state);
 	
 	if (types[image.type].shouldShowStarfield) {
 		starfield.show(state);
@@ -106,15 +102,29 @@ function showType(image, state) {
 	if (types[image.type].sideCamera) {
 		camera = cameras.side;
 	} else {
+		// controls.main.rotation.x = 0;
+		// controls.main.rotation.y = 0;
+		// controls.main.rotation.z = 0;
+		// controls.main.update();
+
 		camera = cameras.main;
 	}
 }
 
-export function mount(container, state) {
+export function mount(container, state, callbacks) {
 	let image = AvailableImages.images.find(i => i.id === state.imageId) || {};
     let speed = AvailableImages.speeds.find(s => s.id === state.speedId) || {};
 
 	speedTicks = speed.rotationTicks;
+
+	if (callbacks) {
+			callbacks.stuff = p => { 	
+			cameras.side.rotation.x = 0.84;
+			cameras.side.rotation.y = 0;
+			cameras.side.rotation.z = 0;
+			document.title = `Updated ${p}`
+		}
+	}
 
 	console.log("mount", image, state, speedTicks)
 	showType(image, state);

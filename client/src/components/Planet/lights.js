@@ -4,7 +4,7 @@ var lights = {}
 
 export function init(scene) {
 	lights.ambient = new THREE.AmbientLight( 0xffffff, .00 );
-	lights.point = new THREE.DirectionalLight( 0xffffff, 1 );
+	lights.point = new THREE.DirectionalLight( 0xffffff, 1, );
 	lights.point.castShadow = true;
 	lights.ambient.position.set(15, 15, 15);
 	lights.point.position.set(50, 10, 15);

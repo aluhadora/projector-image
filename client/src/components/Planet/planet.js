@@ -9,7 +9,7 @@ function buildPlanetMaterial(image, radius) {
 		materials.planet = new THREE.MeshLambertMaterial();
 	}
 
-	if (radius < 5) {
+	if (radius < 3) {
 		materials.planet.map = new THREE.TextureLoader().load(image.smallflatsrc);
 			
 		materials.ring = new THREE.MeshBasicMaterial( { 
@@ -77,6 +77,7 @@ export function init(image, scene, info) {
 	ourPlanet.hide = () => hide(scene, ourPlanet);
 	ourPlanet.show = () => show(scene, ourPlanet);
 
+	console.log("planet", ourPlanet);
 	return ourPlanet;
 }
 

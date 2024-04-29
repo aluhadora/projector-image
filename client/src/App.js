@@ -8,21 +8,22 @@ import {
 } from "react-router-dom";
 import Selector from './components/Selector/Selector';
 import io from "socket.io-client";
+import buildActions from './actions';
 const socket = io.connect("/");
 
 function App() {
   const [state, setState] = useState({});
 
   function isDirty(data, state) {
-    if (data.imageId !== state.imageId) return true;
-    if (data.speedId !== state.speedId) return true;
-    if (data.brightnessId !== state.brightnessId) return true;
-    if (data.fadingTimerId !== state.fadingTimerId) return true;
-    if (data.show3d !== state.show3d) return true;
-    if (data.pointLight !== state.pointLight) return true;
-    if (data.showStarfield !== state.showStarfield) return true;
-    
-    return false;
+    let dirty = false;
+    for (let key in data) {
+      if (data[key] !== state[key]) {
+        dirty = true;
+        break;
+      }
+    }
+
+    return dirty;
   }
 
   function sendMessage(data) {
@@ -52,46 +53,15 @@ function App() {
       .then((data) => receivedState(data));
   }, [receivedState]);
 
-  const actions = [
-    {
-      display: "Refresh Clients",
-      smallsrc: "images/icons/refresh.png",
-      action: () => sendMessage({refresh: true}),
-    },
-    { 
-      display: "Go Offline",
-      smallsrc: "images/icons/right.png",
-      action: () => window.location.href = '/offline'
-    },
-    { 
-      display: "Go reduced",
-      smallsrc: "images/icons/right.png",
-      action: () => window.location.href = '/reducedselector'
-    },
-    // {
-    //   display: state.show3d ? "Turn off 3d" : "Turn on 3d",
-    //   smallsrc: "images/icons/right.png",
-    //   action: () => sendMessage({show3d: !state.show3d})
-    // },
-    // {
-    //   display: state.pointLight ? "Switch to ambient" : "Switch to point light",
-    //   smallsrc: "images/icons/right.png",
-    //   action: () => sendMessage({pointLight: !state.pointLight})
-    // },
-    {
-      display: state.showStarfield ? "Hide Starfield" : "Show Starfield",
-      smallsrc: "images/icons/right.png",
-      action: () => sendMessage({showStarfield: !state.showStarfield})
-    }
+  const callbacks = {stuff: p => console.log(p)};
 
-  ];
-  
-
+  const actions = buildActions(state, sendMessage, callbacks);
+ 
   return (
     <React.StrictMode>
       <Routes>
-        <Route path="/" element={<MainPage state={state} />} />
-        <Route path="/selector" element={<Selector state={state} sendMessage={sendMessage} actions={actions} showBrightness={true}/>} />
+        <Route path="/" element={<MainPage state={state} callbacks={callbacks} />} />
+        <Route path="/selector" element={<Selector callbacks={callbacks} state={state} sendMessage={sendMessage} actions={actions} showBrightness={true}/>} />
         <Route path="/reducedselector" element={<Selector state={state} sendMessage={sendMessage} actions={actions} showBrightness={false} imagesOnly={true}/>} />
       </Routes>
     </React.StrictMode>

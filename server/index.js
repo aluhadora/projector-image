@@ -13,28 +13,13 @@ const io = new Server(server, {
     cors: {origin:"http://localhost:3000", methods: ["GET", "POST"]},
 });
 
-let imageId = 1;
-let speedId = 2;
-let brightnessId = 2;
-let fadingTimerId = 1;
-let show3d = true;
-let pointLight = true;
-let showStarfield = true;
+let state = {imageId: 1, speedId: 2, brightnessId: 2, fadingTimerId: 1, show3d: true, pointLight: true, showStarfield: true};
 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 app.get("/api", (_, res) => {
-    let data = { 
-      message: "Hello from server!", 
-      imageId: imageId, 
-      speedId: speedId, 
-      brightnessId: brightnessId, 
-      fadingTimerId: fadingTimerId,
-      show3d: show3d,
-      pointLight: pointLight,
-      showStarfield: showStarfield,
-    };
+    let data = {...{message: "Hello from server!", }, ...state };
     res.json(data);
 });
 
@@ -43,7 +28,8 @@ app.get("/api/image", (_, res) => {
 });
 
 app.post("/api/image", (req, res) => {
-  imageId = req.body.imageId;
+  var imageId = req.body.imageId;
+  state.imageId = imageId;
   res.json({imageId: imageId});
 });
 
@@ -55,13 +41,7 @@ io.on("connection", (socket) => {
   console.log(`a user connected ${socket.id}`);
   
   socket.on("send_message", (data) => {
-    if (data.imageId) imageId = data.imageId;
-    if (data.speedId) speedId = data.speedId;
-    if (data.brightnessId) brightnessId = data.brightnessId;
-    if (data.fadingTimerId) fadingTimerId= data.fadingTimerId;
-    if (data.show3d !== undefined) show3d = data.show3d;
-    if (data.pointLight !== undefined) pointLight = data.pointLight;
-    if (data.showStarfield !== undefined) showStarfield = data.showStarfield;
+    state = {...state, ...data};
     socket.broadcast.emit("receive_message", data);
   });
 });

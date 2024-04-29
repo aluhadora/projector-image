@@ -4,7 +4,7 @@ import React from "react";
 import SelectionList from './SelectionList';
 import MainPage from '../MainPage';
 
-function Selector({sendMessage, state, actions, showBrightness, imagesOnly = false}) {
+function Selector({sendMessage, state, actions, showBrightness, callbacks, imagesOnly = false}) {
 
   const [allowedChoice, setAllowedChoice] = React.useState(null);
   const [showPreview, setShowPreview] = React.useState(false);
@@ -44,7 +44,7 @@ function Selector({sendMessage, state, actions, showBrightness, imagesOnly = fal
 
   return (
     <div>
-      {showPreview && !imagesOnly && <MainPage state={state} />}
+      {showPreview && !imagesOnly && <MainPage state={state} callbacks={callbacks} />}
 
       <div className='Selector'>
         {imageLists}

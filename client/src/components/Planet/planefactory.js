@@ -4,7 +4,7 @@ export function init(scene) {
 	const plane = {};
 
 	const geometry = new THREE.CircleGeometry(12, 100);
-	const material  = new THREE.MeshBasicMaterial();
+	const material  = new THREE.MeshBasicMaterial({side: THREE.DoubleSide });
 
 	material.map = new THREE.TextureLoader();
 	material.map.colorSpace = THREE.SRGBColorSpace;
