@@ -36,6 +36,11 @@ function OfflineApp() {
       display: state.showStarfield ? "Hide Starfield" : "Show Starfield",
       smallsrc: "images/icons/right.png",
       action: () => sendMessage({showStarfield: !state.showStarfield})
+    },
+    {
+      display: state.showMoons ? "Hide Moons" : "Show Moons",
+      smallsrc: "images/icons/right.png",
+      action: () => sendMessage({showMoons: !state.showMoons})
     }
   ];
 

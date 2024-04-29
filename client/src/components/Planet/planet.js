@@ -49,6 +49,7 @@ function buildMeshes(materials, info) {
 
 	meshes.planet = new THREE.Mesh(geometry, materials.planet);
 	meshes.planet.castShadow = true;
+	meshes.planet.receiveShadow = true;
 	meshes.planet.rotation.x += Math.PI/2;
 	meshes.planet.rotation.x += rotation;
 	meshes.planet.position.x = orbitRadius;
@@ -92,7 +93,10 @@ function animation( time, planet, speedTicks ) {
 
 	planet.meshes.planet.rotation.y = time / (dayDuration);
 	planet.meshes.planet.position.y = Math.sin(time / (yearDuration)) * planet.orbitRadius;
+	// planet.meshes.planet.position.x = Math.cos(time / (yearDuration)) * planet.orbitRadius;
+	planet.meshes.planet.position.z = -Math.sin(time / (yearDuration)) * planet.orbitRadius;
 	planet.meshes.planet.position.x = Math.cos(time / (yearDuration)) * planet.orbitRadius;
+	
 
 	planet.meshes.ring.rotation.z = time / (dayDuration);
 	planet.meshes.ring.position.y = Math.sin(time / (yearDuration)) * planet.orbitRadius;

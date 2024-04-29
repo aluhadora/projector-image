@@ -18,7 +18,7 @@ init();
 
 function init() {
 
-	cameras.main = new THREE.PerspectiveCamera(50, 1, 1, 55);
+	cameras.main = new THREE.PerspectiveCamera(50, 1, 1, 90);
     cameras.main.position.z = 25;
 	
     cameras.side = new THREE.PerspectiveCamera(55, 1, 1, 90);

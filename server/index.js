@@ -4,6 +4,8 @@ const app = express();
 const http = require('http');
 const { Server } = require("socket.io");
 const cors = require('cors');
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
 app.use(cors());
 
 const PORT = process.env.PORT || 3001;
@@ -27,19 +29,26 @@ app.get("/api/image", (_, res) => {
   res.json({imageId: imageId});
 });
 
-app.post("/api/image", (req, res) => {
+app.post("/api/image", jsonParser, (req, res) => {
+  console.log("Received imageId", req.body);
   var imageId = req.body.imageId;
   state.imageId = imageId;
-  res.json({imageId: imageId});
+  res.json(state);
+  sockets.forEach((socket) => {
+    socket.emit("receive_message", req.body);
+  });
 });
 
 function send_message(data) {
   io.emit("receive_message", data);
 }
 
+var sockets = [];
+
 io.on("connection", (socket) => {
   console.log(`a user connected ${socket.id}`);
   
+  sockets.push(socket);
   socket.on("send_message", (data) => {
     state = {...state, ...data};
     socket.broadcast.emit("receive_message", data);
