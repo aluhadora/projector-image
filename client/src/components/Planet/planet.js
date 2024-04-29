@@ -49,7 +49,7 @@ function buildMeshes(materials, info) {
 
 	meshes.planet = new THREE.Mesh(geometry, materials.planet);
 	meshes.planet.castShadow = true;
-	meshes.planet.receiveShadow = true;
+	// meshes.planet.receiveShadow = true;
 	meshes.planet.rotation.x += Math.PI/2;
 	meshes.planet.rotation.x += rotation;
 	meshes.planet.position.x = orbitRadius;
