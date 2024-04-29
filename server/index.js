@@ -51,6 +51,7 @@ io.on("connection", (socket) => {
   sockets.push(socket);
   socket.on("send_message", (data) => {
     state = {...state, ...data};
+    state.refresh = false;
     socket.broadcast.emit("receive_message", data);
   });
 });
