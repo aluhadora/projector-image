@@ -54,7 +54,7 @@ function hide(planet) {
 function showMoons(ourPlanet, scene, image) {
 	const moonInfos = AvailableImages.planets.filter(p => p.parentPlanet === image.planetId);
 
-	const moonOverrideInfo = {simpleRadius: 1, axialTilt: 0, simpleDistance: 15, dayDuration: 5};
+	const moonOverrideInfo = {simpleRadius: 1, axialTilt: 0, simpleDistance: 15, dayDuration: 5, yearDuration: 60};
 	const moons = moonInfos.map(m => planet.init(AvailableImages.images.find(i => i.planetId === m.id), scene, {...m, ...moonOverrideInfo}));
 
 	ourPlanet.moons = moons;
