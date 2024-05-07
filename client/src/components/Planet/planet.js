@@ -93,12 +93,31 @@ function animation( time, planet, speedTicks ) {
 
 	planet.meshes.planet.rotation.y = time / (dayDuration);
 	planet.meshes.planet.position.y = Math.sin(time / (yearDuration)) * planet.orbitRadius;
+	planet.meshes.planet.position.x = Math.cos(time / (yearDuration)) * planet.orbitRadius;
 	// planet.meshes.planet.position.x = Math.cos(time / (yearDuration)) * planet.orbitRadius;
 	// planet.meshes.planet.position.z = -Math.sin(time / (yearDuration)) * planet.orbitRadius;
-	planet.meshes.planet.position.x = Math.cos(time / (yearDuration)) * planet.orbitRadius;
+
+	// a and b are perpendicular unit vectors in the plane of the circle
+	// c is the center of the circle, which is the body we are orbiting
+
+	// the moon is 6.68 degrees oblique to earth
+	// thus a = [cos(6.68), 0, sin(6.68)]
+	// and b = [0, 1, 0]
+
+	// let theta = 6.68 * Math.PI / 180;
+	// let a = [Math.cos(theta), 0, Math.sin(theta)];
+
+	// let phi = 315 * Math.PI / 180;
+	// let b = [0, Math.cos(phi), Math.sin(phi)];
+	// let c = [0, 0, 0];
+
+	// planet.meshes.planet.position.x = c[0] + planet.orbitRadius * Math.cos(time / (yearDuration)) * a[0] + planet.orbitRadius * Math.sin(time / (yearDuration)) * b[0];
+	// planet.meshes.planet.position.y = c[1] + planet.orbitRadius * Math.cos(time / (yearDuration)) * a[1] + planet.orbitRadius * Math.sin(time / (yearDuration)) * b[1];
+	// planet.meshes.planet.position.z = c[2] + planet.orbitRadius * Math.cos(time / (yearDuration)) * a[2] + planet.orbitRadius * Math.sin(time / (yearDuration)) * b[2];
+	
 	
 
-	planet.meshes.ring.rotation.z = time / (dayDuration);
+	// planet.meshes.ring.rotation.z = time / (dayDuration);
 	planet.meshes.ring.position.y = Math.sin(time / (yearDuration)) * planet.orbitRadius;
 	planet.meshes.ring.position.x = Math.cos(time / (yearDuration)) * planet.orbitRadius;
 }

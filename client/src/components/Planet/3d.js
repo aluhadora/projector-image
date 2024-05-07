@@ -5,6 +5,7 @@ import * as planetFactory from './planetFactory';
 import * as solarSystemFactory from './solarSystemFactory';
 import AvailableImages from '../../AvailableImages';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import Stats from 'stats.js';
 
 var scene, renderer;
 var cameras = {};
@@ -13,6 +14,7 @@ var speedTicks;
 var types = {};
 var starfield = {};
 var controls = {};
+var stats;
 
 init();
 
@@ -41,17 +43,22 @@ function init() {
 	controls.main = new OrbitControls( cameras.main, renderer.domElement );
 	controls.main.update();
 
+	stats = new Stats()
+	stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
+	document.body.appendChild(stats.dom)
 }
 
 function animation( time ) {
 
 	if( !renderer.domElement.parentNode ) return;
+	stats.begin();
 
 	Object.keys(types).forEach(key => types[key].animation(time, speedTicks));
 	// controls.main.update();
 	// controls.side.update();
 
 	renderer.render( scene, camera );
+	stats.end();
 }
 
 function resize() {
@@ -111,6 +118,15 @@ function showType(image, state) {
 	}
 }
 
+function showStats(state) {
+	if (state.showStats) {
+		stats.dom.style.display = 'block';
+	} else {
+		stats.dom.style.display = 'none';
+	}
+	
+}
+
 export function mount(container, state, callbacks) {
 	let image = AvailableImages.images.find(i => i.id === state.imageId) || {};
     let speed = AvailableImages.speeds.find(s => s.id === state.speedId) || {};
@@ -128,6 +144,7 @@ export function mount(container, state, callbacks) {
 
 	console.log("mount", image, state, speedTicks)
 	showType(image, state);
+	showStats(state);
 	
 	if( container ) {
 		container.insertBefore( renderer.domElement, container.firstChild );

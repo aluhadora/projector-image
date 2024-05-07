@@ -205,6 +205,42 @@
             "planetId": 10
         },
         {
+            "src": "images/planets/4k_pluto.jpg",
+            "flatsrc": "images/planets/4k_pluto.jpg", 
+            "smallflatsrc": "images/planets/4k_pluto.jpg",
+            "alt": "Pluto",
+            "display": "Pluto",
+            "type": "planet",
+            "smallsrc": "images/planets/4k_pluto.jpg",
+            "group": "Planets",
+            "id": 35,
+            "planetId": 11
+        },
+        {
+            "src": "images/planets/4k_ceres_fictional.jpg",
+            "flatsrc": "images/planets/4k_ceres_fictional.jpg", 
+            "smallflatsrc": "images/planets/4k_ceres_fictional.jpg",
+            "alt": "Ceres",
+            "display": "Ceres",
+            "type": "moon",
+            "smallsrc": "images/planets/4k_ceres_fictional.jpg",
+            "group": "Planets",
+            "id": 36,
+            "planetId": 11
+        },
+        {
+            "src": "images/planets/4k_eris_fictional.jpg",
+            "flatsrc": "images/planets/4k_eris_fictional.jpg", 
+            "smallflatsrc": "images/planets/4k_eris_fictional.jpg",
+            "alt": "Eris",
+            "display": "Eris",
+            "type": "moon",
+            "smallsrc": "images/planets/4k_eris_fictional.jpg",
+            "group": "Planets",
+            "id": 37,
+            "planetId": 11
+        },
+        {
             "src": "images/planets/2k_makemake.jpg",
             "flatsrc": "images/planets/2k_makemake.jpg", 
             "smallflatsrc": "images/planets/2k_makemake.jpg",
@@ -214,8 +250,7 @@
             "smallsrc": "images/planets/2k_makemake.jpg",
             "group": "Planets",
             "id": 32,
-            "planetId": 11,
-            "enabled": false
+            "planetId": 11
         },
         {
             "src": "images/planets/titan_map.jpg",
@@ -504,6 +539,7 @@
             "timeOffset": 0,
             "actualRadius": 1737.1,
             "distanceFromPlanet": 0.3844,
+            "axialTilt": 0.034,
             "parentPlanet": 3
         },
         {
@@ -542,7 +578,8 @@
             "timeOffset": 0,
             "actualRadius": 2575,
             "distanceFromPlanet": 1221.8,
-            "parentPlanet": 6
+            "parentPlanet": 6,
+            "axialTilt": 0.3
         }
     ]
 }

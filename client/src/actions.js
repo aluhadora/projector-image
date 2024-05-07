@@ -4,16 +4,19 @@ export default function buildActions(state, sendMessage, callbacks) {
           display: "Refresh Clients",
           smallsrc: "images/icons/refresh.png",
           action: () => sendMessage({refresh: true}),
+          onlineOnly: true
         },
         { 
           display: "Go Offline",
           smallsrc: "images/icons/right.png",
-          action: () => window.location.href = '/offline'
+          action: () => window.location.href = '/offline',
+          onlineOnly: true
         },
         { 
           display: "Go reduced",
           smallsrc: "images/icons/right.png",
-          action: () => window.location.href = '/reducedselector'
+          action: () => window.location.href = '/reducedselector',
+          onlineOnly: true
         },
         // {
         //   display: state.show3d ? "Turn off 3d" : "Turn on 3d",
@@ -34,6 +37,11 @@ export default function buildActions(state, sendMessage, callbacks) {
           display: state.showMoons ? "Hide Moons" : "Show Moons",
           smallsrc: "images/icons/right.png",
           action: () => sendMessage({showMoons: !state.showMoons})
+        },
+        {
+          display: state.showStats ? "Hide Stats" : "Show Stats",
+          smallsrc: "images/icons/right.png",
+          action: () => sendMessage({showStats: !state.showStats})
         },
         {
           display: "Call hook",

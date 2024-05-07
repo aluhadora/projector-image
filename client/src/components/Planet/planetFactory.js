@@ -68,7 +68,8 @@ function show(ourPlanet, scene, image, state) {
 	ourPlanet.moons.forEach(m => m.hide());
 	if (objectPlanet) objectPlanet.hide(); 	
 
-	const overrideInfo = {simpleRadius: state.showMoons ? 5 : 10, axialTilt: 315, simpleDistance: 0, dayDuration: 5};
+	// const overrideInfo = {simpleRadius: state.showMoons ? 5 : 10, axialTilt: 315, simpleDistance: 0, dayDuration: 5};
+	const overrideInfo = {simpleRadius: state.showMoons ? 5 : 10, simpleDistance: 0, dayDuration: 5};
 	ourPlanet.objectPlanet = planet.init(image, scene, {...info, ...overrideInfo});
 	ourPlanet.objectPlanet.show()
 	lights.show();
