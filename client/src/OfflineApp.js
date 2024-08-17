@@ -41,6 +41,11 @@ function OfflineApp() {
       display: state.showMoons ? "Hide Moons" : "Show Moons",
       smallsrc: "images/icons/right.png",
       action: () => sendMessage({showMoons: !state.showMoons})
+    },
+    {
+      display: "Go to yarn app",
+      smallsrc: "images/icons/right.png",
+      action: () => window.location.href = '/yarn'
     }
   ];
 

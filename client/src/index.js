@@ -8,6 +8,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import YarnApp from './YarnApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
     path: "/offline",
     element: <OfflineApp />,
   },
+  {
+    path: "/yarn",
+    element: <YarnApp />,
+  }
 ]);
 
 root.render(
