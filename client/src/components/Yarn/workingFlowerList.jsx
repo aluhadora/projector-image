@@ -1,26 +1,25 @@
 import { useState } from "react";
+import FlowerDisplay from "./flowerDisplay";
+import "./Yarn.css"
 
-function FlowerLine({flower, removeFlower}) {
-    return <div style={{backgroundColor: "#333", borderRadius: "10px", margin: "10px", padding: "10px"}} onClick={() => removeFlower(flower)}><span style={{display: "inline-block"}}>{flower.petalColor}:{flower.middleColor}</span></div>
+function FlowerLine({flower, removeFlower, replaceFlower}) {
+    return <FlowerDisplay flower={flower} removeFlower={removeFlower} replaceFlower={replaceFlower} />
 }
 
-function FlowerLines({flowers, removeFlower}) {
-    console.log("FlowerLines", flowers);
-    return flowers.map(c => <FlowerLine flower={c} removeFlower={removeFlower}/>);
+function FlowerLines({flowers, removeFlower, replaceFlower}) {
+    return flowers.map(c => <FlowerLine flower={c} removeFlower={removeFlower} replaceFlower={replaceFlower}/>);
 }
 
-
-export default function WorkingFlowerList({flowers, removeFlower}) {
+export default function WorkingFlowerList({title, defaultShow, flowers, removeFlower, replaceFlower}) {
+    const [show, setShow] = useState(defaultShow);
     if (!flowers) return null;
 
-    console.log("WorkingFlowerList", flowers);
-
     return (
-        <div style={{backgroundColor: "#111", padding: "10px", width: "550px", margin: "10px", borderRadius: "10px", color: "white"}}>
-            <h1>Working List</h1>
-            <div style={{backgroundColor: "#222", padding: "10px", width: "350px", borderRadius: "10px"}}>
-                <FlowerLines flowers={flowers} removeFlower={removeFlower}/>
-            </div>
+        <div className="section">
+            <h1 onClick={() => setShow(!show)}>{title}</h1>
+            {show && <div className="detailSection">
+                <FlowerLines flowers={flowers} removeFlower={removeFlower} replaceFlower={replaceFlower}/>
+            </div>}
             
         </div>
     );

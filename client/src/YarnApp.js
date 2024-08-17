@@ -24,7 +24,12 @@ function YarnApp() {
   const [flowers, setFlowers] = useState([]);
 
   const removeFlower = (flower) => {
-    setFlowers(flowers.filter(f => f !== flower));
+    // create a new array with all the flowers except the one we want to remove
+    setFlowers(flowers.map(f => f === flower ? {...f, complete: true} : f));
+  }
+
+  const replaceFlower = (flower) => {
+    setFlowers(flowers.map(f => f === flower ? {...f, complete: false} : f));
   }
 
   const addFlower = (flower) => {
@@ -34,10 +39,11 @@ function YarnApp() {
   if (!colors) return null;
 
   return (
-    <div>
+    <div style={{overflowX: "hidden"}}>
       <ColorsEntry colors={colors}/>
       <FlowerGenerator colors={colors} setColors={setColors} addFlower={addFlower} />
-      <WorkingFlowerList flowers={flowers} removeFlower={removeFlower}/>
+      <WorkingFlowerList title="Working List" defaultShow={true} flowers={flowers.filter(f => !f.complete)} removeFlower={removeFlower}/>
+      <WorkingFlowerList title="Completed List" defaultShow={false} flowers={flowers.filter(f => f.complete)} replaceFlower={replaceFlower}/>
     </div>
     
   );
