@@ -36,7 +36,7 @@ function generateFlower(colors) {
 }
 
 function acceptFlower(colors, setColors, workingFlower, setWorkingFlower, addFlower) {
-    let newWeightedColors = colors.map(c => ({...c, weight: c.name === workingFlower.petalColor ? 1 : c.weight * 2}));
+    let newWeightedColors = colors.map(c => ({...c, weight: c.name === workingFlower.petalColor ? 1 : c.weight * 1.33}));
     setColors(newWeightedColors);
     addFlower(workingFlower);
     setWorkingFlower(null);

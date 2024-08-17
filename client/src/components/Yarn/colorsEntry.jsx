@@ -1,16 +1,21 @@
 import { useState } from "react";
+import "./Yarn.css"
 
-export default function ColorsEntry(colors) {
+export default function ColorsEntry({colors, resetState}) {
     const [show, setShow] = useState(false);
 
     if (!colors) return null;
-    console.log(colors);
-    const colorsText = colors.colors.map(c => c.name).join('\n');
+    const colorsText = colors.map(c => c.name).join('\n');
+
+    const reset = () => {
+        resetState();
+        setShow(false);
+    }
     
     if (show) {
         return <div>
-            <textarea defaultValue={colorsText}/>
-            <button onClick={() => setShow(false)}>Save Colors</button>
+            <textarea value={colorsText}/>
+            <button onClick={() => reset()}>Reset State</button>
         </div>
     }
     else {

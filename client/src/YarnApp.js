@@ -1,8 +1,6 @@
 import './App.css';
 import { useState } from 'react';
 import React from "react";
-import MainPage from "./components/MainPage";
-import Selector from './components/Selector/Selector';
 import ColorsEntry from './components/Yarn/colorsEntry';
 import defaultColors from './components/Yarn/defaultColors.json';
 import FlowerGenerator from './components/Yarn/flowerGenerator';
@@ -46,11 +44,17 @@ function YarnApp() {
     saveFlowersLocal([...flowers, flower], setFlowers);
   }
 
+  const resetState = () => {
+    saveColorsLocal(buildDefaultState(), setColors);
+    saveFlowersLocal([], setFlowers);
+  }
+
+
   if (!colors) return null;
 
   return (
     <div style={{overflowX: "hidden"}}>
-      <ColorsEntry colors={colors}/>
+      <ColorsEntry colors={colors} resetState={resetState} />
       <FlowerGenerator colors={colors} setColors={colors => saveColorsLocal(colors, setColors)} addFlower={addFlower} />
       <WorkingFlowerList title="Working List" defaultShow={true} flowers={flowers.filter(f => !f.complete)} removeFlower={removeFlower}/>
       <WorkingFlowerList title="Completed List" defaultShow={false} flowers={flowers.filter(f => f.complete)} replaceFlower={replaceFlower}/>
