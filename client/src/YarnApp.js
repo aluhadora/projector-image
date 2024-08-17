@@ -19,21 +19,31 @@ function getStoredState() {
   return JSON.parse(localStorage.getItem('yarnColors')) || buildDefaultState();
 }
 
+function saveColorsLocal(colors, setColors) {
+  localStorage.setItem('yarnColors', JSON.stringify(colors));
+  setColors(colors);
+}
+
+function saveFlowersLocal(flowers, setFlowers) {
+  localStorage.setItem('yarnFlowers', JSON.stringify(flowers));
+  setFlowers(flowers);
+}
+
 function YarnApp() {
   const [colors, setColors] = useState(getStoredState());
-  const [flowers, setFlowers] = useState([]);
+  const [flowers, setFlowers] = useState(JSON.parse(localStorage.getItem('yarnFlowers')) || []);
 
   const removeFlower = (flower) => {
     // create a new array with all the flowers except the one we want to remove
-    setFlowers(flowers.map(f => f === flower ? {...f, complete: true} : f));
+    saveFlowersLocal(flowers.map(f => f === flower ? {...f, complete: true} : f), setFlowers);
   }
 
   const replaceFlower = (flower) => {
-    setFlowers(flowers.map(f => f === flower ? {...f, complete: false} : f));
+    saveFlowersLocal(flowers.map(f => f === flower ? {...f, complete: false} : f), setFlowers);
   }
 
   const addFlower = (flower) => {
-    setFlowers([...flowers, flower]);
+    saveFlowersLocal([...flowers, flower], setFlowers);
   }
 
   if (!colors) return null;
@@ -41,7 +51,7 @@ function YarnApp() {
   return (
     <div style={{overflowX: "hidden"}}>
       <ColorsEntry colors={colors}/>
-      <FlowerGenerator colors={colors} setColors={setColors} addFlower={addFlower} />
+      <FlowerGenerator colors={colors} setColors={colors => saveColorsLocal(colors, setColors)} addFlower={addFlower} />
       <WorkingFlowerList title="Working List" defaultShow={true} flowers={flowers.filter(f => !f.complete)} removeFlower={removeFlower}/>
       <WorkingFlowerList title="Completed List" defaultShow={false} flowers={flowers.filter(f => f.complete)} replaceFlower={replaceFlower}/>
     </div>
