@@ -7,7 +7,7 @@ export default function FlowerDisplay({flower, removeFlower, replaceFlower}) {
     const middleHex = defaultColors.find(c => c.name === flower.middleColor).hex;
 
     return (
-        <div style={{backgroundColor: "#333", borderRadius: "10px", margin: "10px", padding: "10px", color:"white"}}>
+        <div style={{backgroundColor: "#333", borderRadius: "10px", marginTop: "10px", padding: "10px", color:"white"}}>
             <span style={{marginRight: "5px"}}>{flower.petalColor}</span>  
             <span>/</span>  
             <span style={{marginLeft: "5px", marginRight: "20px"}}>{flower.middleColor}</span>

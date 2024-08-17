@@ -17,7 +17,7 @@ export default function WorkingFlowerList({title, defaultShow, flowers, removeFl
     return (
         <div className="section">
             <h1 onClick={() => setShow(!show)}>{title}</h1>
-            <p>{flowers.length}</p>
+            {/* <p>{flowers.length}</p> */}
             {show && <div className="detailSection">
                 <FlowerLines flowers={flowers} removeFlower={removeFlower} replaceFlower={replaceFlower}/>
             </div>}
