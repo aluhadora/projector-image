@@ -47,6 +47,7 @@ function WorkingFlower({workingFlower, acceptClick, rejectClick, doneClick}) {
 
     return <div>
         <FlowerDisplay flower={workingFlower}/>
+        <div style={{height:"10px"}}></div>
         <button onClick={acceptClick}>Accept</button>
         <button onClick={rejectClick}>Reject</button>
         <button onClick={doneClick}>Done</button>
