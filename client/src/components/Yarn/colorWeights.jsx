@@ -2,8 +2,9 @@ import { useState } from "react";
 import "./Yarn.css"
 
 function ColorLine({color, flowers}) {
+    console.log("ColorLine", color, flowers);
     const totalCount = flowers.filter(f => f.petalColor === color.name).length;
-    const uncompletedCount = flowers.filter(f => f.petalColor === color.name && !f.completed).length;
+    const uncompletedCount = flowers.filter(f => f.petalColor === color.name && !f.complete).length;
     return <div>
         <span className="weightField">{color.name} </span>
         <span className="weightField"> {color.weight.toFixed(2)}</span>
