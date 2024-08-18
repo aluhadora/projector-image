@@ -26,6 +26,7 @@ function acceptFlower(colors, setColors, workingFlower, setWorkingFlower, addFlo
     setColors(newWeightedColors);
     addFlower(workingFlower);
     setWorkingFlower(null);
+    return newWeightedColors;
 }
 
 function WorkingFlower({workingFlower, acceptClick, rejectClick, doneClick}) {
@@ -48,8 +49,8 @@ export default function FlowerGenerator({colors, setColors, addFlower}) {
     }
 
     const acceptClick = () => {
-        acceptFlower(colors, setColors, workingFlower, setWorkingFlower, addFlower);
-        generateClick();
+        const newColors = acceptFlower(colors, setColors, workingFlower, setWorkingFlower, addFlower);
+        setWorkingFlower(generateFlower(newColors || colors))
     }
 
     const doneClick = () => {
