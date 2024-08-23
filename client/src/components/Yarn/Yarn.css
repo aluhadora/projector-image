@@ -48,9 +48,12 @@ button {
     margin-top: 10px;
     padding: 10px;
     color: white;
+    overflow: hidden
 }
 
 .flowerText {
     display: inline-block;   
-    font-size: clamp(8px, 3.5vw, 16px);
+    font-size: clamp(6px, 3.5vw, 18px);
+    max-width: 100px;
+    text-overflow: clip;
 }
