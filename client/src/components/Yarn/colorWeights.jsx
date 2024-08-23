@@ -9,6 +9,7 @@ function ColorLine({color, flowers}) {
         <span className="weightField">{color.name} </span>
         <span className="weightField"> {color.weight.toFixed(2)}</span>
         <span className="weightField">{uncompletedCount}/{totalCount}</span>
+        <span className="weightField">{color.defaultPetalWeight.toFixed(2)}/{color.defaultMiddleWeight.toFixed(2)}</span>
     </div>
 }
 
@@ -17,6 +18,7 @@ function LegendLine() {
         <span className="weightField">Color</span>
         <span className="weightField">Weight</span>
         <span className="weightField">Working/Total</span>
+        <span className="weightField">Default Petal/Middle Weights</span>
     </div>
 }
 

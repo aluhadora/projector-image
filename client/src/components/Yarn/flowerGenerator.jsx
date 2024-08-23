@@ -2,7 +2,7 @@ import { useState } from "react";
 import FlowerDisplay from "./flowerDisplay";
 import "./Yarn.css"
 
-function generateFlower(colors) {
+function generatePetalColor(colors) {
     let totalWeight = colors.reduce((acc, c) => acc + c.weight, 0);
     let random = Math.random() * totalWeight;
     let weight = 0;
@@ -11,18 +11,35 @@ function generateFlower(colors) {
         return weight >= random;
     });
 
-    // pick a random middle color that isn't the same as the petal color
-    const filteredColors = colors.filter(c => c.name !== petalColor.name);
-    let middleColor = filteredColors[Math.floor(Math.random() * filteredColors.length)];
+    return petalColor.name;
+}
 
+function generateMiddleColor(colors, petalColorName) {
+    const filteredColors = colors.filter(c => c.name !== petalColorName);
+
+    let totalWeight = filteredColors.reduce((acc, c) => acc + c.defaultMiddleWeight, 0);
+    let random = Math.random() * totalWeight;
+    let weight = 0;
+    let middleColor = filteredColors.find(c => {
+        weight += c.defaultMiddleWeight;
+        return weight >= random;
+    });
+
+    return middleColor.name;
+}
+
+function generateFlower(colors) {
+    const petalColor = generatePetalColor(colors);
+    const middleColor = generateMiddleColor(colors, petalColor);
+    
     return {
-        petalColor: petalColor.name,
-        middleColor: middleColor.name
+        petalColor: petalColor,
+        middleColor: middleColor
     };
 }
 
 function acceptFlower(colors, setColors, workingFlower, setWorkingFlower, addFlower) {
-    let newWeightedColors = colors.map(c => ({...c, weight: c.name === workingFlower.petalColor ? 1 : c.weight * 1.33}));
+    let newWeightedColors = colors.map(c => ({...c, weight: c.name === workingFlower.petalColor ? c.defaultPetalWeight : c.weight * 1.33}));
     setColors(newWeightedColors);
     addFlower(workingFlower);
     setWorkingFlower(null);

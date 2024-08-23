@@ -15,7 +15,23 @@ function buildDefaultState() {
 }
 
 function getStoredState() {
-  return JSON.parse(localStorage.getItem('yarnColors')) || buildDefaultState();
+  var colors = JSON.parse(localStorage.getItem('yarnColors')) || buildDefaultState();
+  defaultColors.forEach(c => {
+    if (!colors.find(c2 => c2.name === c.name)) {
+      colors.push(c);
+    }
+  });
+
+  colors.forEach(c => {
+    const matchingDefault = defaultColors.find(c2 => c2.name === c.name);
+
+    c.defaultPetalWeight = matchingDefault.defaultPetalWeight;
+    c.defaultMiddleWeight = matchingDefault.defaultMiddleWeight;
+    if (!c.weight) c.weight = c.defaultPetalWeight;
+  });
+
+  return colors;
+  
 }
 
 function saveColorsLocal(colors, setColors) {
@@ -45,6 +61,10 @@ function YarnApp() {
     saveFlowersLocal([...flowers, flower], setFlowers);
   }
 
+  const deleteFlower = (flower) => {
+    saveFlowersLocal(flowers.filter(f => f !== flower), setFlowers);
+  }
+
   const resetState = () => {
     saveColorsLocal(buildDefaultState(), setColors);
     saveFlowersLocal([], setFlowers);
@@ -59,7 +79,7 @@ function YarnApp() {
       <ColorWeights colors={colors} setColors={colors => saveColorsLocal(colors, setColors)} addFlower={addFlower} flowers={flowers} />
       <FlowerGenerator colors={colors} setColors={colors => saveColorsLocal(colors, setColors)} addFlower={addFlower} />
       <WorkingFlowerList title="Working List" defaultShow={true} flowers={flowers.filter(f => !f.complete)} removeFlower={removeFlower}/>
-      <WorkingFlowerList title="Completed List" defaultShow={false} flowers={flowers.filter(f => f.complete)} replaceFlower={replaceFlower}/>
+      <WorkingFlowerList title="Completed List" defaultShow={false} flowers={flowers.filter(f => f.complete)} replaceFlower={replaceFlower} removeFlower={deleteFlower}/>
     </div>
     
   );
