@@ -54,6 +54,5 @@ button {
 .flowerText {
     display: inline-block;   
     font-size: clamp(6px, 3.5vw, 18px);
-    max-width: 100px;
     text-overflow: clip;
 }
