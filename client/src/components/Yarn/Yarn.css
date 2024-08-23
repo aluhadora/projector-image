@@ -32,3 +32,16 @@ button {
     display: inline-block;
     width: 125px;
 }
+
+.flowerDisplay {
+    background-color: #333;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    color: white;
+}
+
+.flowerText {
+    display: inline-block;   
+    font-size: clamp(8px, 3.7vw, 16px);
+}

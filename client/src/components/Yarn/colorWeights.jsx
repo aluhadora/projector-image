@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./Yarn.css"
 
 function ColorLine({color, flowers}) {
-    console.log("ColorLine", color, flowers);
     const totalCount = flowers.filter(f => f.petalColor === color.name).length;
     const uncompletedCount = flowers.filter(f => f.petalColor === color.name && !f.complete).length;
     return <div>
