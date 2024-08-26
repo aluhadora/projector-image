@@ -49,7 +49,6 @@ function YarnApp() {
   const [flowers, setFlowers] = useState(JSON.parse(localStorage.getItem('yarnFlowers')) || []);
 
   const removeFlower = (flower) => {
-    // create a new array with all the flowers except the one we want to remove
     saveFlowersLocal(flowers.map(f => f === flower ? {...f, complete: true} : f), setFlowers);
   }
 
@@ -59,6 +58,10 @@ function YarnApp() {
 
   const addFlower = (flower) => {
     saveFlowersLocal([...flowers, flower], setFlowers);
+  }
+
+  const persistFlowers = () => {
+    saveFlowersLocal(flowers, setFlowers);
   }
 
   const deleteFlower = (flower) => {
@@ -78,8 +81,8 @@ function YarnApp() {
       <ColorsEntry colors={colors} resetState={resetState} />
       <ColorWeights colors={colors} setColors={colors => saveColorsLocal(colors, setColors)} addFlower={addFlower} flowers={flowers} />
       <FlowerGenerator colors={colors} setColors={colors => saveColorsLocal(colors, setColors)} addFlower={addFlower} />
-      <WorkingFlowerList title="Working List" defaultShow={true} flowers={flowers.filter(f => !f.complete)} removeFlower={removeFlower}/>
-      <WorkingFlowerList title="Completed List" defaultShow={false} flowers={flowers.filter(f => f.complete)} replaceFlower={replaceFlower} removeFlower={deleteFlower}/>
+      <WorkingFlowerList title="Working List" defaultShow={true} flowers={flowers.filter(f => !f.complete)} removeFlower={removeFlower} persistFlowers={persistFlowers}/>
+      <WorkingFlowerList title="Completed List" defaultShow={false} flowers={flowers.filter(f => f.complete)} replaceFlower={replaceFlower} persistFlowers={persistFlowers}/>
     </div>
     
   );
