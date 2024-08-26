@@ -44,9 +44,15 @@ function saveFlowersLocal(flowers, setFlowers) {
   setFlowers(flowers);
 }
 
+function getSavedFlowers() {
+  var flowers = JSON.parse(localStorage.getItem('yarnFlowers')) || [];
+  flowers.forEach((f, i) => {f.index = i; f.editing = false;});
+  return flowers;
+}
+
 function YarnApp() {
   const [colors, setColors] = useState(getStoredState());
-  const [flowers, setFlowers] = useState(JSON.parse(localStorage.getItem('yarnFlowers')) || []);
+  const [flowers, setFlowers] = useState(getSavedFlowers());
 
   const removeFlower = (flower) => {
     saveFlowersLocal(flowers.map(f => f === flower ? {...f, complete: true} : f), setFlowers);
@@ -68,6 +74,21 @@ function YarnApp() {
     saveFlowersLocal(flowers.filter(f => f !== flower), setFlowers);
   }
 
+  const shiftFlower = (flower, shift) => {
+    const index = flowers.indexOf(flower);
+    const newFlowers = [...flowers];
+    newFlowers[index] = newFlowers[index + shift];
+    newFlowers[index + shift] = flower;
+    newFlowers.forEach((f, i) => f.index = i);
+    flower.editing = true;
+    saveFlowersLocal(newFlowers, setFlowers);
+  }
+
+  const canShiftFlower = (flower, shift) => {
+    const index = flowers.indexOf(flower);
+    return index + shift >= 0 && index + shift < flowers.length;
+  }
+
   const resetState = () => {
     saveColorsLocal(buildDefaultState(), setColors);
     saveFlowersLocal([], setFlowers);
@@ -81,8 +102,8 @@ function YarnApp() {
       <ColorsEntry colors={colors} resetState={resetState} />
       <ColorWeights colors={colors} setColors={colors => saveColorsLocal(colors, setColors)} addFlower={addFlower} flowers={flowers} />
       <FlowerGenerator colors={colors} setColors={colors => saveColorsLocal(colors, setColors)} addFlower={addFlower} />
-      <WorkingFlowerList title="Working List" defaultShow={true} flowers={flowers.filter(f => !f.complete)} removeFlower={removeFlower} persistFlowers={persistFlowers}/>
-      <WorkingFlowerList title="Completed List" defaultShow={false} flowers={flowers.filter(f => f.complete)} replaceFlower={replaceFlower} persistFlowers={persistFlowers}/>
+      <WorkingFlowerList title="Working List" defaultShow={true} flowers={flowers.filter(f => !f.complete)} removeFlower={removeFlower} persistFlowers={persistFlowers} canShiftFlower={canShiftFlower} shiftFlower={shiftFlower} />
+      <WorkingFlowerList title="Completed List" defaultShow={false} flowers={flowers.filter(f => f.complete)} replaceFlower={replaceFlower} removeFlower={deleteFlower} persistFlowers={persistFlowers} canShiftFlower={canShiftFlower} shiftFlower={shiftFlower}/>
     </div>
     
   );

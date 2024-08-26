@@ -115,3 +115,21 @@ button {
 .comboPreview {
     display: inline-block;
 }
+
+.detailButton {
+    background-color: #222;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 100px;
+    height: 50px;
+}
+
+.detailButton:disabled {
+    color: #555;
+    background-color: #222;
+}

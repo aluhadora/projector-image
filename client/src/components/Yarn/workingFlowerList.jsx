@@ -2,15 +2,15 @@ import { useState } from "react";
 import FlowerDisplay from "./flowerDisplay";
 import "./Yarn.css"
 
-function FlowerLine({flower, removeFlower, replaceFlower, persistFlowers}) {
-    return <FlowerDisplay flower={flower} removeFlower={removeFlower} replaceFlower={replaceFlower} persistFlowers={persistFlowers} />
+function FlowerLine({flower, removeFlower, replaceFlower, persistFlowers, canShiftFlower, shiftFlower}) {
+    return <FlowerDisplay flower={flower} removeFlower={removeFlower} replaceFlower={replaceFlower} persistFlowers={persistFlowers} canShiftFlower={canShiftFlower} shiftFlower={shiftFlower} />
 }
 
-function FlowerLines({flowers, removeFlower, replaceFlower, persistFlowers}) {
-    return flowers.map(c => <FlowerLine flower={c} removeFlower={removeFlower} replaceFlower={replaceFlower} persistFlowers={persistFlowers}/>);
+function FlowerLines({flowers, removeFlower, replaceFlower, persistFlowers, canShiftFlower, shiftFlower}) {
+    return flowers.map(c => <FlowerLine flower={c} removeFlower={removeFlower} replaceFlower={replaceFlower} persistFlowers={persistFlowers} canShiftFlower={canShiftFlower} shiftFlower={shiftFlower} />);
 }
 
-export default function WorkingFlowerList({title, defaultShow, flowers, removeFlower, replaceFlower, persistFlowers}) {
+export default function WorkingFlowerList({title, defaultShow, flowers, removeFlower, replaceFlower, persistFlowers, canShiftFlower, shiftFlower}) {
     const [show, setShow] = useState(defaultShow);
     if (!flowers) return null;
 
@@ -39,7 +39,7 @@ const styles = {
             </div>
             {/* <p>{flowers.length}</p> */}
             {show && <div className="detailSection">
-                <FlowerLines flowers={flowers} removeFlower={removeFlower} replaceFlower={replaceFlower} persistFlowers={persistFlowers}/>
+                <FlowerLines flowers={flowers} removeFlower={removeFlower} replaceFlower={replaceFlower} persistFlowers={persistFlowers} canShiftFlower={canShiftFlower} shiftFlower={shiftFlower}/>
             </div>}
             
         </div>
