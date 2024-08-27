@@ -9,17 +9,18 @@
     {"name": "Nutmeg", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1, "hex": "#9f7a5d"},
     {"name": "Provence", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1, "hex": "#bdb2c3"},
     {"name": "Raisin", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1, "hex": "#956853"},
-    {"name": "Moonbeam", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1.333, "hex": "#e3e1d5"},
+    {"name": "Moonbeam", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1, "hex": "#e3e1d5"},
     {"name": "Tourmaline", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1, "hex": "#96b3af"},
-    {"name": "Ivory", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1.333, "hex": "#efecd9"},
+    {"name": "Ivory", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1, "hex": "#efecd9"},
     {"name": "Bone", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1, "hex": "#bfaca6"},
     {"name": "Thunder", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1, "hex": "#222126"},
-    {"name": "Satellite", "weight": 1, "defaultPetalWeight": 1.333, "defaultMiddleWeight": 1.333, "hex": "#b2b3ab"},
+    {"name": "Satellite", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1, "hex": "#b2b3ab"},
     {"name": "Stonewash", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1, "hex": "#62747e"},
     {"name": "Amethyst", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1, "hex": "#79748b"},
     {"name": "Light Rose", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1, "hex": "#f4d9e3"},
     {"name": "Mustard (BG)", "weight": 0.333, "defaultPetalWeight": 0.333, "defaultMiddleWeight": 0.333, "hex": "#d9c07c"},
     {"name": "Cinnamon", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1, "hex": "#b37f6d"},
     {"name": "Burgundy", "weight": 0.5, "defaultPetalWeight": 0.5, "defaultMiddleWeight": 0.5, "hex": "#800020"},
-    {"name": "Olive Drab", "weight": 0.333, "defaultPetalWeight": 0.333, "defaultMiddleWeight": 0.333, "hex": "#6A6932"}
+    {"name": "Olive Drab", "weight": 0.333, "defaultPetalWeight": 0.333, "defaultMiddleWeight": 0.333, "hex": "#6A6932"},
+    {"name": "Cream", "weight": 0.333, "defaultPetalWeight": 0.333, "defaultMiddleWeight": 1.333, "hex": "#f5f5dc"}
 ]

@@ -76,16 +76,17 @@ function YarnApp() {
 
   const shiftFlower = (flower, shift) => {
     const index = flowers.indexOf(flower);
+    if (!canShiftFlower(flower, shift)) return;
     const newFlowers = [...flowers];
     newFlowers[index] = newFlowers[index + shift];
     newFlowers[index + shift] = flower;
     newFlowers.forEach((f, i) => f.index = i);
-    flower.editing = true;
     saveFlowersLocal(newFlowers, setFlowers);
   }
 
   const canShiftFlower = (flower, shift) => {
-    const index = flowers.indexOf(flower);
+    const filteredFlowers = flowers.filter(f => !!f.complete === !!flower.complete);
+    const index = filteredFlowers.indexOf(flower);
     return index + shift >= 0 && index + shift < flowers.length;
   }
 

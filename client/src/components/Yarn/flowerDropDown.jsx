@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import defaultColors from './defaultColors.json';
-import ColorSquare from './colorSquare';
 import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react'
 import "./Yarn.css"
 

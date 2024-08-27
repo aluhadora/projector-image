@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import defaultColors from './defaultColors.json';
 import ColorSquare from './colorSquare';
-import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react'
 import FlowerDropDown from './flowerDropDown';
 
 
@@ -16,8 +14,9 @@ function ShowOnlyFlower({flower, removeFlower, replaceFlower}) {
             <div style={{display: "inline-block", float: "right"}}>
                 <ColorSquare flower={flower} isPetal={true}/>
                 <ColorSquare flower={flower} isPetal={false}/>
-                {removeFlower && <div style={{backgroundImage: "url(images/icons/delete.png)", backgroundSize: "cover", borderRadius: "10px", marginLeft: "10px", marginRight: "5px", height: "25px", width: "25px", display: "inline-block"}} onClick={() => removeFlower(flower)}></div>}
-                {replaceFlower && <div style={{backgroundImage: "url(images/icons/add.png)", backgroundSize: "cover", borderRadius: "10px", marginLeft: "10px", marginRight: "5px", height: "25px", width: "25px", display: "inline-block"}} onClick={() => replaceFlower(flower)}></div>}
+
+                {removeFlower && <div className="workingButton delete" onClick={() => removeFlower(flower)}></div>}
+                {replaceFlower && <div className="workingButton add" onClick={() => replaceFlower(flower)}></div>}
             </div>
         </>
     );
@@ -39,8 +38,8 @@ function EditFlower({flower, saveFlowerClick, canShiftFlower, shiftFlower}) {
 
             <div style={{paddingTop: "10px"}}>
                 <button className="detailButton" onClick={saveFlowerClick}>Save</button>
-                <button className="detailButton" disabled={!canShiftFlower(flower, -1)} onClick={() => shiftFlower(flower, -1)}>🢁</button>
-                <button className="detailButton" disabled={!canShiftFlower(flower, 1)} onClick={() => shiftFlower(flower, 1)}>🢃</button>
+                <button className="detailButton upButton" disabled={!canShiftFlower(flower, -1)} onClick={() => shiftFlower(flower, -1)}></button>
+                <button className="detailButton downButton" disabled={!canShiftFlower(flower, 1)} onClick={() => shiftFlower(flower, 1)}></button>
             </div>
         </>
     );
