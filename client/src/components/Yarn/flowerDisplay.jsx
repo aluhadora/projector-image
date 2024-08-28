@@ -24,6 +24,8 @@ function ShowOnlyFlower({flower, removeFlower, replaceFlower}) {
 
 function EditFlower({flower, saveFlowerClick, canShiftFlower, shiftFlower}) {
     
+    canShiftFlower = canShiftFlower || (() => false);
+
     console.log("EditFlower", flower, saveFlowerClick, canShiftFlower, shiftFlower);
 
     return (
@@ -52,7 +54,7 @@ export default function FlowerDisplay({flower, removeFlower, replaceFlower, pers
     const saveFlowerClick = () => {
         flower.editing = false;
         setEditing(false);
-        persistFlowers();
+        if (persistFlowers) persistFlowers();
     }
 
     const toggleEditing = () => {
