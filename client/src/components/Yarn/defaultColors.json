@@ -20,7 +20,7 @@
     {"name": "Light Rose", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1, "hex": "#f4d9e3"},
     {"name": "Mustard (BG)", "weight": 0.333, "defaultPetalWeight": 0.333, "defaultMiddleWeight": 0.333, "hex": "#d9c07c"},
     {"name": "Cinnamon", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1, "hex": "#b37f6d"},
-    {"name": "Burgundy", "weight": 0.5, "defaultPetalWeight": 0.5, "defaultMiddleWeight": 0.5, "hex": "#800020"},
-    {"name": "Olive Drab", "weight": 0.333, "defaultPetalWeight": 0.333, "defaultMiddleWeight": 0.333, "hex": "#6A6932"},
+    {"name": "Burgundy", "weight": 1, "defaultPetalWeight": 1, "defaultMiddleWeight": 1, "hex": "#800020"},
+    {"name": "Olive Drab", "weight": 0.5, "defaultPetalWeight": 0.5, "defaultMiddleWeight": 0.5, "hex": "#6A6932"},
     {"name": "Cream", "weight": 0.333, "defaultPetalWeight": 0.333, "defaultMiddleWeight": 1.333, "hex": "#f5f5dc"}
 ]
