@@ -26,8 +26,6 @@ function EditFlower({flower, saveFlowerClick, canShiftFlower, shiftFlower}) {
     
     canShiftFlower = canShiftFlower || (() => false);
 
-    console.log("EditFlower", flower, saveFlowerClick, canShiftFlower, shiftFlower);
-
     return (
         <>
             <div style={{paddingLeft: "5px"}}>

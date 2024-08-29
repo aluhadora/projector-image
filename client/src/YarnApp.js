@@ -23,10 +23,10 @@ function getStoredState() {
   });
 
   colors.forEach(c => {
-    const matchingDefault = defaultColors.find(c2 => c2.name === c.name);
+    // const matchingDefault = defaultColors.find(c2 => c2.name === c.name);
 
-    c.defaultPetalWeight = matchingDefault.defaultPetalWeight;
-    c.defaultMiddleWeight = matchingDefault.defaultMiddleWeight;
+    // c.defaultPetalWeight = matchingDefault.defaultPetalWeight;
+    // c.defaultMiddleWeight = matchingDefault.defaultMiddleWeight;
     if (!c.weight) c.weight = c.defaultPetalWeight;
   });
 
@@ -74,6 +74,10 @@ function YarnApp() {
     saveFlowersLocal(flowers.filter(f => f !== flower), setFlowers);
   }
 
+  const persistColors = () => {
+    saveColorsLocal(colors, setColors);
+  }
+
   const shiftFlower = (flower, shift) => {
     const index = flowers.indexOf(flower);
     if (!canShiftFlower(flower, shift)) return;
@@ -100,7 +104,7 @@ function YarnApp() {
 
   return (
     <div style={{overflowX: "hidden"}}>
-      <ColorsEntry colors={colors} resetState={resetState} />
+      <ColorsEntry colors={colors} resetState={resetState} persistColors={persistColors} />
       <ColorWeights colors={colors} setColors={colors => saveColorsLocal(colors, setColors)} addFlower={addFlower} flowers={flowers} />
       <FlowerGenerator colors={colors} setColors={colors => saveColorsLocal(colors, setColors)} addFlower={addFlower} />
       <WorkingFlowerList title="Working List" defaultShow={true} flowers={flowers.filter(f => !f.complete)} removeFlower={removeFlower} persistFlowers={persistFlowers} canShiftFlower={canShiftFlower} shiftFlower={shiftFlower} />
