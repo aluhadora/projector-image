@@ -107,7 +107,7 @@ function YarnApp() {
       <FlowerGenerator colors={colors} setColors={colors => saveColorsLocal(colors, setColors)} addFlower={addFlower} />
       <WorkingFlowerList title="Working List" defaultShow={true} flowers={flowers.filter(f => !f.complete)} removeFlower={removeFlower} persistFlowers={persistFlowers} canShiftFlower={canShiftFlower} shiftFlower={shiftFlower} />
       <WorkingFlowerList title="Completed List" defaultShow={false} flowers={flowers.filter(f => f.complete)} replaceFlower={replaceFlower} removeFlower={deleteFlower} persistFlowers={persistFlowers} canShiftFlower={canShiftFlower} shiftFlower={shiftFlower}/>
-      <div style={{height: "33px"}}></div>
+      <div style={{height: "45px"}}></div>
     </div>
     
   );
