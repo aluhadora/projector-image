@@ -20,7 +20,11 @@ function exportState() {
     const data = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state, null, 2));
     const a = document.createElement('a');
     a.setAttribute("href", data);
-    a.setAttribute("download", "yarnState.json");
+    // set file name with yarnsState and date time
+    const date = new Date();
+    const dateString = date.toISOString().split('T')[0] + '_' + date.toTimeString().split(' ')[0].replace(/:/g, '');
+    const fileName = "yarnState_" + dateString + ".json";
+    a.setAttribute("download", fileName);
     a.click();
 }
 
