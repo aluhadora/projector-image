@@ -1,11 +1,10 @@
-import './App.css';
+import '../../App.css';
 import { useState } from 'react';
 import React from "react";
-import ColorsEntry from './components/Yarn/colorsEntry';
-import defaultColors from './components/Yarn/defaultColors.json';
-import FlowerGenerator from './components/Yarn/flowerGenerator';
-import WorkingFlowerList from './components/Yarn/workingFlowerList';
-import ColorWeights from './components/Yarn/colorWeights';
+import defaultColors from './defaultColors.json';
+import FlowerGenerator from './Flowers/flowerGenerator';
+import WorkingFlowerList from './Flowers/workingFlowerList';
+import ColorWeights from './Colors/colorWeights';
 
 function buildDefaultState() {
   console.log("buildDefaultState");
@@ -104,11 +103,10 @@ function YarnApp() {
 
   return (
     <div style={{overflowX: "hidden"}}>
-      <ColorsEntry colors={colors} resetState={resetState} persistColors={persistColors} />
-      <ColorWeights colors={colors} setColors={colors => saveColorsLocal(colors, setColors)} addFlower={addFlower} flowers={flowers} />
       <FlowerGenerator colors={colors} setColors={colors => saveColorsLocal(colors, setColors)} addFlower={addFlower} />
       <WorkingFlowerList title="Working List" defaultShow={true} flowers={flowers.filter(f => !f.complete)} removeFlower={removeFlower} persistFlowers={persistFlowers} canShiftFlower={canShiftFlower} shiftFlower={shiftFlower} />
       <WorkingFlowerList title="Completed List" defaultShow={false} flowers={flowers.filter(f => f.complete)} replaceFlower={replaceFlower} removeFlower={deleteFlower} persistFlowers={persistFlowers} canShiftFlower={canShiftFlower} shiftFlower={shiftFlower}/>
+      <ColorWeights colors={colors} setColors={colors => saveColorsLocal(colors, setColors)} addFlower={addFlower} flowers={flowers} persistColors={persistColors} />
     </div>
     
   );

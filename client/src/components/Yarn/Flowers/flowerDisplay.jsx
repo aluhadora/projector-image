@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ColorSquare from './colorSquare';
+import ColorSquare from '../colorSquare';
 import FlowerDropDown from './flowerDropDown';
 
 

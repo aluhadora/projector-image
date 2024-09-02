@@ -8,7 +8,8 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import YarnApp from './YarnApp';
+import YarnApp from './components/Yarn/YarnApp';
+import QuizApp from './components/Quiz/QuizApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
   {
     path: "/yarn",
     element: <YarnApp />,
-  }
+  },
+  {
+    path: "/quiz",
+    element: <QuizApp />,
+  }  
 ]);
 
 root.render(

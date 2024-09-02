@@ -1,0 +1,15 @@
+{
+    "questions": [
+        {
+            "question": "Which planet is this?",
+            "type": "generatedFromData",
+            "name": "planets"
+        },
+        {
+            "question": "Which planet is the largest?",
+            "type": "multipleChoice",
+            "correctAnswer": "Jupiter",
+            "answersFromData": "planets"
+        }
+    ] 
+}

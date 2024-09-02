@@ -1,6 +1,6 @@
 import { useState } from "react";
 import FlowerDisplay from "./flowerDisplay";
-import "./Yarn.css"
+import "../Yarn.css"
 
 function FlowerLine({flower, removeFlower, replaceFlower, persistFlowers, canShiftFlower, shiftFlower}) {
     return <FlowerDisplay flower={flower} removeFlower={removeFlower} replaceFlower={replaceFlower} persistFlowers={persistFlowers} canShiftFlower={canShiftFlower} shiftFlower={shiftFlower} />

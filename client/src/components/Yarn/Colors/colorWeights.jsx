@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "./Yarn.css"
+import "../Yarn.css"
+import ColorsEntry from "./colorsEntry";
 
 function ColorLine({color, flowers}) {
     const totalCount = flowers.filter(f => f.petalColor === color.name).length;
@@ -21,7 +22,7 @@ function LegendLine() {
     </div>
 }
 
-function ColorLines({colors, showWeights, setShowWeights, flowers}) {
+function ColorLines({colors, showWeights, setShowWeights, flowers, persistColors}) {
     var lines = colors.sort((a,b) => b.weight - a.weight).map(c => <ColorLine color={c} flowers={flowers} />);
 
 
@@ -29,15 +30,16 @@ function ColorLines({colors, showWeights, setShowWeights, flowers}) {
         <h1 onClick={() => setShowWeights(!showWeights)}>Color Weights</h1>
         {showWeights && <LegendLine />}
         {showWeights && lines}
+        {showWeights && <ColorsEntry colors={colors} persistColors={persistColors} />}
     </div>
 }
 
-export default function ColorWeights({colors, flowers}) {
+export default function ColorWeights({colors, flowers, persistColors}) {
     const [showWeights, setShowWeights] = useState(false);
     
     return (
         <div style={{color: "white"}}>
-            <ColorLines colors={colors} showWeights={showWeights} setShowWeights={setShowWeights} flowers={flowers}/>
+            <ColorLines colors={colors} showWeights={showWeights} setShowWeights={setShowWeights} flowers={flowers} persistColors={persistColors}/>
         </div>
     );
 }

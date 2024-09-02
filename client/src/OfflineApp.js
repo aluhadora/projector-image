@@ -46,6 +46,11 @@ function OfflineApp() {
       display: "Go to yarn app",
       smallsrc: "images/icons/right.png",
       action: () => window.location.href = '/yarn'
+    },
+    {
+      display: "Go to quiz app",
+      smallsrc: "images/icons/right.png",
+      action: () => window.location.href = '/quiz'
     }
   ];
 

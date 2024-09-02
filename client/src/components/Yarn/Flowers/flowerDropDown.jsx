@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import defaultColors from './defaultColors.json';
+import defaultColors from '../defaultColors.json';
 import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react'
-import "./Yarn.css"
+import "../Yarn.css"
 
 
 function ColorOption({color}) {

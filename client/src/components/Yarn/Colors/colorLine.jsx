@@ -1,17 +1,6 @@
 import { useState } from "react";
 import NumericInput from 'react-numeric-input';
-import "./Yarn.css"
-
-function ColorLines({colors, persistColors}) {
-    console.log("Color Lines", colors);
-
-    if (!colors) return null;
-    const lines = colors.map(c => <ColorLine key={colors.indexOf(c)} color={c} persistColors={persistColors} />);
-
-    return <div>
-        {lines}
-    </div>
-}
+import "../Yarn.css"
 
 function ShowColorLine({color}) {
     
@@ -60,7 +49,7 @@ function EditColorLine({color, saveColorClick}) {
 }
 
 
-function ColorLine({color, persistColors}) {
+export default function ColorLine({color, persistColors}) {
     const [editing, setEditing] = useState(false);
 
     const saveColorClick = () => {
@@ -75,28 +64,4 @@ function ColorLine({color, persistColors}) {
         }
     </div>
     
-}
-
-export default function ColorsEntry({colors, persistColors}) {
-    const [show, setShow] = useState(false);
-
-    if (!colors) return null;
-
-    // const reset = () => {
-    //     resetState();
-    //     setShow(false);
-    // }
-    
-    if (show) {
-        return <div className="section">
-            <ColorLines colors={colors} persistColors={persistColors} />
-            {/* <button onClick={() => reset()}>Reset State</button> */}
-            <div style={{paddingTop: 10}}>
-            <button onClick={() => setShow(false)}>Close</button>
-            </div>
-        </div>
-    }
-    else {
-        return <button onClick={() => setShow(true)}>Edit Colors</button>
-    }
 }

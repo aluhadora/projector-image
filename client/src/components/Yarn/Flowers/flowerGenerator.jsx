@@ -1,6 +1,6 @@
 import { useState } from "react";
 import FlowerDisplay from "./flowerDisplay";
-import "./Yarn.css"
+import "../Yarn.css"
 
 function generatePetalColor(colors) {
     let totalWeight = colors.reduce((acc, c) => acc + c.weight, 0);
