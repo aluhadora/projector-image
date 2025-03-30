@@ -33,6 +33,11 @@ function OfflineApp() {
       action: () => sendMessage({pointLight: !state.pointLight})
     },
     {
+      display: state.inverted ? "Turn off inverted" : "Turn on inverted",
+      smallsrc: "images/icons/right.png",
+      action: () => sendMessage({inverted: !state.inverted})
+    },
+    {
       display: state.showStarfield ? "Hide Starfield" : "Show Starfield",
       smallsrc: "images/icons/right.png",
       action: () => sendMessage({showStarfield: !state.showStarfield})

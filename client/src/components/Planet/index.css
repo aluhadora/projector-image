@@ -52,3 +52,7 @@
 	  opacity: 0;
 	}
   }
+
+.inverted {
+	transform: rotateY(180deg);
+}

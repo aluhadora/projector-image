@@ -26,7 +26,7 @@ app.get("/api", (_, res) => {
 });
 
 app.get("/api/image", (_, res) => {
-  res.json({imageId: imageId});
+  res.json({imageId: state.imageId});
 });
 
 app.post("/api/image", jsonParser, (req, res) => {

@@ -17,10 +17,11 @@ function MainPage({state, callbacks}) {
   console.log("MainPage", state, callbacks)
   let image = AvailableImages.images.find(i => i.id === state.imageId) || {};
   let speed = AvailableImages.speeds.find(s => s.id === state.speedId) || {};
+  let inverted = state.inverted ? "inverted" : "";
   let brightness = AvailableImages.brightness.find(b => b.id === state.brightnessId) || {};
   let fadingTimer = AvailableImages.fadingTimer.find(f => f.id === state.fadingTimerId) || {};
 
-  let classNames = [speed.className, "fullSize", brightness.className, fadingTimer.className];
+  let classNames = [speed.className, "fullSize", brightness.className, fadingTimer.className, inverted];
   
   return (
     <div className="App">
