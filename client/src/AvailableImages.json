@@ -265,6 +265,27 @@
             "planetId": 12
         },
         {
+            "src": "images/planets/Kepler-22_b.jpg",
+            "flatsrc": "images/planets/Kepler-22_b.jpg", 
+            "smallflatsrc": "images/planets/Kepler-22_b_small.jpg",
+            "specularsrc": "images/planets/Kepler-22_b_specular.jpg",
+            "alt": "Kepler 22b",
+            "display": "Kepler 22b",
+            "type": "moon",
+            "smallsrc": "images/planets/Kepler-22_b_small.jpg",
+            "group": "Planets",
+            "id": 34,
+            "planetId": 13
+        },
+        {
+            "src": "images/galaxies/galaxy.jpg",
+            "alt": "Galaxy",
+            "display": "Galaxy",
+            "smallsrc": "images/galaxies/galaxy_small.jpg",
+            "group": "Galaxies",
+            "id": 11
+        },
+        {
             "src": "images/galaxies/galaxy_nebula.jpg",
             "alt": "Galaxy",
             "display": "Galaxy",
@@ -580,6 +601,19 @@
             "distanceFromPlanet": 1221.8,
             "parentPlanet": 6,
             "axialTilt": 0.3
+        },
+        {
+            "name": "Keppler 22b",
+            "id": 13,
+            "type": "moon",
+            "dayDuration": 1,
+            "yearDuration": 290,
+            "timeOffset": 130000,
+            "actualRadius": 6371,
+            "distanceFromSun": 149.6,
+            "simpleDistance": 7,
+            "simpleRadius": 1,
+            "axialTilt": 23.4        
         }
     ]
 }
