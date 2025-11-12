@@ -278,14 +278,6 @@
             "planetId": 13
         },
         {
-            "src": "images/galaxies/galaxy.jpg",
-            "alt": "Galaxy",
-            "display": "Galaxy",
-            "smallsrc": "images/galaxies/galaxy_small.jpg",
-            "group": "Galaxies",
-            "id": 11
-        },
-        {
             "src": "images/galaxies/galaxy_nebula.jpg",
             "alt": "Galaxy",
             "display": "Galaxy",
@@ -370,6 +362,14 @@
             "smallsrc": "images/blackholes/Artist-rendering-matter-black-hole.webp",
             "group": "Black Holes",
             "id": 31
+        },
+        {
+            "alt": "Golden",
+            "display": "Golden",
+            "src": "images/kpop/golden.jpg",
+            "smallsrc": "images/kpop/golden_small.jpg",
+            "group": "K-Pop Demon Hunters",
+            "id": 40
         }
     ],
     "speeds": [
