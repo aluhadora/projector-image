@@ -370,6 +370,30 @@
             "smallsrc": "images/kpop/golden_small.jpg",
             "group": "K-Pop Demon Hunters",
             "id": 40
+        }, 
+        {
+            "alt": "Mira",
+            "display": "Mira",
+            "src": "images/kpop/mira.jpg",
+            "smallsrc": "images/kpop/mira_small.jpg",
+            "group": "K-Pop Demon Hunters",
+            "id": 41
+        },
+        {
+            "alt": "Zoey",
+            "display": "Zoey",
+            "src": "images/kpop/zoey.jpg",
+            "smallsrc": "images/kpop/zoey_small.jpg",
+            "group": "K-Pop Demon Hunters",
+            "id": 42
+        },
+        {
+            "alt": "Bobby",
+            "display": "Bobby",
+            "src": "images/kpop/bobby.jpg",
+            "smallsrc": "images/kpop/bobby.jpg",
+            "group": "K-Pop Demon Hunters",
+            "id": 43
         }
     ],
     "speeds": [
