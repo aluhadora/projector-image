@@ -20,6 +20,9 @@ let state = {imageId: 1, speedId: 2, brightnessId: 2, fadingTimerId: 1, show3d: 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
+// Serve images for mobile client from public folder
+app.use('/images', express.static(path.resolve(__dirname, '../client/public/images')));
+
 app.get("/api", (_, res) => {
     let data = {...{message: "Hello from server!", }, ...state };
     res.json(data);

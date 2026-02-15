@@ -116,6 +116,20 @@
             "planetId": 3
         },
         {
+            "src": "images/planets/Flag_map_of_the_World.png",
+            "flatsrc": "images/planets/Flag_map_of_the_World.png",
+            "shadowsrc": "images/planets/2k_earth_nightmap.jpg",
+            "smallflatsrc": "images/planets/Flag_map_of_the_World_small.png",
+            "alt": "Earth",
+            "display": "Earth",
+            "type": "planet",
+            "smallsrc": "images/planets/Flag_map_of_the_World_small.png",
+            "bumpsrc": "images/planets/2k_earth_normal_map.jpg",
+            "group": "Planets",
+            "id": 50,
+            "planetId": 3
+        },
+        {
             "src": "images/planets/mars.webp",
             "alt": "Mars",
             "display": "Mars",
