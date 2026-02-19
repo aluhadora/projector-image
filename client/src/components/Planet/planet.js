@@ -44,8 +44,8 @@ function buildMeshes(materials, info) {
 	const orbitRadius = info.simpleDistance;
 	let meshes = {};
 	
-	const geometry = new THREE.SphereGeometry(radius, 100, 100);
-	const ring = new THREE.RingGeometry( radius * 1.5, radius * 2.5, 100 );
+	const geometry = new THREE.SphereGeometry(radius);
+	const ring = new THREE.RingGeometry( radius * 1.5, radius * 2.5, 32 );
 
 	meshes.planet = new THREE.Mesh(geometry, materials.planet);
 	meshes.planet.castShadow = true;
