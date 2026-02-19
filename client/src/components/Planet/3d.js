@@ -32,7 +32,7 @@ function init() {
 
 	starfield = starfieldFactory.init(scene);
 	
-    renderer = new THREE.WebGLRenderer({ powerPreference: "high-performance", antialias: true});
+    renderer = new THREE.WebGLRenderer({ powerPreference: "high-performance", antialias: false });
     renderer.setAnimationLoop( animation );
 	renderer.shadowMap.enabled = true;
 	renderer.gamaFactor = 2.2;
