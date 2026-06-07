@@ -408,6 +408,15 @@
             "smallsrc": "images/kpop/bobby.jpg",
             "group": "K-Pop Demon Hunters",
             "id": 43
+        },
+        {
+            "alt": "Parade of Flags",
+            "display": "Parade of Flags",
+            "src": "images/planets/Flag_map_of_the_World.png",
+            "smallsrc": "images/planets/Flag_map_of_the_World_small.png",
+            "group": "Parade of Flags",
+            "type": "flags",
+            "id": 44
         }
     ],
     "speeds": [

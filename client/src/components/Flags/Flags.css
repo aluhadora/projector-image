@@ -1,0 +1,101 @@
+.Flags-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: black;
+}
+
+.Flags-scroller {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    will-change: transform;
+    transform: translate(0, -50%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .Flags-scroller.fastRotation {
+        animation: Flag-scroll 8s linear forwards;
+    }
+    .Flags-scroller.mediumRotation {
+        animation: Flag-scroll 20s linear forwards;
+    }
+    .Flags-scroller.slowRotation {
+        animation: Flag-scroll 45s linear forwards;
+    }
+    .Flags-scroller.crazyRotation {
+        animation: Flag-scroll 3s linear forwards;
+    }
+}
+
+.Flags-scroller.stopRotation {
+    animation: none;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes Flag-scroll {
+    from {
+        left: 100%;
+        transform: translate(0, -50%);
+    }
+    to {
+        left: 0%;
+        transform: translate(-100%, -50%);
+    }
+}
+
+.Flags-img {
+    height: 60vh;
+    max-width: 90vw;
+    object-fit: contain;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    background: #111;
+}
+
+.Flags-name {
+    color: white;
+    font-size: 6vh;
+    margin-top: 2vh;
+    text-align: center;
+    font-family: sans-serif;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    white-space: nowrap;
+}
+
+.Flags-container.bright {
+    opacity: 1;
+}
+.Flags-container.mediumBright {
+    opacity: 0.5;
+}
+.Flags-container.dark {
+    opacity: 0.33;
+}
+.Flags-container.black {
+    opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .Flags-container.fadeFast {
+        animation: Flag-Fading-Timer forwards 900s linear;
+    }
+    .Flags-container.fadeSlow {
+        animation: Flag-Fading-Timer forwards 6400s linear;
+    }
+}
+
+@keyframes Flag-Fading-Timer {
+    to {
+        opacity: 0;
+    }
+}
+
+.Flags-container.inverted {
+    transform: rotateX(180deg) scaleX(-1);
+}

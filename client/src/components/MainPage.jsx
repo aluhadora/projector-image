@@ -2,10 +2,14 @@ import '../App.css';
 import AvailableImages from '../AvailableImages';
 import Planet from './Planet';
 import RotatingImage from './RotatingImage';
+import Flags from './Flags/Flags';
 import React from "react";
 
 function ComponentFromType({image, speed, classnames, brightness, show3d, state, callbacks}) {
   // console.log("ComponentFromType", image, show3d, state, classnames)
+  if (image && image.type === "flags") {
+    return <Flags classNames={classnames}/>;
+  }
   if (!show3d) {
     return <RotatingImage image={image} size="fullSize" classNames={classnames}/>
   }
