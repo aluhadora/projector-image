@@ -417,6 +417,15 @@
             "group": "Parade of Flags",
             "type": "flags",
             "id": 44
+        },
+        {
+            "alt": "Stacked Parade of Flags",
+            "display": "Stacked Parade of Flags",
+            "src": "images/planets/Flag_map_of_the_World.png",
+            "smallsrc": "images/planets/Flag_map_of_the_World_small.png",
+            "group": "Parade of Flags",
+            "type": "stackedFlags",
+            "id": 45
         }
     ],
     "speeds": [

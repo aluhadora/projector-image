@@ -1,9 +1,18 @@
+.Stacked-Flags-container {
+    display: flex;
+}
+
 .Flags-container {
     position: relative;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
     background: black;
+}
+
+.Flags-container.short {
+    height: 25vh;
+    width: 33vw;
 }
 
 .Flags-scroller {
@@ -56,6 +65,11 @@
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.25);
     border-radius: 4px;
     background: #111;
+}
+
+.Flags-img.short {
+    height: 12vh;
+    max-width: 90vw;
 }
 
 .Flags-name {
