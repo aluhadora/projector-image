@@ -1,0 +1,27 @@
+# Use Node.js to build the app
+FROM node:26-alpine3.24 AS build
+
+WORKDIR /app
+
+# Copy package.json and install dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy source code and build
+COPY . .
+RUN npm run build
+
+# Use nginx to serve the built app
+FROM nginx:alpine
+
+# Copy built app to nginx html directory
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Copy nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose port 80
+EXPOSE 80
+
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
