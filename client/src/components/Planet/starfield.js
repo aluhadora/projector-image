@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { prefixPath } from '../../AvailableImages.js';
 
 export function init(scene) {
 
@@ -8,7 +9,7 @@ export function init(scene) {
 		side: THREE.BackSide,
 	});
 
-	material.map = new THREE.TextureLoader().load('images/planets/starmap_g4k_dark.webp');
+	material.map = new THREE.TextureLoader().load(prefixPath('images/planets/starmap_g4k_dark.webp'));
 	material.map.colorSpace = THREE.SRGBColorSpace;
 
 	starfield.mesh = new THREE.Mesh(geometry, material);
