@@ -13,8 +13,6 @@ import QuizApp from './components/Quiz/QuizApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-console.log("Starting app with environment", process.env.NODE_ENV);
-
 const router = createBrowserRouter([
   {
     path: "/*",

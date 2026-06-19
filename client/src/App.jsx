@@ -14,11 +14,6 @@ const socket = io.connect("/");
 function App() {
   const [state, setState] = useState({});
 
-  console.log("App state", state);
-
-  const url = new URL("/api", window.location.href);
-  console.log("href", url.href);
-
   function isDirty(data, state) {
     let dirty = false;
     for (let key in data) {
