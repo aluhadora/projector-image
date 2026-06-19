@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import * as planet from './planet';
-import AvailableImages from '../../AvailableImages.json';
+import AvailableImages from '../../AvailableImages.js';
 
 export function init(scene) {
 

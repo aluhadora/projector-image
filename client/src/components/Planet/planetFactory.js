@@ -1,5 +1,5 @@
 import * as planet from './planet';
-import AvailableImages from '../../AvailableImages.json';
+import AvailableImages from '../../AvailableImages.js';
 import * as lights from './lights';
 
 export function init(scene, state) {

@@ -1,4 +1,5 @@
 import './RotatingImage.css';
+import { prefixPath } from '../AvailableImages.js';
 
 function RotatingImage({image, size, classNames}) {
   if (!image) return <div/>;
@@ -15,7 +16,7 @@ function RotatingImage({image, size, classNames}) {
   return (
     <div className={"Rotating-image-wrapper " + (size === "small" ? "small" : "fullSize")}>
       <div className={outerClass}>
-          <img src={size === "small" ? image.smallsrc : image.src} 
+          <img src={size === "small" ? prefixPath(image.smallsrc) : prefixPath(image.src)} 
           className={innerClass}
           alt={image.alt}
           style={style} />
