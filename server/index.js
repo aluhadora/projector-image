@@ -12,27 +12,21 @@ const PORT = process.env.PORT || 3001;
 
 const server = http.createServer(app);
 const io = new Server(server, {
-    cors: {origin:"http://localhost:3000", methods: ["GET", "POST"]},
+    cors: {origin:["http://localhost:3000", "http://localhost:23000"], methods: ["GET", "POST"]},
 });
 
 let state = {imageId: 1, speedId: 2, brightnessId: 2, fadingTimerId: 1, show3d: true, pointLight: true, showStarfield: true};
 
-// Have Node serve the files for our built React app
-app.use(express.static(path.resolve(__dirname, '../client/build')));
-
-// Serve images for mobile client from public folder
-app.use('/images', express.static(path.resolve(__dirname, '../client/public/images')));
-
-app.get("/api", (_, res) => {
+app.get("/", (_, res) => {
     let data = {...{message: "Hello from server!", }, ...state };
     res.json(data);
 });
 
-app.get("/api/image", (_, res) => {
+app.get("/image", (_, res) => {
   res.json({imageId: state.imageId});
 });
 
-app.post("/api/image", jsonParser, (req, res) => {
+app.post("/image", jsonParser, (req, res) => {
   console.log("Received imageId", req.body);
   var imageId = req.body.imageId;
   state.imageId = imageId;
